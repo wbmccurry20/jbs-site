@@ -1,0 +1,411 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar';
+import FadeInSection from '../components/FadeInSection';
+import ProjectShowcase from '../components/ProjectShowcase';
+import QuoteCalculator from '../components/QuoteCalculator';
+import BeforeAfterSlider from '../components/BeforeAfterSlider';
+import Footer from '../components/Footer';
+
+const pageTitle = "JBS Construction - Modern Home Building in Western NC";
+const pageDescription = "Award-winning residential construction and renovation in Western North Carolina. Custom homes, sustainable building, and expert craftsmanship for over 20 years.";
+---
+
+<Layout title={pageTitle} description={pageDescription}>
+	<Navbar client:load />
+	
+	<!-- Hero Section with Video Background -->
+	<section class="relative h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-construction-secondary via-construction-dark to-black">
+		<!-- Decorative elements -->
+		<div class="absolute inset-0 opacity-10">
+			<div class="absolute top-0 left-0 w-96 h-96 bg-construction-primary rounded-full filter blur-3xl"></div>
+			<div class="absolute bottom-0 right-0 w-96 h-96 bg-construction-accent rounded-full filter blur-3xl"></div>
+		</div>
+		
+		<!-- Hero Content -->
+		<div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+			<div class="animate-fade-in">
+				<h1 class="text-5xl md:text-7xl lg:text-8xl font-display font-bold text-white mb-6 leading-tight">
+					Building
+					<span class="block text-construction-primary mt-2">
+						Excellence
+					</span>
+					in Commercial Construction
+				</h1>
+				<p class="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto">
+					National commercial contractor specializing in oil change facilities, car washes, and restaurant construction. Trusted by industry-leading brands for quality, speed, and expertise.
+				</p>
+				<div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+					<a
+						href="/contact"
+						class="px-8 py-4 bg-construction-primary text-white rounded-lg font-semibold text-lg hover:bg-construction-accent hover:text-construction-dark hover:shadow-2xl hover:scale-105 transition-all"
+					>
+						Start Your Project
+					</a>
+					<a
+						href="/portfolio"
+						class="px-8 py-4 bg-white/10 backdrop-blur-sm border-2 border-construction-accent text-construction-accent rounded-lg font-semibold text-lg hover:bg-construction-accent hover:text-construction-dark transition-all"
+					>
+						View Our Work
+					</a>
+				</div>
+			</div>
+
+			<!-- Stats -->
+			<div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8">
+				{[
+					{ number: '30+', label: 'Years Experience' },
+					{ number: '1000+', label: 'Commercial Projects' },
+					{ number: '50+', label: 'National Brand Partners' },
+					{ number: '100%', label: 'Licensed & Bonded' },
+				].map((stat) => (
+					<div class="text-center">
+						<div class="text-4xl md:text-5xl font-bold text-construction-accent mb-2">
+							{stat.number}
+						</div>
+						<div class="text-sm text-gray-300">{stat.label}</div>
+					</div>
+				))}
+			</div>
+		</div>
+
+		<!-- Scroll Indicator -->
+		<div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
+			<svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+				<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+			</svg>
+		</div>
+	</section>
+
+	<!-- Why Choose Us Section -->
+	<section class="py-20 bg-white">
+		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+			<FadeInSection client:load>
+				<div class="text-center mb-16">
+					<div class="inline-block px-4 py-2 bg-construction-primary/10 text-construction-primary font-semibold rounded-full mb-4">
+						Why Choose Us
+					</div>
+					</div>
+					<h2 class="text-4xl md:text-5xl font-display font-bold text-construction-dark mb-4">
+						Modern Building Meets Traditional Craft
+					</h2>
+					<p class="text-xl text-gray-700 max-w-3xl mx-auto">
+						We're not your typical construction company. We blend traditional craftsmanship
+						with modern technology to deliver exceptional results.
+					</p>
+				</div>
+			</FadeInSection>
+
+			<div class="grid md:grid-cols-3 gap-8">
+				{[
+					{
+						icon: '🏗️',
+						title: 'Modern Building Techniques',
+						description: 'We use cutting-edge construction technology including 3D modeling, drone surveys, and smart home integration.',
+					},
+					{
+						icon: '♻️',
+						title: 'Sustainable Practices',
+						description: 'Energy-efficient designs, eco-friendly materials, and LEED certification support for a greener future.',
+					},
+					{
+						icon: '📱',
+						title: 'Digital Project Management',
+						description: 'Real-time updates, online portal access, and transparent communication throughout your project.',
+					},
+					{
+						icon: '💎',
+						title: 'Premium Craftsmanship',
+						description: 'Our master builders have decades of experience creating homes that stand the test of time.',
+					},
+					{
+						icon: '🛡️',
+						title: 'Comprehensive Warranty',
+						description: 'Industry-leading warranties and support that protect your investment for years to come.',
+					},
+					{
+						icon: '⚡',
+						title: 'Smart Home Ready',
+						description: 'Future-proof your home with integrated smart systems, EV charging, and renewable energy options.',
+					},
+				].map((feature, index) => (
+					<FadeInSection client:load delay={index * 0.1}>
+						<div class="bg-white p-8 rounded-xl border-l-4 border-construction-primary shadow-md hover:shadow-2xl hover:scale-105 transition-all group">
+							<div class="text-5xl mb-4 group-hover:scale-110 transition-transform">
+								{feature.icon}
+							</div>
+							<h3 class="text-xl font-display font-bold text-construction-dark mb-3">
+								{feature.title}
+							</h3>
+							<p class="text-gray-700">
+								{feature.description}
+							</p>
+						</div>
+					</FadeInSection>
+				))}
+			</div>
+		</div>
+	</section>
+
+	<!-- Before/After Showcase -->
+	<section class="py-20 bg-gradient-to-br from-construction-secondary to-construction-dark text-white">
+		<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+			<FadeInSection client:load>
+				<div class="text-center mb-12">
+					<h2 class="text-4xl md:text-5xl font-display font-bold mb-4">
+						Transformations That Inspire
+					</h2>
+					<p class="text-xl text-gray-300">
+						See the dramatic difference our expertise makes
+					</p>
+				</div>
+			</FadeInSection>
+
+			<FadeInSection client:load delay={0.2}>
+				<BeforeAfterSlider
+					client:load
+					beforeImage="https://placehold.co/1200x800/cccccc/ffffff?text=Before+Renovation"
+					afterImage="https://placehold.co/1200x800/FF6B35/ffffff?text=After+Renovation"
+					beforeAlt="Before renovation"
+					afterAlt="After renovation"
+				/>
+			</FadeInSection>
+
+			<div class="mt-12 text-center">
+				<a
+					href="/portfolio"
+					class="inline-flex items-center px-8 py-4 bg-white text-construction-dark rounded-lg font-semibold hover:shadow-2xl hover:scale-105 transition-all"
+				>
+					View Full Portfolio
+					<svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+					</svg>
+				</a>
+			</div>
+		</div>
+	</section>
+
+	<!-- Featured Projects -->
+	<section class="py-20 bg-construction-light">
+		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+			<FadeInSection client:load>
+				<div class="text-center mb-12">
+					<div class="inline-block px-4 py-2 bg-construction-primary/10 text-construction-primary font-semibold rounded-full mb-4">
+						Our Work
+					</div>
+					<h2 class="text-4xl md:text-5xl font-display font-bold text-construction-dark mb-4">
+						Featured Projects
+					</h2>
+					<p class="text-xl text-gray-700">
+						Explore our recent work across Western North Carolina
+					</p>
+				</div>
+			</FadeInSection>
+
+			<FadeInSection client:load delay={0.2}>
+				<ProjectShowcase client:load />
+			</FadeInSection>
+		</div>
+	</section>
+
+	<!-- Interactive Cost Calculator -->
+	<section class="py-20 bg-white">
+		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+			<FadeInSection client:load>
+				<div class="text-center mb-12">
+					<div class="inline-block px-4 py-2 bg-construction-accent/20 text-construction-dark font-semibold rounded-full mb-4">
+						Get Instant Estimate
+					</div>
+					<h2 class="text-4xl md:text-5xl font-display font-bold text-construction-dark mb-4">
+						Plan Your Project
+					</h2>
+					<p class="text-xl text-gray-700">
+						Get an instant estimate and start planning your dream home
+					</p>
+				</div>
+			</FadeInSection>
+
+			<FadeInSection client:load delay={0.2}>
+				<QuoteCalculator client:load />
+			</FadeInSection>
+		</div>
+	</section>
+
+	<!-- Services Overview -->
+	<section class="py-20 bg-white">
+		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+			<FadeInSection client:load>
+				<div class="text-center mb-16">
+					<div class="inline-block px-4 py-2 bg-construction-primary/20 text-construction-primary font-semibold rounded-full mb-4">
+						What We Do
+					</div>
+					<h2 class="text-4xl md:text-5xl font-display font-bold text-construction-dark mb-4">
+						Comprehensive Construction Services
+					</h2>
+					<p class="text-xl text-gray-700">
+						From concept to completion, we handle every aspect of your project
+					</p>
+				</div>
+			</FadeInSection>
+
+			<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+				{[
+					{
+						title: 'Oil Change Facilities',
+						description: 'Turn-key construction for Take 5, Valvoline, Jiffy Lube, and other quick lube brands.',
+						link: '/services#oil-change',
+					},
+					{
+						title: 'Car Wash Construction',
+						description: 'Full-service and express car wash facilities for Mister Car Wash, Delta Sonic, and more.',
+						link: '/services#car-wash',
+					},
+					{
+						title: 'Restaurant Build-Outs',
+						description: 'Fast-casual and QSR construction including Panda Express, Chipotle, and regional chains.',
+						link: '/services#restaurants',
+					},
+					{
+						title: 'Commercial Excavation',
+						description: 'Site preparation, grading, utilities, and foundation work for commercial projects.',
+						link: '/services#excavation',
+					},
+					{
+						title: 'Retail & Strip Centers',
+						description: 'Ground-up construction and tenant improvements for retail developments.',
+						link: '/services#retail',
+					},
+					{
+						title: 'Project Management',
+						description: 'Full-service general contracting with dedicated project managers for multi-site rollouts.',
+						link: '/services#project-mgmt',
+					},
+				].map((service, index) => (
+					<FadeInSection client:load delay={index * 0.1}>
+						<a
+							href={service.link}
+							class="block p-6 bg-construction-light border-2 border-construction-primary/20 rounded-xl hover:border-construction-primary hover:shadow-lg transition-all group"
+						>
+							<h3 class="text-xl font-display font-bold mb-3 text-construction-dark group-hover:text-construction-primary transition-colors">
+								{service.title}
+							</h3>
+							<p class="text-gray-700 mb-4">
+								{service.description}
+							</p>
+							<span class="text-construction-primary font-semibold inline-flex items-center">
+								Learn more
+								<svg class="w-4 h-4 ml-2 group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+								</svg>
+							</span>
+						</a>
+					</FadeInSection>
+				))}
+			</div>
+
+			<div class="text-center mt-12">
+				<a
+					href="/services"
+					class="inline-flex items-center px-8 py-4 bg-construction-primary text-white rounded-lg font-semibold hover:bg-construction-accent hover:text-construction-dark hover:shadow-2xl hover:scale-105 transition-all"
+				>
+					View All Services
+				</a>
+			</div>
+		</div>
+	</section>
+
+	<!-- Testimonials -->
+	<section class="py-20 bg-construction-light">
+		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+			<FadeInSection client:load>
+				<div class="text-center mb-12">
+					<div class="inline-block px-4 py-2 bg-construction-secondary/10 text-construction-secondary font-semibold rounded-full mb-4">
+						Testimonials
+					</div>
+					<h2 class="text-4xl md:text-5xl font-display font-bold text-construction-dark mb-4">
+						What Our Clients Say
+					</h2>
+					<p class="text-xl text-gray-700">
+						Don't just take our word for it
+					</p>
+				</div>
+			</FadeInSection>
+
+			<div class="grid md:grid-cols-3 gap-8">
+				{[
+					{
+						name: 'Sarah & Mike Johnson',
+						project: 'Custom Home Build',
+						quote: 'JBS Construction exceeded our expectations. Their use of technology kept us informed every step of the way, and the craftsmanship is outstanding.',
+						rating: 5,
+					},
+					{
+						name: 'David Martinez',
+						project: 'Historic Renovation',
+						quote: 'They perfectly balanced preserving our home\'s character while adding modern conveniences. The project management portal was a game-changer.',
+						rating: 5,
+					},
+					{
+						name: 'Emily Chen',
+						project: 'Green Building Consultation',
+						quote: 'Their expertise in sustainable construction helped us achieve LEED certification. Professional, innovative, and dedicated to quality.',
+						rating: 5,
+					},
+				].map((testimonial, index) => (
+					<FadeInSection client:load delay={index * 0.1}>
+						<div class="bg-white p-8 rounded-xl shadow-md hover:shadow-xl transition-shadow border-l-4 border-construction-accent">
+							<div class="flex mb-4">
+								{Array.from({ length: testimonial.rating }).map((_, i) => (
+									<svg key={i} class="w-5 h-5 text-construction-accent fill-current" viewBox="0 0 24 24">
+										<path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+									</svg>
+								))}
+							</div>
+							<p class="text-construction-dark mb-6 italic">
+								"{testimonial.quote}"
+							</p>
+							<div class="border-t pt-4">
+								<div class="font-semibold text-construction-dark">
+									{testimonial.name}
+								</div>
+								<div class="text-sm text-gray-700">
+									{testimonial.project}
+								</div>
+							</div>
+						</div>
+					</FadeInSection>
+				))}
+			</div>
+		</div>
+	</section>
+
+	<!-- CTA Section -->
+	<section class="py-20 bg-gradient-to-br from-construction-secondary via-construction-dark to-black">
+		<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+			<FadeInSection client:load>
+				<h2 class="text-4xl md:text-5xl font-display font-bold text-white mb-6">
+					Ready to Build Your Dream?
+				</h2>
+				<p class="text-xl text-gray-300 mb-8">
+					Let's discuss your vision and create something extraordinary together.
+				</p>
+				<div class="flex flex-col sm:flex-row gap-4 justify-center">
+					<a
+						href="/contact"
+						class="px-8 py-4 bg-construction-primary text-white rounded-lg font-semibold text-lg hover:bg-construction-accent hover:text-construction-dark hover:shadow-2xl hover:scale-105 transition-all"
+					>
+						Schedule Consultation
+					</a>
+					<a
+						href="tel:+18285550123"
+						class="px-8 py-4 border-2 border-construction-accent text-construction-accent rounded-lg font-semibold text-lg hover:bg-construction-accent hover:text-construction-dark transition-all"
+					>
+						Call (828) 555-0123
+					</a>
+				</div>
+			</FadeInSection>
+		</div>
+	</section>
+
+	<Footer />
+</Layout>

@@ -1,0 +1,281 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar';
+import FadeInSection from '../components/FadeInSection';
+import Footer from '../components/Footer';
+
+const pageTitle = "Construction Blog | Tips & Project Updates | JBS Construction";
+const pageDescription = "Read our construction blog for expert tips, project updates, industry insights, and home building advice from JBS Construction.";
+
+const blogPosts = [
+	{
+		id: 1,
+		title: '10 Things to Know Before Building a Custom Home',
+		excerpt: 'Planning to build your dream home? Here are the essential factors to consider before breaking ground, from budgeting to site selection.',
+		category: 'Home Building Tips',
+		date: 'January 15, 2026',
+		readTime: '8 min read',
+		author: 'Andrew Walker',
+	},
+	{
+		id: 2,
+		title: 'Sustainable Building Materials for Mountain Homes',
+		excerpt: 'Discover eco-friendly materials perfect for Western NC climate. Learn about energy efficiency, durability, and environmental impact.',
+		category: 'Sustainability',
+		date: 'January 10, 2026',
+		readTime: '6 min read',
+		author: 'Sarah Martinez',
+	},
+	{
+		id: 3,
+		title: 'Project Spotlight: Modern Mountain Retreat in Asheville',
+		excerpt: 'Take a behind-the-scenes look at our latest net-zero energy home featuring solar panels, passive heating, and smart home technology.',
+		category: 'Project Updates',
+		date: 'January 5, 2026',
+		readTime: '5 min read',
+		author: 'Benjamin Walker',
+	},
+	{
+		id: 4,
+		title: 'Kitchen Renovation Trends for 2026',
+		excerpt: 'From smart appliances to sustainable materials, explore the hottest kitchen design trends transforming Western NC homes this year.',
+		category: 'Design Trends',
+		date: 'December 28, 2025',
+		readTime: '7 min read',
+		author: 'Sarah Martinez',
+	},
+	{
+		id: 5,
+		title: 'Understanding Construction Permits in NC',
+		excerpt: 'Navigate the permitting process with confidence. A comprehensive guide to building permits, inspections, and regulations in North Carolina.',
+		category: 'Industry Insights',
+		date: 'December 20, 2025',
+		readTime: '10 min read',
+		author: 'Andrew Walker',
+	},
+	{
+		id: 6,
+		title: 'Historic Home Restoration: Preserving Character',
+		excerpt: 'Learn how to maintain historical integrity while adding modern amenities. Tips from our craftsman restoration experts.',
+		category: 'Renovation Tips',
+		date: 'December 15, 2025',
+		readTime: '9 min read',
+		author: 'Benjamin Walker',
+	},
+];
+
+const categories = ['All Posts', 'Home Building Tips', 'Project Updates', 'Sustainability', 'Design Trends', 'Industry Insights'];
+---
+
+<Layout title={pageTitle} description={pageDescription}>
+	<Navbar client:load />
+	
+	<!-- Hero Section -->
+	<section class="pt-32 pb-20 bg-gradient-to-br from-construction-secondary via-construction-dark to-black">
+		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+			<FadeInSection client:load>
+				<div class="text-center max-w-3xl mx-auto">
+					<div class="inline-block px-4 py-2 bg-construction-accent/20 text-construction-accent font-semibold rounded-full mb-6">
+						Insights & Updates
+					</div>
+					<h1 class="text-5xl md:text-6xl font-display font-bold mb-6 text-white">
+						Construction <span class="text-construction-primary">Blog</span>
+					</h1>
+					<p class="text-xl text-gray-300">
+						Expert tips, project updates, and industry insights from our team of construction professionals.
+					</p>
+				</div>
+			</FadeInSection>
+		</div>
+	</section>
+
+	<!-- Categories -->
+	<section class="py-12 bg-white border-b border-gray-200">
+		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+			<div class="flex flex-wrap gap-3 justify-center">
+				{categories.map((category) => (
+					<button class={`px-6 py-2 rounded-full font-semibold transition-all ${
+						category === 'All Posts'
+							? 'bg-construction-primary text-white'
+							: 'bg-white text-construction-dark hover:bg-construction-primary/10'
+					}`}>
+						{category}
+					</button>
+				))}
+			</div>
+		</div>
+	</section>
+
+	<!-- Featured Post -->
+	<section class="py-20 bg-white">
+		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+			<FadeInSection client:load>
+				<div class="bg-gradient-to-br from-construction-primary to-construction-accent rounded-2xl overflow-hidden shadow-2xl">
+					<div class="grid lg:grid-cols-2">
+						<div class="h-96 lg:h-auto bg-gradient-to-br from-construction-secondary to-construction-dark flex items-center justify-center">
+							<div class="text-9xl text-white/20">📰</div>
+						</div>
+						<div class="p-12 text-white">
+							<div class="inline-block px-3 py-1 bg-white/20 rounded-full text-sm font-semibold mb-4">
+								Featured Post
+							</div>
+							<h2 class="text-4xl font-display font-bold mb-4">
+								{blogPosts[0].title}
+							</h2>
+							<p class="text-white/90 mb-6 text-lg">
+								{blogPosts[0].excerpt}
+							</p>
+							<div class="flex items-center gap-4 mb-6 text-white/80 text-sm">
+								<span>{blogPosts[0].author}</span>
+								<span>•</span>
+								<span>{blogPosts[0].date}</span>
+								<span>•</span>
+								<span>{blogPosts[0].readTime}</span>
+							</div>
+							<a href="#" class="inline-block px-6 py-3 bg-white text-construction-primary rounded-lg font-semibold hover:shadow-lg transition-all">
+								Read Article →
+							</a>
+						</div>
+					</div>
+				</div>
+			</FadeInSection>
+		</div>
+	</section>
+
+	<!-- Blog Posts Grid -->
+	<section class="py-20 bg-construction-light">
+		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+			<FadeInSection client:load>
+				<h2 class="text-3xl font-display font-bold text-construction-dark mb-12">
+					Recent Articles
+				</h2>
+			</FadeInSection>
+
+			<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+				{blogPosts.slice(1).map((post, index) => (
+					<FadeInSection client:load delay={index * 0.1}>
+						<article class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-all group">
+							<div class="h-48 bg-gradient-to-br from-construction-steel to-construction-secondary flex items-center justify-center relative overflow-hidden">
+								<div class="text-7xl text-white/20">
+									{post.category === 'Project Updates' && '📸'}
+									{post.category === 'Design Trends' && '✨'}
+									{post.category === 'Industry Insights' && '💡'}
+									{post.category === 'Sustainability' && '🌱'}
+									{post.category === 'Renovation Tips' && '🔨'}
+									{post.category === 'Home Building Tips' && '🏗️'}
+								</div>
+								<div class="absolute top-4 left-4">
+									<span class="px-3 py-1 bg-construction-accent text-construction-dark rounded-full text-xs font-semibold">
+										{post.category}
+									</span>
+								</div>
+							</div>
+							
+							<div class="p-6">
+								<h3 class="text-xl font-display font-bold text-construction-dark mb-3 group-hover:text-construction-primary transition-colors">
+									{post.title}
+								</h3>
+								
+								<p class="text-gray-700 mb-4 line-clamp-3">
+									{post.excerpt}
+								</p>
+								
+								<div class="flex items-center gap-3 text-sm text-gray-700 mb-4">
+									<span class="font-semibold text-construction-dark">{post.author}</span>
+									<span>•</span>
+									<span>{post.date}</span>
+								</div>
+								
+								<div class="flex items-center justify-between pt-4 border-t border-gray-200">
+									<span class="text-sm text-gray-700">{post.readTime}</span>
+									<a href="#" class="text-construction-primary font-semibold hover:underline">
+										Read More →
+									</a>
+								</div>
+							</div>
+						</article>
+					</FadeInSection>
+				))}
+			</div>
+
+			<!-- Pagination -->
+			<div class="mt-12 flex justify-center gap-2">
+				<button class="px-4 py-2 bg-construction-primary text-white rounded-lg font-semibold">
+					1
+				</button>
+				<button class="px-4 py-2 bg-white text-construction-dark rounded-lg font-semibold hover:bg-construction-primary/10">
+					2
+				</button>
+				<button class="px-4 py-2 bg-white text-construction-dark rounded-lg font-semibold hover:bg-construction-primary/10">
+					3
+				</button>
+				<button class="px-4 py-2 bg-white text-construction-dark rounded-lg font-semibold hover:bg-construction-primary/10">
+					Next →
+				</button>
+			</div>
+		</div>
+	</section>
+
+	<!-- Newsletter Signup -->
+	<section class="py-20 bg-construction-light">
+		<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+			<FadeInSection client:load>
+				<div class="bg-construction-secondary rounded-2xl p-12 text-center text-white">
+					<h2 class="text-4xl font-display font-bold mb-4">
+						Subscribe to Our Newsletter
+					</h2>
+					<p class="text-xl text-white/90 mb-8">
+						Get construction tips, project updates, and exclusive insights delivered to your inbox monthly.
+					</p>
+					<form class="max-w-md mx-auto flex gap-3">
+						<input
+							type="email"
+							placeholder="Enter your email"
+							class="flex-1 px-6 py-3 rounded-lg text-construction-dark focus:outline-none focus:ring-2 focus:ring-construction-accent"
+							required
+						/>
+						<button
+							type="submit"
+							class="px-6 py-3 bg-construction-accent text-construction-dark rounded-lg font-semibold hover:shadow-lg transition-all"
+						>
+							Subscribe
+						</button>
+					</form>
+					<p class="text-sm text-white/70 mt-4">
+						No spam, ever. Unsubscribe anytime.
+					</p>
+				</div>
+			</FadeInSection>
+		</div>
+	</section>
+
+	<!-- CTA Section -->
+	<section class="py-20 bg-gradient-to-br from-construction-secondary via-construction-dark to-black">
+		<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+			<FadeInSection client:load>
+				<h2 class="text-4xl md:text-5xl font-display font-bold text-white mb-6">
+					Ready to Start Your Project?
+				</h2>
+				<p class="text-xl text-gray-300 mb-8">
+					Have questions about construction? Let's talk about your project.
+				</p>
+				<div class="flex flex-col sm:flex-row gap-4 justify-center">
+					<a
+						href="/contact"
+						class="px-8 py-4 bg-construction-primary text-white rounded-lg font-semibold text-lg hover:bg-construction-accent hover:text-construction-dark hover:shadow-2xl hover:scale-105 transition-all"
+					>
+						Get Free Consultation
+					</a>
+					<a
+						href="/services"
+						class="px-8 py-4 border-2 border-construction-accent text-construction-accent rounded-lg font-semibold text-lg hover:bg-construction-accent hover:text-construction-dark transition-all"
+					>
+						View Services
+					</a>
+				</div>
+			</FadeInSection>
+		</div>
+	</section>
+
+	<Footer />
+</Layout>
