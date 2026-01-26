@@ -16,6 +16,8 @@ const pageDescription = "Award-winning residential construction and renovation i
 	
 	<!-- Hero Section with Video Background -->
 	<section class="relative h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-construction-secondary via-construction-dark to-black">
+		<!-- Blue Glow Overlay -->
+		<div class="absolute inset-0 bg-construction-primary/15 mix-blend-overlay"></div>
 		<!-- Decorative elements -->
 		<div class="absolute inset-0 opacity-10">
 			<div class="absolute top-0 left-0 w-96 h-96 bg-construction-primary rounded-full filter blur-3xl"></div>
@@ -26,25 +28,25 @@ const pageDescription = "Award-winning residential construction and renovation i
 		<div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
 			<div class="animate-fade-in">
 				<h1 class="text-5xl md:text-7xl lg:text-8xl font-display font-bold text-white mb-6 leading-tight">
-					Building
+					Built
 					<span class="block text-construction-primary mt-2">
-						Excellence
+						Different
 					</span>
-					in Commercial Construction
 				</h1>
 				<p class="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto">
-					National commercial contractor specializing in oil change facilities, car washes, and restaurant construction. Trusted by industry-leading brands for quality, speed, and expertise.
+					We're here to make it all clearer, easier, and faster.<br />
+					To build differently - because we are built different.
 				</p>
 				<div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
 					<a
 						href="/contact"
-						class="px-8 py-4 bg-construction-primary text-white rounded-lg font-semibold text-lg hover:bg-construction-accent hover:text-construction-dark hover:shadow-2xl hover:scale-105 transition-all"
+						class="px-8 py-4 bg-construction-primary text-white rounded-lg font-semibold text-lg hover:bg-blue-600 hover:shadow-2xl hover:scale-105 transition-all"
 					>
 						Start Your Project
 					</a>
 					<a
 						href="/portfolio"
-						class="px-8 py-4 bg-white/10 backdrop-blur-sm border-2 border-construction-accent text-construction-accent rounded-lg font-semibold text-lg hover:bg-construction-accent hover:text-construction-dark transition-all"
+						class="px-8 py-4 bg-white/10 backdrop-blur-sm border-2 border-construction-primary text-construction-primary rounded-lg font-semibold text-lg hover:bg-construction-primary hover:text-white transition-all"
 					>
 						View Our Work
 					</a>
@@ -60,7 +62,7 @@ const pageDescription = "Award-winning residential construction and renovation i
 					{ number: '100%', label: 'Licensed & Bonded' },
 				].map((stat) => (
 					<div class="text-center">
-						<div class="text-4xl md:text-5xl font-bold text-construction-accent mb-2">
+						<div class="text-4xl md:text-5xl font-bold text-construction-primary mb-2">
 							{stat.number}
 						</div>
 						<div class="text-sm text-gray-300">{stat.label}</div>
@@ -87,46 +89,41 @@ const pageDescription = "Award-winning residential construction and renovation i
 					</div>
 					</div>
 					<h2 class="text-4xl md:text-5xl font-display font-bold text-construction-dark mb-4">
-						Modern Building Meets Traditional Craft
+						Why Choose <span class="text-construction-primary">JBS</span>
 					</h2>
 					<p class="text-xl text-gray-700 max-w-3xl mx-auto">
-						We're not your typical construction company. We blend traditional craftsmanship
-						with modern technology to deliver exceptional results.
+						We believe building shouldn't be complicated. That communication shouldn't require chasing.
+						That every project deserves a leader who owns the outcome.
 					</p>
 				</div>
 			</FadeInSection>
 
-			<div class="grid md:grid-cols-3 gap-8">
+			<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
 				{[
 					{
+						icon: '✓',
+						title: 'Accountability + Ownership',
+						description: 'Every project has a leader. Every client has a champion. Every detail has an owner.',
+					},
+					{
+						icon: '💬',
+						title: 'Proactive Communication',
+						description: 'Clear, consistent updates - so clients always know what\'s happening, what\'s next and what\'s needed.',
+					},
+					{
+						icon: '⚙️',
+						title: 'Operational Excellence',
+						description: 'Streamlined systems, repeatable processes, and fast, adaptive workflows - built around how modern "boxes" get delivered.',
+					},
+					{
+						icon: '🤝',
+						title: 'Relationship-First Leadership',
+						description: 'We solve problems, not point fingers. We invest in people - clients, teams, and partners - because strong relationships build better outcomes.',
+					},
+					{
 						icon: '🏗️',
-						title: 'Modern Building Techniques',
-						description: 'We use cutting-edge construction technology including 3D modeling, drone surveys, and smart home integration.',
-					},
-					{
-						icon: '♻️',
-						title: 'Sustainable Practices',
-						description: 'Energy-efficient designs, eco-friendly materials, and LEED certification support for a greener future.',
-					},
-					{
-						icon: '📱',
-						title: 'Digital Project Management',
-						description: 'Real-time updates, online portal access, and transparent communication throughout your project.',
-					},
-					{
-						icon: '💎',
-						title: 'Premium Craftsmanship',
-						description: 'Our master builders have decades of experience creating homes that stand the test of time.',
-					},
-					{
-						icon: '🛡️',
-						title: 'Comprehensive Warranty',
-						description: 'Industry-leading warranties and support that protect your investment for years to come.',
-					},
-					{
-						icon: '⚡',
-						title: 'Smart Home Ready',
-						description: 'Future-proof your home with integrated smart systems, EV charging, and renewable energy options.',
+						title: 'Build + Maintain',
+						description: 'One partner for new builds, remodels, and maintenance - creating efficiency and consistency across every site and every project.',
 					},
 				].map((feature, index) => (
 					<FadeInSection client:load delay={index * 0.1}>
@@ -148,12 +145,14 @@ const pageDescription = "Award-winning residential construction and renovation i
 	</section>
 
 	<!-- Before/After Showcase -->
-	<section class="py-20 bg-gradient-to-br from-construction-secondary to-construction-dark text-white">
+	<section class="py-20 bg-gradient-to-br from-construction-secondary to-construction-dark text-white relative">
+		<!-- Blue Glow Overlay -->
+		<div class="absolute inset-0 bg-construction-primary/10 mix-blend-overlay pointer-events-none"></div>
 		<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
 			<FadeInSection client:load>
 				<div class="text-center mb-12">
 					<h2 class="text-4xl md:text-5xl font-display font-bold mb-4">
-						Transformations That Inspire
+						Transformations That <span class="text-construction-primary">Inspire</span>
 					</h2>
 					<p class="text-xl text-gray-300">
 						See the dramatic difference our expertise makes
@@ -174,7 +173,7 @@ const pageDescription = "Award-winning residential construction and renovation i
 			<div class="mt-12 text-center">
 				<a
 					href="/portfolio"
-					class="inline-flex items-center px-8 py-4 bg-white text-construction-dark rounded-lg font-semibold hover:shadow-2xl hover:scale-105 transition-all"
+					class="inline-flex items-center px-8 py-4 bg-construction-primary text-white rounded-lg font-semibold hover:bg-blue-600 hover:shadow-2xl hover:scale-105 transition-all"
 				>
 					View Full Portfolio
 					<svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -194,10 +193,10 @@ const pageDescription = "Award-winning residential construction and renovation i
 						Our Work
 					</div>
 					<h2 class="text-4xl md:text-5xl font-display font-bold text-construction-dark mb-4">
-						Featured Projects
+						Featured <span class="text-construction-primary">Projects</span>
 					</h2>
 					<p class="text-xl text-gray-700">
-						Explore our recent work across Western North Carolina
+						Recent commercial construction projects across the nation
 					</p>
 				</div>
 			</FadeInSection>
@@ -213,14 +212,14 @@ const pageDescription = "Award-winning residential construction and renovation i
 		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 			<FadeInSection client:load>
 				<div class="text-center mb-12">
-					<div class="inline-block px-4 py-2 bg-construction-accent/20 text-construction-dark font-semibold rounded-full mb-4">
+					<div class="inline-block px-4 py-2 bg-construction-primary/20 text-construction-primary font-semibold rounded-full mb-4">
 						Get Instant Estimate
 					</div>
 					<h2 class="text-4xl md:text-5xl font-display font-bold text-construction-dark mb-4">
-						Plan Your Project
+						Plan Your <span class="text-construction-primary">Project</span>
 					</h2>
 					<p class="text-xl text-gray-700">
-						Get an instant estimate and start planning your dream home
+						Get an instant estimate for your commercial construction project
 					</p>
 				</div>
 			</FadeInSection>
@@ -240,7 +239,7 @@ const pageDescription = "Award-winning residential construction and renovation i
 						What We Do
 					</div>
 					<h2 class="text-4xl md:text-5xl font-display font-bold text-construction-dark mb-4">
-						Comprehensive Construction Services
+						Comprehensive <span class="text-construction-primary">Construction Services</span>
 					</h2>
 					<p class="text-xl text-gray-700">
 						From concept to completion, we handle every aspect of your project
@@ -284,9 +283,9 @@ const pageDescription = "Award-winning residential construction and renovation i
 					<FadeInSection client:load delay={index * 0.1}>
 						<a
 							href={service.link}
-							class="block p-6 bg-construction-light border-2 border-construction-primary/20 rounded-xl hover:border-construction-primary hover:shadow-lg transition-all group"
+							class="block p-6 bg-white border-2 border-construction-primary/30 rounded-xl hover:border-construction-primary hover:shadow-xl hover:shadow-construction-primary/20 transition-all group"
 						>
-							<h3 class="text-xl font-display font-bold mb-3 text-construction-dark group-hover:text-construction-primary transition-colors">
+							<h3 class="text-xl font-display font-bold mb-3 text-construction-primary transition-colors">
 								{service.title}
 							</h3>
 							<p class="text-gray-700 mb-4">
@@ -306,7 +305,7 @@ const pageDescription = "Award-winning residential construction and renovation i
 			<div class="text-center mt-12">
 				<a
 					href="/services"
-					class="inline-flex items-center px-8 py-4 bg-construction-primary text-white rounded-lg font-semibold hover:bg-construction-accent hover:text-construction-dark hover:shadow-2xl hover:scale-105 transition-all"
+					class="inline-flex items-center px-8 py-4 bg-construction-primary text-white rounded-lg font-semibold hover:bg-blue-600 hover:shadow-2xl hover:scale-105 transition-all"
 				>
 					View All Services
 				</a>
@@ -319,7 +318,7 @@ const pageDescription = "Award-winning residential construction and renovation i
 		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 			<FadeInSection client:load>
 				<div class="text-center mb-12">
-					<div class="inline-block px-4 py-2 bg-construction-secondary/10 text-construction-secondary font-semibold rounded-full mb-4">
+					<div class="inline-block px-4 py-2 bg-construction-primary/20 text-construction-primary font-semibold rounded-full mb-4">
 						Testimonials
 					</div>
 					<h2 class="text-4xl md:text-5xl font-display font-bold text-construction-dark mb-4">
@@ -356,7 +355,7 @@ const pageDescription = "Award-winning residential construction and renovation i
 						<div class="bg-white p-8 rounded-xl shadow-md hover:shadow-xl transition-shadow border-l-4 border-construction-accent">
 							<div class="flex mb-4">
 								{Array.from({ length: testimonial.rating }).map((_, i) => (
-									<svg key={i} class="w-5 h-5 text-construction-accent fill-current" viewBox="0 0 24 24">
+									<svg class="w-5 h-5 text-construction-accent fill-current" viewBox="0 0 24 24">
 										<path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
 									</svg>
 								))}
@@ -380,25 +379,27 @@ const pageDescription = "Award-winning residential construction and renovation i
 	</section>
 
 	<!-- CTA Section -->
-	<section class="py-20 bg-gradient-to-br from-construction-secondary via-construction-dark to-black">
+	<section class="py-20 bg-gradient-to-br from-construction-secondary via-construction-dark to-black relative">
+		<!-- Blue Glow Overlay -->
+		<div class="absolute inset-0 bg-construction-primary/15 mix-blend-overlay pointer-events-none"></div>
 		<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
 			<FadeInSection client:load>
 				<h2 class="text-4xl md:text-5xl font-display font-bold text-white mb-6">
-					Ready to Build Your Dream?
+					Ready to Build <span class="text-construction-primary">Different</span>?
 				</h2>
 				<p class="text-xl text-gray-300 mb-8">
-					Let's discuss your vision and create something extraordinary together.
+					Let's discuss your commercial construction needs and create something exceptional together.
 				</p>
 				<div class="flex flex-col sm:flex-row gap-4 justify-center">
 					<a
 						href="/contact"
-						class="px-8 py-4 bg-construction-primary text-white rounded-lg font-semibold text-lg hover:bg-construction-accent hover:text-construction-dark hover:shadow-2xl hover:scale-105 transition-all"
+						class="px-8 py-4 bg-construction-primary text-white rounded-lg font-semibold text-lg hover:bg-blue-600 hover:shadow-2xl hover:scale-105 transition-all"
 					>
 						Schedule Consultation
 					</a>
 					<a
 						href="tel:+18285550123"
-						class="px-8 py-4 border-2 border-construction-accent text-construction-accent rounded-lg font-semibold text-lg hover:bg-construction-accent hover:text-construction-dark transition-all"
+						class="px-8 py-4 border-2 border-construction-primary text-construction-primary rounded-lg font-semibold text-lg hover:bg-construction-primary hover:text-white transition-all"
 					>
 						Call (828) 555-0123
 					</a>

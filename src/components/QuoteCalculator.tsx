@@ -22,11 +22,11 @@ export default function QuoteCalculator({ client }: QuoteCalculatorProps) {
   });
 
   const projectTypes = [
-    { value: 'new-build', label: '🏗️ New Home Construction', base: 250 },
-    { value: 'renovation', label: '🔨 Full Renovation', base: 150 },
-    { value: 'addition', label: '📐 Home Addition', base: 200 },
-    { value: 'outdoor', label: '🌳 Outdoor Living Space', base: 100 },
-    { value: 'green', label: '♻️ Green Building Project', base: 300 },
+    { value: 'oil-change', label: '🚗 Oil Change Facility', base: 180 },
+    { value: 'car-wash', label: '🚙 Car Wash Construction', base: 200 },
+    { value: 'restaurant', label: '🍽️ Restaurant Build-Out', base: 165 },
+    { value: 'retail', label: '🏬 Retail/Strip Center', base: 140 },
+    { value: 'excavation', label: '🚜 Site Development', base: 25 },
   ];
 
   const calculateEstimate = () => {
@@ -52,7 +52,7 @@ export default function QuoteCalculator({ client }: QuoteCalculatorProps) {
         Project Cost Calculator
       </h3>
       <p className="text-construction-steel mb-8">
-        Get an instant estimate for your construction project
+        Get an instant estimate for your commercial construction project
       </p>
 
       {/* Progress Bar */}
@@ -223,7 +223,7 @@ export default function QuoteCalculator({ client }: QuoteCalculatorProps) {
           </div>
 
           <p className="text-sm text-construction-steel mb-6">
-            This is a rough estimate. Contact us for a detailed quote based on
+            This is a rough estimate. Contact us for detailed pricing based on
             your specific requirements.
           </p>
 

@@ -26,7 +26,7 @@ export default function ContactForm() {
         },
         body: JSON.stringify({
           access_key: 'YOUR_WEB3FORMS_ACCESS_KEY', // Replace with actual key
-          subject: `New Quote Request from ${formData.name}`,
+          subject: `New Contact Request from ${formData.name}`,
           from_name: formData.name,
           ...formData,
         }),

@@ -4,28 +4,30 @@ import Navbar from '../components/Navbar';
 import FadeInSection from '../components/FadeInSection';
 import Footer from '../components/Footer';
 
-const pageTitle = "Construction Services | JBS Construction";
-const pageDescription = "Comprehensive residential construction services including new home builds, renovations, additions, and green building in Western North Carolina.";
+const pageTitle = "Commercial Construction Services | JBS Construction";
+const pageDescription = "Comprehensive commercial construction services including oil change facilities, car washes, restaurant build-outs, and retail construction nationwide.";
 ---
 
 <Layout title={pageTitle} description={pageDescription}>
 	<Navbar client:load />
 	
 	<!-- Hero Section -->
-	<section class="pt-32 pb-20 bg-gradient-to-br from-construction-secondary via-construction-dark to-black">
+	<section class="pt-32 pb-20 bg-gradient-to-br from-construction-secondary via-construction-dark to-black relative">
+		<!-- Blue Glow Overlay -->
+		<div class="absolute inset-0 bg-construction-primary/15 mix-blend-overlay pointer-events-none"></div>
 		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 			<FadeInSection client:load>
 				<div class="text-center max-w-3xl mx-auto">
-					<div class="inline-block px-4 py-2 bg-construction-accent/20 text-construction-accent font-semibold rounded-full mb-6">
+					<div class="inline-block px-4 py-2 bg-construction-primary/20 text-construction-primary font-semibold rounded-full mb-6">
 						Our Services
 					</div>
 					<h1 class="text-5xl md:text-6xl font-display font-bold mb-6 text-white">
-						Comprehensive Construction
-						<span class="block text-construction-primary mt-2">Services</span>
+						Commercial Construction
+						<span class="block text-construction-primary mt-2">Solutions</span>
 					</h1>
 					<p class="text-xl text-gray-300">
-						Comprehensive construction solutions tailored to your vision. 
-						From concept to completion, we handle every detail.
+						Specialized in multi-unit rollouts for national brands.
+						From concept to completion, we deliver on time and on budget.
 					</p>
 				</div>
 			</FadeInSection>
@@ -33,364 +35,292 @@ const pageDescription = "Comprehensive residential construction services includi
 	</section>
 
 	<!-- Services Grid -->
-	<section class="py-20 bg-construction-light">
+	<section class="py-20 bg-white">
 		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 			<div class="grid md:grid-cols-2 gap-8">
-				<!-- New Home Construction -->
+				<!-- Oil Change Facilities -->
 				<FadeInSection client:load delay={0.1}>
-					<div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow">
-						<div class="h-64 bg-gradient-to-br from-construction-primary to-construction-accent flex items-center justify-center">
-							<div class="text-8xl">🏗️</div>
+					<div id="oil-change" class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow border-2 border-construction-primary/20 hover:border-construction-primary">
+						<div class="h-48 bg-gradient-to-br from-construction-primary to-blue-600 flex items-center justify-center">
+							<div class="text-7xl">🚗</div>
 						</div>
 						<div class="p-8">
 							<h2 class="text-3xl font-display font-bold text-construction-dark mb-4">
-								New Home Construction
+								Oil Change Facilities
 							</h2>
 							<p class="text-gray-700 mb-6">
-								Build your dream home from the ground up with custom designs, sustainable materials, 
-								and modern construction techniques. We handle everything from site preparation to final finishes.
+								Turn-key construction for quick lube facilities. Trusted by national brands for our speed,
+								quality, and expertise in this specialized market.
 							</p>
-							<div class="mb-6">
-								<div class="text-2xl font-bold text-construction-primary mb-2">
-									Starting at $250/sq ft
-								</div>
-								<p class="text-sm text-gray-700">Varies by location and specifications</p>
-							</div>
-							<h3 class="font-semibold text-construction-dark mb-3">What's Included:</h3>
+							<h3 class="font-semibold text-construction-dark mb-3">Brands We Work With:</h3>
 							<ul class="space-y-2 mb-6">
 								<li class="flex items-start">
 									<svg class="w-5 h-5 text-construction-primary mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
 										<path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
 									</svg>
-									<span class="text-gray-700">Custom architectural design consultation</span>
+									<span class="text-gray-700">Take 5 Oil Change</span>
 								</li>
 								<li class="flex items-start">
 									<svg class="w-5 h-5 text-construction-primary mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
 										<path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
 									</svg>
-									<span class="text-gray-700">Sustainable material selection and sourcing</span>
+									<span class="text-gray-700">Valvoline Instant Oil Change</span>
 								</li>
 								<li class="flex items-start">
 									<svg class="w-5 h-5 text-construction-primary mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
 										<path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
 									</svg>
-									<span class="text-gray-700">Energy-efficient systems and insulation</span>
+									<span class="text-gray-700">Jiffy Lube</span>
 								</li>
 								<li class="flex items-start">
 									<svg class="w-5 h-5 text-construction-primary mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
 										<path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
 									</svg>
-									<span class="text-gray-700">Quality craftsmanship guarantee</span>
-								</li>
-								<li class="flex items-start">
-									<svg class="w-5 h-5 text-construction-primary mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-										<path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
-									</svg>
-									<span class="text-gray-700">Project management and timeline coordination</span>
+									<span class="text-gray-700">Quick lube franchises nationwide</span>
 								</li>
 							</ul>
-							<a href="/contact" class="block text-center px-6 py-3 bg-construction-primary text-white rounded-lg font-semibold hover:bg-construction-primary/90 transition-colors">
-								Request Quote
+							<a href="/contact" class="block text-center px-6 py-3 bg-construction-primary text-white rounded-lg font-semibold hover:bg-blue-600 hover:scale-105 transition-all">
+								Learn More
 							</a>
 						</div>
 					</div>
 				</FadeInSection>
 
-				<!-- Home Renovations -->
+				<!-- Car Wash Construction -->
 				<FadeInSection client:load delay={0.2}>
-					<div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow">
-						<div class="h-64 bg-gradient-to-br from-construction-secondary to-construction-primary flex items-center justify-center">
-							<div class="text-8xl">🔨</div>
+					<div id="car-wash" class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow border-2 border-construction-primary/20 hover:border-construction-primary">
+						<div class="h-48 bg-gradient-to-br from-blue-500 to-construction-primary flex items-center justify-center">
+							<div class="text-7xl">🚙</div>
 						</div>
 						<div class="p-8">
 							<h2 class="text-3xl font-display font-bold text-construction-dark mb-4">
-								Home Renovations
+								Car Wash Construction
 							</h2>
 							<p class="text-gray-700 mb-6">
-								Transform your existing space with expert remodeling services. Kitchen upgrades, 
-								bathroom makeovers, or whole-house renovations—we bring new life to older homes.
+								Full-service and express car wash facilities. We understand the unique requirements
+								of automated wash systems and tunnel construction.
 							</p>
-							<div class="mb-6">
-								<div class="text-2xl font-bold text-construction-primary mb-2">
-									Starting at $150/sq ft
-								</div>
-								<p class="text-sm text-gray-700">Depends on scope and materials</p>
-							</div>
-							<h3 class="font-semibold text-construction-dark mb-3">What's Included:</h3>
+							<h3 class="font-semibold text-construction-dark mb-3">What We Build:</h3>
 							<ul class="space-y-2 mb-6">
 								<li class="flex items-start">
 									<svg class="w-5 h-5 text-construction-primary mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
 										<path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
 									</svg>
-									<span class="text-gray-700">Kitchen & bathroom complete remodels</span>
+									<span class="text-gray-700">Express tunnel car washes</span>
 								</li>
 								<li class="flex items-start">
 									<svg class="w-5 h-5 text-construction-primary mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
 										<path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
 									</svg>
-									<span class="text-gray-700">Structural modifications and updates</span>
+									<span class="text-gray-700">Full-service wash facilities</span>
 								</li>
 								<li class="flex items-start">
 									<svg class="w-5 h-5 text-construction-primary mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
 										<path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
 									</svg>
-									<span class="text-gray-700">Historic home restoration expertise</span>
+									<span class="text-gray-700">Detail centers and vacuum stations</span>
 								</li>
 								<li class="flex items-start">
 									<svg class="w-5 h-5 text-construction-primary mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
 										<path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
 									</svg>
-									<span class="text-gray-700">Modern system upgrades (HVAC, electrical, plumbing)</span>
-								</li>
-								<li class="flex items-start">
-									<svg class="w-5 h-5 text-construction-primary mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-										<path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
-									</svg>
-									<span class="text-gray-700">Interior and exterior refinishing</span>
+									<span class="text-gray-700">Site work and drainage systems</span>
 								</li>
 							</ul>
-							<a href="/contact" class="block text-center px-6 py-3 bg-construction-primary text-white rounded-lg font-semibold hover:bg-construction-primary/90 transition-colors">
-								Request Quote
+							<a href="/contact" class="block text-center px-6 py-3 bg-construction-primary text-white rounded-lg font-semibold hover:bg-blue-600 hover:scale-105 transition-all">
+								Learn More
 							</a>
 						</div>
 					</div>
 				</FadeInSection>
 
-				<!-- Home Additions -->
+				<!-- Restaurant Build-Outs -->
 				<FadeInSection client:load delay={0.3}>
-					<div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow">
-						<div class="h-64 bg-gradient-to-br from-construction-accent to-construction-secondary flex items-center justify-center">
-							<div class="text-8xl">📐</div>
+					<div id="restaurants" class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow border-2 border-construction-primary/20 hover:border-construction-primary">
+						<div class="h-48 bg-gradient-to-br from-orange-500 to-red-600 flex items-center justify-center">
+							<div class="text-7xl">🍽️</div>
 						</div>
 						<div class="p-8">
 							<h2 class="text-3xl font-display font-bold text-construction-dark mb-4">
-								Home Additions
+								Restaurant Build-Outs
 							</h2>
 							<p class="text-gray-700 mb-6">
-								Need more space? We design and build seamless additions that match your home's 
-								existing architecture while expanding your living area.
+								Fast-casual and QSR construction expertise. We know the tight timelines and
+								specialized requirements of restaurant construction.
 							</p>
-							<div class="mb-6">
-								<div class="text-2xl font-bold text-construction-primary mb-2">
-									Starting at $200/sq ft
-								</div>
-								<p class="text-sm text-gray-700">Custom pricing based on complexity</p>
-							</div>
-							<h3 class="font-semibold text-construction-dark mb-3">What's Included:</h3>
+							<h3 class="font-semibold text-construction-dark mb-3">Specialties:</h3>
 							<ul class="space-y-2 mb-6">
 								<li class="flex items-start">
 									<svg class="w-5 h-5 text-construction-primary mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
 										<path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
 									</svg>
-									<span class="text-gray-700">Second-story additions</span>
+									<span class="text-gray-700">QSR ground-up construction</span>
 								</li>
 								<li class="flex items-start">
 									<svg class="w-5 h-5 text-construction-primary mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
 										<path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
 									</svg>
-									<span class="text-gray-700">Garage conversions and expansions</span>
+									<span class="text-gray-700">Tenant improvement projects</span>
 								</li>
 								<li class="flex items-start">
 									<svg class="w-5 h-5 text-construction-primary mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
 										<path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
 									</svg>
-									<span class="text-gray-700">Sunrooms & screened porches</span>
+									<span class="text-gray-700">Kitchen equipment installation</span>
 								</li>
 								<li class="flex items-start">
 									<svg class="w-5 h-5 text-construction-primary mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
 										<path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
 									</svg>
-									<span class="text-gray-700">In-law suites and ADUs</span>
-								</li>
-								<li class="flex items-start">
-									<svg class="w-5 h-5 text-construction-primary mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-										<path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
-									</svg>
-									<span class="text-gray-700">Matching architecture and materials</span>
+									<span class="text-gray-700">Multi-location franchise rollouts</span>
 								</li>
 							</ul>
-							<a href="/contact" class="block text-center px-6 py-3 bg-construction-primary text-white rounded-lg font-semibold hover:bg-construction-primary/90 transition-colors">
-								Request Quote
+							<a href="/contact" class="block text-center px-6 py-3 bg-construction-primary text-white rounded-lg font-semibold hover:bg-blue-600 hover:scale-105 transition-all">
+								Learn More
 							</a>
 						</div>
 					</div>
 				</FadeInSection>
 
-				<!-- Outdoor Living -->
+				<!-- Commercial Excavation -->
 				<FadeInSection client:load delay={0.4}>
-					<div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow">
-						<div class="h-64 bg-gradient-to-br from-green-600 to-green-800 flex items-center justify-center">
-							<div class="text-8xl">🌳</div>
+					<div id="excavation" class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow border-2 border-construction-primary/20 hover:border-construction-primary">
+						<div class="h-48 bg-gradient-to-br from-yellow-600 to-orange-700 flex items-center justify-center">
+							<div class="text-7xl">🚜</div>
 						</div>
 						<div class="p-8">
 							<h2 class="text-3xl font-display font-bold text-construction-dark mb-4">
-								Outdoor Living Spaces
+								Commercial Excavation
 							</h2>
 							<p class="text-gray-700 mb-6">
-								Extend your living space outdoors with custom decks, patios, outdoor kitchens, 
-								and landscaping designed for mountain living.
+								Complete site preparation and earthwork services. We handle the foundation
+								so your commercial project starts on solid ground.
 							</p>
-							<div class="mb-6">
-								<div class="text-2xl font-bold text-construction-primary mb-2">
-									Custom Pricing
-								</div>
-								<p class="text-sm text-gray-700">Based on size and materials</p>
-							</div>
-							<h3 class="font-semibold text-construction-dark mb-3">What's Included:</h3>
+							<h3 class="font-semibold text-construction-dark mb-3">Services Include:</h3>
 							<ul class="space-y-2 mb-6">
 								<li class="flex items-start">
 									<svg class="w-5 h-5 text-construction-primary mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
 										<path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
 									</svg>
-									<span class="text-gray-700">Custom deck construction (wood, composite)</span>
+									<span class="text-gray-700">Site clearing and grading</span>
 								</li>
 								<li class="flex items-start">
 									<svg class="w-5 h-5 text-construction-primary mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
 										<path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
 									</svg>
-									<span class="text-gray-700">Patio & hardscaping design</span>
+									<span class="text-gray-700">Foundation excavation</span>
 								</li>
 								<li class="flex items-start">
 									<svg class="w-5 h-5 text-construction-primary mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
 										<path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
 									</svg>
-									<span class="text-gray-700">Outdoor kitchens and fire features</span>
+									<span class="text-gray-700">Utility installation and trenching</span>
 								</li>
 								<li class="flex items-start">
 									<svg class="w-5 h-5 text-construction-primary mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
 										<path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
 									</svg>
-									<span class="text-gray-700">Pergolas, gazebos, and shade structures</span>
-								</li>
-								<li class="flex items-start">
-									<svg class="w-5 h-5 text-construction-primary mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-										<path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
-									</svg>
-									<span class="text-gray-700">Retaining walls and drainage solutions</span>
+									<span class="text-gray-700">Drainage and erosion control</span>
 								</li>
 							</ul>
-							<a href="/contact" class="block text-center px-6 py-3 bg-construction-primary text-white rounded-lg font-semibold hover:bg-construction-primary/90 transition-colors">
-								Request Quote
+							<a href="/contact" class="block text-center px-6 py-3 bg-construction-primary text-white rounded-lg font-semibold hover:bg-blue-600 hover:scale-105 transition-all">
+								Learn More
 							</a>
 						</div>
 					</div>
 				</FadeInSection>
 
-				<!-- Green Building -->
+				<!-- Retail & Strip Centers -->
 				<FadeInSection client:load delay={0.5}>
-					<div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow">
-						<div class="h-64 bg-gradient-to-br from-green-500 to-blue-600 flex items-center justify-center">
-							<div class="text-8xl">♻️</div>
+					<div id="retail" class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow border-2 border-construction-primary/20 hover:border-construction-primary">
+						<div class="h-48 bg-gradient-to-br from-purple-600 to-pink-600 flex items-center justify-center">
+							<div class="text-7xl">🏬</div>
 						</div>
 						<div class="p-8">
 							<h2 class="text-3xl font-display font-bold text-construction-dark mb-4">
-								Green Building & Sustainability
+								Retail & Strip Centers
 							</h2>
 							<p class="text-gray-700 mb-6">
-								Specialize in sustainable construction practices, LEED certification support, 
-								and energy-efficient designs that reduce environmental impact.
+								Ground-up construction and tenant improvements for retail developments.
+								We build the spaces that drive commerce.
 							</p>
-							<div class="mb-6">
-								<div class="text-2xl font-bold text-construction-primary mb-2">
-									Consultation: $150/hr
-								</div>
-								<p class="text-sm text-gray-700">Plus implementation costs</p>
-							</div>
-							<h3 class="font-semibold text-construction-dark mb-3">What's Included:</h3>
+							<h3 class="font-semibold text-construction-dark mb-3">Capabilities:</h3>
 							<ul class="space-y-2 mb-6">
 								<li class="flex items-start">
 									<svg class="w-5 h-5 text-construction-primary mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-										<path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+										<path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 1 0 011.414 0z" clip-rule="evenodd" />
 									</svg>
-									<span class="text-gray-700">Solar panel integration and design</span>
+									<span class="text-gray-700">Strip mall construction</span>
 								</li>
 								<li class="flex items-start">
 									<svg class="w-5 h-5 text-construction-primary mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
 										<path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
 									</svg>
-									<span class="text-gray-700">Rainwater harvesting systems</span>
+									<span class="text-gray-700">Tenant build-outs</span>
 								</li>
 								<li class="flex items-start">
 									<svg class="w-5 h-5 text-construction-primary mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
 										<path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
 									</svg>
-									<span class="text-gray-700">Passive house design principles</span>
+									<span class="text-gray-700">Storefront renovations</span>
 								</li>
 								<li class="flex items-start">
 									<svg class="w-5 h-5 text-construction-primary mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
 										<path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
 									</svg>
-									<span class="text-gray-700">Recycled and reclaimed materials</span>
-								</li>
-								<li class="flex items-start">
-									<svg class="w-5 h-5 text-construction-primary mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-										<path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
-									</svg>
-									<span class="text-gray-700">LEED certification guidance</span>
+									<span class="text-gray-700">Parking lot and site improvements</span>
 								</li>
 							</ul>
-							<a href="/contact" class="block text-center px-6 py-3 bg-construction-primary text-white rounded-lg font-semibold hover:bg-construction-primary/90 transition-colors">
-								Request Quote
+							<a href="/contact" class="block text-center px-6 py-3 bg-construction-primary text-white rounded-lg font-semibold hover:bg-blue-600 hover:scale-105 transition-all">
+								Learn More
 							</a>
 						</div>
 					</div>
 				</FadeInSection>
 
-				<!-- Design Consultation -->
+				<!-- Project Management -->
 				<FadeInSection client:load delay={0.6}>
-					<div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow">
-						<div class="h-64 bg-gradient-to-br from-purple-600 to-pink-600 flex items-center justify-center">
-							<div class="text-8xl">💼</div>
+					<div id="project-mgmt" class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow border-2 border-construction-primary/20 hover:border-construction-primary">
+						<div class="h-48 bg-gradient-to-br from-green-600 to-teal-600 flex items-center justify-center">
+							<div class="text-7xl">📋</div>
 						</div>
 						<div class="p-8">
 							<h2 class="text-3xl font-display font-bold text-construction-dark mb-4">
-								Design Consultation
+								Project Management
 							</h2>
 							<p class="text-gray-700 mb-6">
-								Not sure where to start? Our design consultation service helps you plan your project, 
-								select materials, and create a realistic budget.
+								Full-service general contracting with dedicated project managers.
+								Perfect for multi-site rollouts and national brand expansions.
 							</p>
-							<div class="mb-6">
-								<div class="text-2xl font-bold text-construction-primary mb-2">
-									$500 Initial Consult
-								</div>
-								<p class="text-sm text-gray-700">Credited toward your project</p>
-							</div>
-							<h3 class="font-semibold text-construction-dark mb-3">What's Included:</h3>
+							<h3 class="font-semibold text-construction-dark mb-3">What We Provide:</h3>
 							<ul class="space-y-2 mb-6">
 								<li class="flex items-start">
 									<svg class="w-5 h-5 text-construction-primary mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
 										<path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
 									</svg>
-									<span class="text-gray-700">On-site evaluation and measurements</span>
+									<span class="text-gray-700">Dedicated project managers</span>
 								</li>
 								<li class="flex items-start">
 									<svg class="w-5 h-5 text-construction-primary mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
 										<path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
 									</svg>
-									<span class="text-gray-700">Preliminary design concepts</span>
+									<span class="text-gray-700">Multi-site coordination</span>
 								</li>
 								<li class="flex items-start">
 									<svg class="w-5 h-5 text-construction-primary mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
 										<path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
 									</svg>
-									<span class="text-gray-700">Material selection guidance</span>
+									<span class="text-gray-700">Budget tracking and reporting</span>
 								</li>
 								<li class="flex items-start">
 									<svg class="w-5 h-5 text-construction-primary mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
 										<path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
 									</svg>
-									<span class="text-gray-700">Budget planning and cost estimates</span>
-								</li>
-								<li class="flex items-start">
-									<svg class="w-5 h-5 text-construction-primary mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-										<path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
-									</svg>
-									<span class="text-gray-700">Timeline and project roadmap</span>
+									<span class="text-gray-700">Proactive communication</span>
 								</li>
 							</ul>
-							<a href="/contact" class="block text-center px-6 py-3 bg-construction-primary text-white rounded-lg font-semibold hover:bg-construction-primary/90 transition-colors">
-								Schedule Consultation
+							<a href="/contact" class="block text-center px-6 py-3 bg-construction-primary text-white rounded-lg font-semibold hover:bg-blue-600 hover:scale-105 transition-all">
+								Learn More
 							</a>
 						</div>
 					</div>
@@ -399,80 +329,97 @@ const pageDescription = "Comprehensive residential construction services includi
 		</div>
 	</section>
 
-	<!-- Process Section -->
-	<section class="py-20 bg-white">
+	<!-- Why Choose JBS Section -->
+	<section class="py-20 bg-construction-light">
 		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 			<FadeInSection client:load>
 				<div class="text-center mb-16">
-					<div class="inline-block px-4 py-2 bg-construction-secondary/10 text-construction-secondary font-semibold rounded-full mb-4">
-						How We Work
-					</div>
 					<h2 class="text-4xl md:text-5xl font-display font-bold text-construction-dark mb-4">
-						Our Process
+						Why National Brands Choose <span class="text-construction-primary">JBS</span>
 					</h2>
 					<p class="text-xl text-gray-700 max-w-3xl mx-auto">
-						From initial consultation to final walkthrough, we make the construction process transparent and stress-free.
+						We understand the unique demands of commercial construction and multi-unit rollouts
 					</p>
 				</div>
 			</FadeInSection>
 
-			<div class="relative">
-				<div class="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-construction-primary/20 hidden lg:block"></div>
-				
-				<div class="space-y-12">
-					{[
-						{ step: 1, title: 'Initial Consultation', description: 'Meet with our team to discuss your vision, budget, and timeline. We listen to your needs and provide expert guidance.' },
-						{ step: 2, title: 'Design & Planning', description: 'Our designers create detailed plans and 3D renderings. We help you select materials and finalize the design.' },
-						{ step: 3, title: 'Permits & Approvals', description: 'We handle all necessary permits, inspections, and regulatory approvals to ensure full compliance.' },
-						{ step: 4, title: 'Construction', description: 'Our skilled craftsmen bring your vision to life with regular updates and quality workmanship.' },
-						{ step: 5, title: 'Final Walkthrough', description: 'We walk through the completed project together, ensuring every detail meets your expectations.' },
-						{ step: 6, title: 'Warranty & Support', description: 'Enjoy peace of mind with our comprehensive warranty and ongoing support for your investment.' },
-					].map((item, index) => (
-						<FadeInSection client:load delay={index * 0.1}>
-							<div class={`lg:grid lg:grid-cols-2 lg:gap-8 items-center ${index % 2 === 0 ? '' : 'lg:flex-row-reverse'}`}>
-								<div class={index % 2 === 0 ? 'lg:text-right' : 'lg:col-start-2'}>
-									<div class="bg-construction-light rounded-xl p-6 lg:p-8">
-										<div class="flex items-center gap-4 mb-4">
-											<div class="w-12 h-12 bg-construction-primary rounded-full flex items-center justify-center text-white font-bold text-xl">
-												{item.step}
-											</div>
-											<h3 class="text-2xl font-display font-bold text-construction-dark">
-												{item.title}
-											</h3>
-										</div>
-										<p class="text-gray-700">
-											{item.description}
-										</p>
-									</div>
-								</div>
-							</div>
-						</FadeInSection>
-					))}
-				</div>
+			<div class="grid md:grid-cols-3 gap-8">
+				<FadeInSection client:load delay={0.1}>
+					<div class="bg-white p-8 rounded-xl shadow-md hover:shadow-xl transition-shadow">
+						<div class="w-16 h-16 bg-construction-primary/10 rounded-full flex items-center justify-center mb-6">
+							<svg class="w-8 h-8 text-construction-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+							</svg>
+						</div>
+						<h3 class="text-xl font-display font-bold text-construction-dark mb-3">
+							Fast Turnaround
+						</h3>
+						<p class="text-gray-700">
+							We know your timeline is critical. Our efficient processes and experienced teams
+							deliver projects on schedule without sacrificing quality.
+						</p>
+					</div>
+				</FadeInSection>
+
+				<FadeInSection client:load delay={0.2}>
+					<div class="bg-white p-8 rounded-xl shadow-md hover:shadow-xl transition-shadow">
+						<div class="w-16 h-16 bg-construction-primary/10 rounded-full flex items-center justify-center mb-6">
+							<svg class="w-8 h-8 text-construction-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.040A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+							</svg>
+						</div>
+						<h3 class="text-xl font-display font-bold text-construction-dark mb-3">
+							Proven Track Record
+						</h3>
+						<p class="text-gray-700">
+							Trusted by industry-leading brands for consistent quality and reliability
+							across hundreds of commercial projects nationwide.
+						</p>
+					</div>
+				</FadeInSection>
+
+				<FadeInSection client:load delay={0.3}>
+					<div class="bg-white p-8 rounded-xl shadow-md hover:shadow-xl transition-shadow">
+						<div class="w-16 h-16 bg-construction-primary/10 rounded-full flex items-center justify-center mb-6">
+							<svg class="w-8 h-8 text-construction-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+							</svg>
+						</div>
+						<h3 class="text-xl font-display font-bold text-construction-dark mb-3">
+							Single Point of Contact
+						</h3>
+						<p class="text-gray-700">
+							One dedicated project manager for all your locations. Clear communication,
+							consistent quality, and accountability you can count on.
+						</p>
+					</div>
+				</FadeInSection>
 			</div>
 		</div>
 	</section>
 
 	<!-- CTA Section -->
-	<section class="py-20 bg-gradient-to-br from-construction-secondary via-construction-dark to-black">
+	<section class="py-20 bg-gradient-to-br from-construction-secondary via-construction-dark to-black relative">
+		<!-- Blue Glow Overlay -->
+		<div class="absolute inset-0 bg-construction-primary/15 mix-blend-overlay pointer-events-none"></div>
 		<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
 			<FadeInSection client:load>
 				<h2 class="text-4xl md:text-5xl font-display font-bold text-white mb-6">
-					Ready to Start Your Project?
+					Ready to Build <span class="text-construction-primary">Different</span>?
 				</h2>
 				<p class="text-xl text-gray-300 mb-8">
-					Get a free consultation and see how we can bring your vision to life.
+					Let's discuss your commercial construction needs and how we can help.
 				</p>
 				<div class="flex flex-col sm:flex-row gap-4 justify-center">
 					<a
 						href="/contact"
-						class="px-8 py-4 bg-construction-primary text-white rounded-lg font-semibold text-lg hover:bg-construction-accent hover:text-construction-dark hover:shadow-2xl hover:scale-105 transition-all"
+						class="px-8 py-4 bg-construction-primary text-white rounded-lg font-semibold text-lg hover:bg-blue-600 hover:shadow-2xl hover:scale-105 transition-all"
 					>
-						Get Free Quote
+						Let's Discuss Your Project
 					</a>
 					<a
 						href="/portfolio"
-						class="px-8 py-4 border-2 border-construction-accent text-construction-accent rounded-lg font-semibold text-lg hover:bg-construction-accent hover:text-construction-dark transition-all"
+						class="px-8 py-4 border-2 border-construction-primary text-construction-primary rounded-lg font-semibold text-lg hover:bg-construction-primary hover:text-white transition-all"
 					>
 						View Our Work
 					</a>

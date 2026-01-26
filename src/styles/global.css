@@ -18,26 +18,26 @@ html {
 }
 
 ::-webkit-scrollbar-track {
-  background: #1A1A2E;
+  background: #000000;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #FF6B35;
+  background: #0088CC;
   border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #F7C548;
+  background: #0099EE;
 }
 
 /* Selection */
 ::selection {
-  background-color: #FF6B35;
+  background-color: #0088CC;
   color: white;
 }
 
 /* Focus visible for accessibility */
 *:focus-visible {
-  outline: 2px solid #FF6B35;
+  outline: 2px solid #0088CC;
   outline-offset: 2px;
 }

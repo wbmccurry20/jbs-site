@@ -6,97 +6,99 @@ import BeforeAfterSlider from '../components/BeforeAfterSlider';
 import Footer from '../components/Footer';
 
 const pageTitle = "Our Portfolio | JBS Construction Projects";
-const pageDescription = "Browse our portfolio of completed residential construction projects including custom homes, renovations, and additions in Western North Carolina.";
+const pageDescription = "Browse our portfolio of completed commercial construction projects including oil change facilities, car washes, restaurants, and retail centers nationwide.";
 
 const projects = [
 	{
 		id: 1,
-		title: 'Modern Mountain Retreat',
-		location: 'Asheville, NC',
-		category: 'New Construction',
-		year: '2025',
-		sqft: '3,200 sq ft',
-		image: 'https://placehold.co/800x600/004E89/ffffff?text=Modern+Mountain+Retreat',
-		description: 'A stunning contemporary home featuring floor-to-ceiling windows, sustainable materials, and smart home integration. Built to passive house standards.',
-		features: ['Solar panels', 'Rainwater collection', 'Geothermal heating', 'Smart home system'],
+		title: 'Take 5 Oil Change - Multi-Location Rollout',
+		location: 'Southeast Region',
+		category: 'Oil Change',
+		year: '2024',
+		sqft: '2,400 sq ft',
+		image: 'https://placehold.co/800x600/0088CC/ffffff?text=Take+5+Oil+Change',
+		description: 'Turn-key construction of 12 Take 5 Oil Change locations across the Southeast. Completed on schedule with consistent quality across all sites.',
+		features: ['12 locations', 'On-time delivery', 'Brand standard compliance', 'Site prep included'],
 	},
 	{
 		id: 2,
-		title: 'Historic Craftsman Revival',
-		location: 'Boone, NC',
-		category: 'Renovation',
+		title: 'Express Car Wash Facility',
+		location: 'Charlotte, NC',
+		category: 'Car Wash',
 		year: '2024',
-		sqft: '2,800 sq ft',
-		image: 'https://placehold.co/800x600/F7C548/1A1A2E?text=Historic+Craftsman',
-		description: 'Complete restoration of a 1920s craftsman home, preserving original character while adding modern amenities and energy efficiency.',
-		features: ['Original hardwood restored', 'Updated electrical/plumbing', 'Energy-efficient windows', 'Modern kitchen'],
+		sqft: '3,800 sq ft',
+		image: 'https://placehold.co/800x600/00A1E0/ffffff?text=Express+Car+Wash',
+		description: 'Ground-up construction of express tunnel car wash with automated systems, vacuum stations, and customer waiting area.',
+		features: ['Express tunnel', 'Automated systems', 'Vacuum stations', 'Customer lounge'],
 	},
 	{
 		id: 3,
-		title: 'Family Addition',
-		location: 'Blowing Rock, NC',
-		category: 'Addition',
-		year: '2024',
-		sqft: '1,500 sq ft',
-		image: 'https://placehold.co/800x600/FF6B35/ffffff?text=Family+Addition',
-		description: 'Two-bedroom second-story addition with master suite and home office, seamlessly matching the existing home\'s architecture.',
-		features: ['Two bedrooms', 'Master bathroom', 'Home office', 'Deck expansion'],
+		title: 'Fast-Casual Restaurant Build-Out',
+		location: 'Atlanta, GA',
+		category: 'Restaurant',
+		year: '2025',
+		sqft: '2,800 sq ft',
+		image: 'https://placehold.co/800x600/FF6B35/ffffff?text=Restaurant+Buildout',
+		description: 'Complete interior tenant improvement for fast-casual restaurant including kitchen equipment, dining area, and restrooms. Delivered in 8 weeks.',
+		features: ['Kitchen install', 'Dining for 80', '8-week timeline', 'Full MEP coordination'],
 	},
 	{
 		id: 4,
-		title: 'Luxury Kitchen Remodel',
-		location: 'Asheville, NC',
-		category: 'Renovation',
-		year: '2025',
-		sqft: '450 sq ft',
-		image: 'https://placehold.co/800x600/4A5568/ffffff?text=Luxury+Kitchen',
-		description: 'High-end kitchen transformation with custom cabinetry, premium appliances, and open concept design.',
-		features: ['Custom cabinets', 'Quartz countertops', 'Professional appliances', 'Smart lighting'],
+		title: 'Retail Strip Center',
+		location: 'Raleigh, NC',
+		category: 'Retail',
+		year: '2024',
+		sqft: '12,000 sq ft',
+		image: 'https://placehold.co/800x600/6B7280/ffffff?text=Retail+Strip+Center',
+		description: 'Ground-up construction of 5-unit retail strip center with shared parking, storefront facades, and individual tenant spaces ready for build-out.',
+		features: ['5 retail units', 'Shared parking', 'Shell ready', 'Professional design'],
 	},
 	{
 		id: 5,
-		title: 'Outdoor Living Paradise',
-		location: 'Hendersonville, NC',
-		category: 'Outdoor',
+		title: 'Commercial Site Development',
+		location: 'Columbia, SC',
+		category: 'Excavation',
 		year: '2024',
-		sqft: '800 sq ft',
-		image: 'https://placehold.co/800x600/004E89/ffffff?text=Outdoor+Living',
-		description: 'Complete outdoor entertainment space with covered deck, outdoor kitchen, fire pit, and landscaping.',
-		features: ['Covered deck', 'Outdoor kitchen', 'Fire pit', 'Professional landscaping'],
+		sqft: '3.2 acres',
+		image: 'https://placehold.co/800x600/D97706/ffffff?text=Site+Development',
+		description: 'Complete site preparation for commercial development including clearing, grading, utilities, stormwater management, and parking lot construction.',
+		features: ['Site clearing', 'Grading', 'Utility install', 'Stormwater mgmt'],
 	},
 	{
 		id: 6,
-		title: 'Net-Zero Green Home',
-		location: 'Banner Elk, NC',
-		category: 'New Construction',
+		title: 'Valvoline Oil Change - 3-Site Package',
+		location: 'Florida Markets',
+		category: 'Oil Change',
 		year: '2025',
-		sqft: '2,500 sq ft',
-		image: 'https://placehold.co/800x600/22C55E/ffffff?text=Net+Zero+Green+Home',
-		description: 'LEED Platinum certified home producing as much energy as it consumes through solar and advanced building techniques.',
-		features: ['Net-zero energy', 'LEED Platinum', 'Triple-pane windows', 'Recycled materials'],
+		sqft: '2,200 sq ft',
+		image: 'https://placehold.co/800x600/0088CC/ffffff?text=Valvoline+Package',
+		description: 'Simultaneous construction of three Valvoline Instant Oil Change locations in Florida, coordinated by single project manager for consistency.',
+		features: ['3 locations', 'Single PM', 'Concurrent builds', 'Brand specs met'],
 	},
 ];
 
-const categories = ['All', 'New Construction', 'Renovation', 'Addition', 'Outdoor'];
+const categories = ['All', 'Oil Change', 'Car Wash', 'Restaurant', 'Retail', 'Excavation'];
 ---
 
 <Layout title={pageTitle} description={pageDescription}>
 	<Navbar client:load />
 	
 	<!-- Hero Section -->
-	<section class="pt-32 pb-20 bg-gradient-to-br from-construction-secondary via-construction-dark to-black">
+	<section class="pt-32 pb-20 bg-gradient-to-br from-construction-secondary via-construction-dark to-black relative">
+		<!-- Blue Glow Overlay -->
+		<div class="absolute inset-0 bg-construction-primary/15 mix-blend-overlay pointer-events-none"></div>
 		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 			<FadeInSection client:load>
 				<div class="text-center max-w-3xl mx-auto">
-					<div class="inline-block px-4 py-2 bg-construction-accent/20 text-construction-accent font-semibold rounded-full mb-6">
+					<div class="inline-block px-4 py-2 bg-construction-primary/20 text-construction-primary font-semibold rounded-full mb-6">
 						Our Work
 					</div>
 					<h1 class="text-5xl md:text-6xl font-display font-bold mb-6 text-white">
 						<span class="block text-construction-primary">Portfolio</span>
 					</h1>
 					<p class="text-xl text-gray-300">
-						Explore our completed projects across Western North Carolina. 
-						From custom homes to complete renovations, see the quality and craftsmanship we deliver.
+						Explore our completed projects across the nation. 
+						From oil change facilities to restaurant build-outs, see the quality and speed we deliver.
 					</p>
 				</div>
 			</FadeInSection>
@@ -127,15 +129,16 @@ const categories = ['All', 'New Construction', 'Renovation', 'Addition', 'Outdoo
 				{projects.map((project, index) => (
 					<FadeInSection client:load delay={index * 0.1}>
 						<div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-all group">
-							<div class="relative h-64 bg-gradient-to-br from-construction-steel to-construction-secondary overflow-hidden">
+							<div class="relative h-64 bg-gradient-to-br from-slate-600 to-slate-800 overflow-hidden">
 								<div class="absolute inset-0 flex items-center justify-center text-white text-6xl opacity-20">
-									{project.category === 'New Construction' && '🏗️'}
-									{project.category === 'Renovation' && '🔨'}
-									{project.category === 'Addition' && '📐'}
-									{project.category === 'Outdoor' && '🌳'}
+									{project.category === 'Oil Change' && '🚗'}
+									{project.category === 'Car Wash' && '🚙'}
+									{project.category === 'Restaurant' && '🍽️'}
+									{project.category === 'Retail' && '🏬'}
+									{project.category === 'Excavation' && '🚜'}
 								</div>
 								<div class="absolute top-4 right-4">
-									<span class="px-3 py-1 bg-construction-accent text-construction-dark rounded-full text-sm font-semibold">
+									<span class="px-3 py-1 bg-construction-primary text-white rounded-full text-sm font-semibold">
 										{project.category}
 									</span>
 								</div>
@@ -192,7 +195,7 @@ const categories = ['All', 'New Construction', 'Renovation', 'Addition', 'Outdoo
 			<FadeInSection client:load>
 				<div class="text-center mb-12">
 					<h2 class="text-4xl md:text-5xl font-display font-bold text-construction-dark mb-4">
-						Transformation Gallery
+						Transformation <span class="text-construction-primary">Gallery</span>
 					</h2>
 					<p class="text-xl text-gray-700">
 						See the dramatic difference our work makes
@@ -204,14 +207,14 @@ const categories = ['All', 'New Construction', 'Renovation', 'Addition', 'Outdoo
 				<FadeInSection client:load delay={0.2}>
 					<div>
 						<h3 class="text-2xl font-display font-bold text-construction-dark mb-4">
-							Historic Home Renovation - Boone, NC
+							Take 5 Oil Change - Ground-Up Construction
 						</h3>
 						<BeforeAfterSlider
 							client:load
-						beforeImage="https://placehold.co/1200x800/8B7355/ffffff?text=Before+-+Historic+Home"
-						afterImage="https://placehold.co/1200x800/F7C548/1A1A2E?text=After+-+Restored+Beauty"
-							beforeAlt="Historic home before renovation"
-							afterAlt="Historic home after renovation"
+						beforeImage="https://placehold.co/1200x800/8B7355/ffffff?text=Before+-+Raw+Site"
+						afterImage="https://placehold.co/1200x800/0088CC/ffffff?text=After+-+Operational+Facility"
+							beforeAlt="Empty lot before construction"
+							afterAlt="Completed Take 5 Oil Change facility"
 						/>
 					</div>
 				</FadeInSection>
@@ -219,14 +222,14 @@ const categories = ['All', 'New Construction', 'Renovation', 'Addition', 'Outdoo
 				<FadeInSection client:load delay={0.3}>
 					<div>
 						<h3 class="text-2xl font-display font-bold text-construction-dark mb-4">
-							Kitchen Remodel - Asheville, NC
+							Restaurant Tenant Build-Out - Fast-Casual Concept
 						</h3>
 						<BeforeAfterSlider
 							client:load
-						beforeImage="https://placehold.co/1200x800/D4C4B0/ffffff?text=Before+-+Dated+Kitchen"
-						afterImage="https://placehold.co/1200x800/FF6B35/ffffff?text=After+-+Modern+Kitchen"
-							beforeAlt="Kitchen before remodel"
-							afterAlt="Kitchen after remodel"
+						beforeImage="https://placehold.co/1200x800/D4C4B0/ffffff?text=Before+-+Shell+Space"
+						afterImage="https://placehold.co/1200x800/FF6B35/ffffff?text=After+-+Ready+for+Service"
+							beforeAlt="Empty retail space before build-out"
+							afterAlt="Completed restaurant ready for opening"
 						/>
 					</div>
 				</FadeInSection>
@@ -243,7 +246,7 @@ const categories = ['All', 'New Construction', 'Renovation', 'Addition', 'Outdoo
 						By The Numbers
 					</div>
 					<h2 class="text-4xl md:text-5xl font-display font-bold text-construction-dark mb-4">
-						Our Track Record
+						Our Track <span class="text-construction-primary">Record</span>
 					</h2>
 					<p class="text-xl text-gray-700">
 						Numbers that speak to our experience and quality
@@ -273,25 +276,27 @@ const categories = ['All', 'New Construction', 'Renovation', 'Addition', 'Outdoo
 	</section>
 
 	<!-- CTA Section -->
-	<section class="py-20 bg-gradient-to-br from-construction-secondary via-construction-dark to-black">
+	<section class="py-20 bg-gradient-to-br from-construction-secondary via-construction-dark to-black relative">
+		<!-- Blue Glow Overlay -->
+		<div class="absolute inset-0 bg-construction-primary/15 mix-blend-overlay pointer-events-none"></div>
 		<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
 			<FadeInSection client:load>
 				<h2 class="text-4xl md:text-5xl font-display font-bold text-white mb-6">
-					Ready to Add Your Project to Our Portfolio?
+					Ready for Your Next <span class="text-construction-primary">Commercial Project</span>?
 				</h2>
 				<p class="text-xl text-gray-300 mb-8">
-					Let's create something amazing together. Get started with a free consultation.
+					Let's build something great together. Contact us to discuss your next oil change facility, car wash, or restaurant build-out.
 				</p>
 				<div class="flex flex-col sm:flex-row gap-4 justify-center">
 					<a
 						href="/contact"
-						class="px-8 py-4 bg-construction-primary text-white rounded-lg font-semibold text-lg hover:bg-construction-accent hover:text-construction-dark hover:shadow-2xl hover:scale-105 transition-all"
+						class="px-8 py-4 bg-construction-primary text-white rounded-lg font-semibold text-lg hover:bg-blue-600 hover:shadow-2xl hover:scale-105 transition-all"
 					>
-						Start Your Project
+						Get Free Quote
 					</a>
 					<a
 						href="/services"
-						class="px-8 py-4 border-2 border-construction-accent text-construction-accent rounded-lg font-semibold text-lg hover:bg-construction-accent hover:text-construction-dark transition-all"
+						class="px-8 py-4 border-2 border-construction-primary text-construction-primary rounded-lg font-semibold text-lg hover:bg-construction-primary hover:text-white transition-all"
 					>
 						View Services
 					</a>

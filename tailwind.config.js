@@ -3,17 +3,16 @@ export default {
   content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
   theme: {
     extend: {
-      // 🎨 BRAND COLORS - Easy to update when you get client's brand guide
-      // Just replace the hex values below with your client's colors
+      // 🎨 JBS BRAND COLORS - Based on logo
       colors: {
-        // Professional construction palette with modern twist
+        // JBS "Built Different" brand palette
         construction: {
-          primary: '#FF6B35',     // Bold safety orange - CTA buttons, key highlights
-          secondary: '#004E89',   // Deep professional blue - headers, trust elements  
-          accent: '#FFB81C',      // Bright construction yellow - badges, emphasis
-          dark: '#1A1A2E',        // Almost black - main text, dark backgrounds
-          light: '#F5F5F5',       // Off-white - page backgrounds
-          steel: '#4B5563',       // Darker steel gray (gray-600) - better readability
+          primary: '#0088CC',     // JBS blue from logo triangle - primary actions, highlights
+          secondary: '#000000',   // Black from logo - headers, main text
+          accent: '#0088CC',      // JBS blue - emphasis and interactive elements
+          dark: '#000000',        // Pure black - text, strong contrast
+          light: '#FFFFFF',       // Pure white - backgrounds
+          steel: '#6B7280',       // Gray-500 - secondary text, like "BUILT DIFFERENT"
         },
       },
       fontFamily: {
