@@ -1,412 +1,187 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Navbar from '../components/Navbar';
-import FadeInSection from '../components/FadeInSection';
-import ProjectShowcase from '../components/ProjectShowcase';
-import QuoteCalculator from '../components/QuoteCalculator';
-import BeforeAfterSlider from '../components/BeforeAfterSlider';
-import Footer from '../components/Footer';
-
-const pageTitle = "JBS Construction - Modern Home Building in Western NC";
-const pageDescription = "Award-winning residential construction and renovation in Western North Carolina. Custom homes, sustainable building, and expert craftsmanship for over 20 years.";
+// Work in Progress Page
 ---
 
-<Layout title={pageTitle} description={pageDescription}>
-	<Navbar client:load />
-	
-	<!-- Hero Section with Video Background -->
-	<section class="relative h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-construction-secondary via-construction-dark to-black">
-		<!-- Blue Glow Overlay -->
-		<div class="absolute inset-0 bg-construction-primary/15 mix-blend-overlay"></div>
-		<!-- Decorative elements -->
-		<div class="absolute inset-0 opacity-10">
-			<div class="absolute top-0 left-0 w-96 h-96 bg-construction-primary rounded-full filter blur-3xl"></div>
-			<div class="absolute bottom-0 right-0 w-96 h-96 bg-construction-accent rounded-full filter blur-3xl"></div>
-		</div>
-		
-		<!-- Hero Content -->
-		<div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-			<div class="animate-fade-in">
-				<h1 class="text-5xl md:text-7xl lg:text-8xl font-display font-bold text-white mb-6 leading-tight">
-					Built
-					<span class="block text-construction-primary mt-2">
-						Different
-					</span>
-				</h1>
-				<p class="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto">
-					We're here to make it all clearer, easier, and faster.<br />
-					To build differently - because we are built different.
-				</p>
-				<div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
-					<a
-						href="/contact"
-						class="px-8 py-4 bg-construction-primary text-white rounded-lg font-semibold text-lg hover:bg-blue-600 hover:shadow-2xl hover:scale-105 transition-all"
-					>
-						Start Your Project
-					</a>
-					<a
-						href="/portfolio"
-						class="px-8 py-4 bg-white/10 backdrop-blur-sm border-2 border-construction-primary text-construction-primary rounded-lg font-semibold text-lg hover:bg-construction-primary hover:text-white transition-all"
-					>
-						View Our Work
-					</a>
-				</div>
-			</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JBS - Coming Soon</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-			<!-- Stats -->
-			<div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8">
-				{[
-					{ number: '30+', label: 'Years Experience' },
-					{ number: '1000+', label: 'Commercial Projects' },
-					{ number: '50+', label: 'National Brand Partners' },
-					{ number: '100%', label: 'Licensed & Bonded' },
-				].map((stat) => (
-					<div class="text-center">
-						<div class="text-4xl md:text-5xl font-bold text-construction-primary mb-2">
-							{stat.number}
-						</div>
-						<div class="text-sm text-gray-300">{stat.label}</div>
-					</div>
-				))}
-			</div>
-		</div>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            overflow: hidden;
+        }
 
-		<!-- Scroll Indicator -->
-		<div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
-			<svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-				<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-			</svg>
-		</div>
-	</section>
+        .container {
+            text-align: center;
+            padding: 2rem;
+            max-width: 800px;
+            animation: fadeIn 1s ease-in;
+        }
 
-	<!-- Why Choose Us Section -->
-	<section class="py-20 bg-white">
-		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-			<FadeInSection client:load>
-				<div class="text-center mb-16">
-					<div class="inline-block px-4 py-2 bg-construction-primary/10 text-construction-primary font-semibold rounded-full mb-4">
-						Why Choose Us
-					</div>
-					</div>
-					<h2 class="text-4xl md:text-5xl font-display font-bold text-construction-dark mb-4">
-						Why Choose <span class="text-construction-primary">JBS</span>
-					</h2>
-					<p class="text-xl text-gray-700 max-w-3xl mx-auto">
-						We believe building shouldn't be complicated. That communication shouldn't require chasing.
-						That every project deserves a leader who owns the outcome.
-					</p>
-				</div>
-			</FadeInSection>
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
 
-			<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-				{[
-					{
-						icon: '✓',
-						title: 'Accountability + Ownership',
-						description: 'Every project has a leader. Every client has a champion. Every detail has an owner.',
-					},
-					{
-						icon: '💬',
-						title: 'Proactive Communication',
-						description: 'Clear, consistent updates - so clients always know what\'s happening, what\'s next and what\'s needed.',
-					},
-					{
-						icon: '⚙️',
-						title: 'Operational Excellence',
-						description: 'Streamlined systems, repeatable processes, and fast, adaptive workflows - built around how modern "boxes" get delivered.',
-					},
-					{
-						icon: '🤝',
-						title: 'Relationship-First Leadership',
-						description: 'We solve problems, not point fingers. We invest in people - clients, teams, and partners - because strong relationships build better outcomes.',
-					},
-					{
-						icon: '🏗️',
-						title: 'Build + Maintain',
-						description: 'One partner for new builds, remodels, and maintenance - creating efficiency and consistency across every site and every project.',
-					},
-				].map((feature, index) => (
-					<FadeInSection client:load delay={index * 0.1}>
-						<div class="bg-white p-8 rounded-xl border-l-4 border-construction-primary shadow-md hover:shadow-2xl hover:scale-105 transition-all group">
-							<div class="text-5xl mb-4 group-hover:scale-110 transition-transform">
-								{feature.icon}
-							</div>
-							<h3 class="text-xl font-display font-bold text-construction-dark mb-3">
-								{feature.title}
-							</h3>
-							<p class="text-gray-700">
-								{feature.description}
-							</p>
-						</div>
-					</FadeInSection>
-				))}
-			</div>
-		</div>
-	</section>
+        .logo {
+            font-size: 4rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: linear-gradient(to right, #fff, #e0e7ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
 
-	<!-- Before/After Showcase -->
-	<section class="py-20 bg-gradient-to-br from-construction-secondary to-construction-dark text-white relative">
-		<!-- Blue Glow Overlay -->
-		<div class="absolute inset-0 bg-construction-primary/10 mix-blend-overlay pointer-events-none"></div>
-		<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-			<FadeInSection client:load>
-				<div class="text-center mb-12">
-					<h2 class="text-4xl md:text-5xl font-display font-bold mb-4">
-						Transformations That <span class="text-construction-primary">Inspire</span>
-					</h2>
-					<p class="text-xl text-gray-300">
-						See the dramatic difference our expertise makes
-					</p>
-				</div>
-			</FadeInSection>
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
 
-			<FadeInSection client:load delay={0.2}>
-				<BeforeAfterSlider
-					client:load
-					beforeImage="https://placehold.co/1200x800/cccccc/ffffff?text=Before+Renovation"
-					afterImage="https://placehold.co/1200x800/FF6B35/ffffff?text=After+Renovation"
-					beforeAlt="Before renovation"
-					afterAlt="After renovation"
-				/>
-			</FadeInSection>
+        p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            line-height: 1.6;
+        }
 
-			<div class="mt-12 text-center">
-				<a
-					href="/portfolio"
-					class="inline-flex items-center px-8 py-4 bg-construction-primary text-white rounded-lg font-semibold hover:bg-blue-600 hover:shadow-2xl hover:scale-105 transition-all"
-				>
-					View Full Portfolio
-					<svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-					</svg>
-				</a>
-			</div>
-		</div>
-	</section>
+        .spinner {
+            width: 60px;
+            height: 60px;
+            margin: 2rem auto;
+            border: 5px solid rgba(255, 255, 255, 0.3);
+            border-top-color: white;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
 
-	<!-- Featured Projects -->
-	<section class="py-20 bg-construction-light">
-		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-			<FadeInSection client:load>
-				<div class="text-center mb-12">
-					<div class="inline-block px-4 py-2 bg-construction-primary/10 text-construction-primary font-semibold rounded-full mb-4">
-						Our Work
-					</div>
-					<h2 class="text-4xl md:text-5xl font-display font-bold text-construction-dark mb-4">
-						Featured <span class="text-construction-primary">Projects</span>
-					</h2>
-					<p class="text-xl text-gray-700">
-						Recent commercial construction projects across the nation
-					</p>
-				</div>
-			</FadeInSection>
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
 
-			<FadeInSection client:load delay={0.2}>
-				<ProjectShowcase client:load />
-			</FadeInSection>
-		</div>
-	</section>
+        .contact-info {
+            margin-top: 3rem;
+            font-size: 1rem;
+            opacity: 0.8;
+        }
 
-	<!-- Interactive Cost Calculator -->
-	<section class="py-20 bg-white">
-		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-			<FadeInSection client:load>
-				<div class="text-center mb-12">
-					<div class="inline-block px-4 py-2 bg-construction-primary/20 text-construction-primary font-semibold rounded-full mb-4">
-						Get Instant Estimate
-					</div>
-					<h2 class="text-4xl md:text-5xl font-display font-bold text-construction-dark mb-4">
-						Plan Your <span class="text-construction-primary">Project</span>
-					</h2>
-					<p class="text-xl text-gray-700">
-						Get an instant estimate for your commercial construction project
-					</p>
-				</div>
-			</FadeInSection>
+        .contact-info a {
+            color: white;
+            text-decoration: none;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.5);
+            transition: border-color 0.3s;
+        }
 
-			<FadeInSection client:load delay={0.2}>
-				<QuoteCalculator client:load />
-			</FadeInSection>
-		</div>
-	</section>
+        .contact-info a:hover {
+            border-bottom-color: white;
+        }
 
-	<!-- Services Overview -->
-	<section class="py-20 bg-white">
-		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-			<FadeInSection client:load>
-				<div class="text-center mb-16">
-					<div class="inline-block px-4 py-2 bg-construction-primary/20 text-construction-primary font-semibold rounded-full mb-4">
-						What We Do
-					</div>
-					<h2 class="text-4xl md:text-5xl font-display font-bold text-construction-dark mb-4">
-						Comprehensive <span class="text-construction-primary">Construction Services</span>
-					</h2>
-					<p class="text-xl text-gray-700">
-						From concept to completion, we handle every aspect of your project
-					</p>
-				</div>
-			</FadeInSection>
+        .background-shapes {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
 
-			<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-				{[
-					{
-						title: 'Oil Change Facilities',
-						description: 'Turn-key construction for Take 5, Valvoline, Jiffy Lube, and other quick lube brands.',
-						link: '/services#oil-change',
-					},
-					{
-						title: 'Car Wash Construction',
-						description: 'Full-service and express car wash facilities for Mister Car Wash, Delta Sonic, and more.',
-						link: '/services#car-wash',
-					},
-					{
-						title: 'Restaurant Build-Outs',
-						description: 'Fast-casual and QSR construction including Panda Express, Chipotle, and regional chains.',
-						link: '/services#restaurants',
-					},
-					{
-						title: 'Commercial Excavation',
-						description: 'Site preparation, grading, utilities, and foundation work for commercial projects.',
-						link: '/services#excavation',
-					},
-					{
-						title: 'Retail & Strip Centers',
-						description: 'Ground-up construction and tenant improvements for retail developments.',
-						link: '/services#retail',
-					},
-					{
-						title: 'Project Management',
-						description: 'Full-service general contracting with dedicated project managers for multi-site rollouts.',
-						link: '/services#project-mgmt',
-					},
-				].map((service, index) => (
-					<FadeInSection client:load delay={index * 0.1}>
-						<a
-							href={service.link}
-							class="block p-6 bg-white border-2 border-construction-primary/30 rounded-xl hover:border-construction-primary hover:shadow-xl hover:shadow-construction-primary/20 transition-all group"
-						>
-							<h3 class="text-xl font-display font-bold mb-3 text-construction-primary transition-colors">
-								{service.title}
-							</h3>
-							<p class="text-gray-700 mb-4">
-								{service.description}
-							</p>
-							<span class="text-construction-primary font-semibold inline-flex items-center">
-								Learn more
-								<svg class="w-4 h-4 ml-2 group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-								</svg>
-							</span>
-						</a>
-					</FadeInSection>
-				))}
-			</div>
+        .shape {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+        }
 
-			<div class="text-center mt-12">
-				<a
-					href="/services"
-					class="inline-flex items-center px-8 py-4 bg-construction-primary text-white rounded-lg font-semibold hover:bg-blue-600 hover:shadow-2xl hover:scale-105 transition-all"
-				>
-					View All Services
-				</a>
-			</div>
-		</div>
-	</section>
+        .shape1 {
+            width: 300px;
+            height: 300px;
+            top: -150px;
+            right: -150px;
+            animation: float 6s ease-in-out infinite;
+        }
 
-	<!-- Testimonials -->
-	<section class="py-20 bg-construction-light">
-		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-			<FadeInSection client:load>
-				<div class="text-center mb-12">
-					<div class="inline-block px-4 py-2 bg-construction-primary/20 text-construction-primary font-semibold rounded-full mb-4">
-						Testimonials
-					</div>
-					<h2 class="text-4xl md:text-5xl font-display font-bold text-construction-dark mb-4">
-						What Our Clients Say
-					</h2>
-					<p class="text-xl text-gray-700">
-						Don't just take our word for it
-					</p>
-				</div>
-			</FadeInSection>
+        .shape2 {
+            width: 200px;
+            height: 200px;
+            bottom: -100px;
+            left: -100px;
+            animation: float 8s ease-in-out infinite reverse;
+        }
 
-			<div class="grid md:grid-cols-3 gap-8">
-				{[
-					{
-						name: 'Sarah & Mike Johnson',
-						project: 'Custom Home Build',
-						quote: 'JBS Construction exceeded our expectations. Their use of technology kept us informed every step of the way, and the craftsmanship is outstanding.',
-						rating: 5,
-					},
-					{
-						name: 'David Martinez',
-						project: 'Historic Renovation',
-						quote: 'They perfectly balanced preserving our home\'s character while adding modern conveniences. The project management portal was a game-changer.',
-						rating: 5,
-					},
-					{
-						name: 'Emily Chen',
-						project: 'Green Building Consultation',
-						quote: 'Their expertise in sustainable construction helped us achieve LEED certification. Professional, innovative, and dedicated to quality.',
-						rating: 5,
-					},
-				].map((testimonial, index) => (
-					<FadeInSection client:load delay={index * 0.1}>
-						<div class="bg-white p-8 rounded-xl shadow-md hover:shadow-xl transition-shadow border-l-4 border-construction-accent">
-							<div class="flex mb-4">
-								{Array.from({ length: testimonial.rating }).map((_, i) => (
-									<svg class="w-5 h-5 text-construction-accent fill-current" viewBox="0 0 24 24">
-										<path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
-									</svg>
-								))}
-							</div>
-							<p class="text-construction-dark mb-6 italic">
-								"{testimonial.quote}"
-							</p>
-							<div class="border-t pt-4">
-								<div class="font-semibold text-construction-dark">
-									{testimonial.name}
-								</div>
-								<div class="text-sm text-gray-700">
-									{testimonial.project}
-								</div>
-							</div>
-						</div>
-					</FadeInSection>
-				))}
-			</div>
-		</div>
-	</section>
+        .shape3 {
+            width: 150px;
+            height: 150px;
+            top: 50%;
+            left: 10%;
+            animation: float 7s ease-in-out infinite;
+        }
 
-	<!-- CTA Section -->
-	<section class="py-20 bg-gradient-to-br from-construction-secondary via-construction-dark to-black relative">
-		<!-- Blue Glow Overlay -->
-		<div class="absolute inset-0 bg-construction-primary/15 mix-blend-overlay pointer-events-none"></div>
-		<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-			<FadeInSection client:load>
-				<h2 class="text-4xl md:text-5xl font-display font-bold text-white mb-6">
-					Ready to Build <span class="text-construction-primary">Different</span>?
-				</h2>
-				<p class="text-xl text-gray-300 mb-8">
-					Let's discuss your commercial construction needs and create something exceptional together.
-				</p>
-				<div class="flex flex-col sm:flex-row gap-4 justify-center">
-					<a
-						href="/contact"
-						class="px-8 py-4 bg-construction-primary text-white rounded-lg font-semibold text-lg hover:bg-blue-600 hover:shadow-2xl hover:scale-105 transition-all"
-					>
-						Schedule Consultation
-					</a>
-					<a
-						href="tel:+18285550123"
-						class="px-8 py-4 border-2 border-construction-primary text-construction-primary rounded-lg font-semibold text-lg hover:bg-construction-primary hover:text-white transition-all"
-					>
-						Call (828) 555-0123
-					</a>
-				</div>
-			</FadeInSection>
-		</div>
-	</section>
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
 
-	<Footer />
-</Layout>
+        @media (max-width: 768px) {
+            .logo {
+                font-size: 3rem;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            p {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="background-shapes">
+        <div class="shape shape1"></div>
+        <div class="shape shape2"></div>
+        <div class="shape shape3"></div>
+    </div>
+
+    <div class="container">
+        <div class="logo">JBS</div>
+        <h1>Something Amazing is Coming</h1>
+        <p>We're working hard to bring you an incredible new experience. Our website is currently under construction, but we'll be back soon with something special.</p>
+        
+        <div class="spinner"></div>
+
+        <div class="contact-info">
+            <p>Need to get in touch?<br>
+            Email us at <a href="mailto:info@buildwithjbs.com">info@buildwithjbs.com</a></p>
+        </div>
+    </div>
+</body>
+</html>
