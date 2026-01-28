@@ -1,0 +1,7 @@
+Contact: mailto:info@buildwithjbs.com
+Expires: 2027-01-28T00:00:00.000Z
+Preferred-Languages: en
+
+# Security Disclosure
+If you discover a security vulnerability, please email info@buildwithjbs.com
+We take security seriously and will respond promptly.

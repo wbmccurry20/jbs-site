@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+# Disallow admin areas
+Disallow: /admin/
+Disallow: /.env
+
+# Sitemap
+Sitemap: https://buildwithjbs.com/sitemap.xml
