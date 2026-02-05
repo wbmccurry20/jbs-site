@@ -3,6 +3,30 @@
   "outputDirectory": "dist",
   "framework": "astro",
   "devCommand": "npm run dev",
+  "redirects": [
+    {
+      "source": "/:path*",
+      "destination": "https://buildwithjbs.com/:path*",
+      "permanent": true,
+      "has": [
+        {
+          "type": "host",
+          "value": "jbsconstructiongroup.com"
+        }
+      ]
+    },
+    {
+      "source": "/:path*",
+      "destination": "https://buildwithjbs.com/:path*",
+      "permanent": true,
+      "has": [
+        {
+          "type": "host",
+          "value": "www.jbsconstructiongroup.com"
+        }
+      ]
+    }
+  ],
   "headers": [
     {
       "source": "/(.*)",
