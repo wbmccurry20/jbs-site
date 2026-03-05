@@ -2,6 +2,39 @@
 
 @import "tailwindcss";
 
+@theme {
+  /* JBS 2026 Brand Colors */
+  --color-jbs-blue: #00A0E0;
+  --color-jbs-dark: #1A1A1A;
+  --color-jbs-black: #000000;
+  --color-jbs-charcoal: #3E3832;
+  --color-jbs-gray: #B8B8B8;
+  --color-jbs-cream: #F0E8E0;
+  --color-jbs-beige: #D8D0C8;
+  --color-jbs-brown: #885830;
+  --color-jbs-sage: #788078;
+  --color-jbs-gold: #C0A870;
+  --color-jbs-light-blue: #C0D8F0;
+  --color-jbs-white: #FFFFFF;
+
+  /* Font Families */
+  --font-heading: "Barlow Condensed", sans-serif;
+  --font-body: "Roboto", sans-serif;
+
+  /* Animations */
+  --animate-slide-up: slideUp 0.5s ease-out;
+  --animate-fade-in: fadeIn 0.6s ease-out;
+
+  @keyframes slideUp {
+    from { transform: translateY(30px); opacity: 0; }
+    to   { transform: translateY(0);    opacity: 1; }
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+}
+
 /* Base body */
 body {
   font-family: 'Roboto', sans-serif;
