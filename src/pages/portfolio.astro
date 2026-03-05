@@ -2,120 +2,75 @@
 import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/Navbar';
 import FadeInSection from '../components/FadeInSection';
-import BeforeAfterSlider from '../components/BeforeAfterSlider';
 import Footer from '../components/Footer';
 
-const pageTitle = "Our Portfolio | JBS Construction Projects";
-const pageDescription = "Browse our portfolio of completed commercial construction projects including oil change facilities, car washes, restaurants, and retail centers nationwide.";
+const pageTitle = "Portfolio | JBS Construction";
+const pageDescription = "See our work — ground-up builds, remodels, and multi-site rollouts for national commercial brands.";
+
+const categories = ['All', 'Ground-Up', 'Remodels', 'Maintenance', 'Rollouts'];
 
 const projects = [
-	{
-		id: 1,
-		title: 'Take 5 Oil Change - Multi-Location Rollout',
-		location: 'Southeast Region',
-		category: 'Oil Change',
-		year: '2024',
-		sqft: '2,400 sq ft',
-		image: 'https://placehold.co/800x600/0088CC/ffffff?text=Take+5+Oil+Change',
-		description: 'Turn-key construction of 12 Take 5 Oil Change locations across the Southeast. Completed on schedule with consistent quality across all sites.',
-		features: ['12 locations', 'On-time delivery', 'Brand standard compliance', 'Site prep included'],
-	},
-	{
-		id: 2,
-		title: 'Express Car Wash Facility',
-		location: 'Charlotte, NC',
-		category: 'Car Wash',
-		year: '2024',
-		sqft: '3,800 sq ft',
-		image: 'https://placehold.co/800x600/00A1E0/ffffff?text=Express+Car+Wash',
-		description: 'Ground-up construction of express tunnel car wash with automated systems, vacuum stations, and customer waiting area.',
-		features: ['Express tunnel', 'Automated systems', 'Vacuum stations', 'Customer lounge'],
-	},
-	{
-		id: 3,
-		title: 'Fast-Casual Restaurant Build-Out',
-		location: 'Atlanta, GA',
-		category: 'Restaurant',
-		year: '2025',
-		sqft: '2,800 sq ft',
-		image: 'https://placehold.co/800x600/FF6B35/ffffff?text=Restaurant+Buildout',
-		description: 'Complete interior tenant improvement for fast-casual restaurant including kitchen equipment, dining area, and restrooms. Delivered in 8 weeks.',
-		features: ['Kitchen install', 'Dining for 80', '8-week timeline', 'Full MEP coordination'],
-	},
-	{
-		id: 4,
-		title: 'Retail Strip Center',
-		location: 'Raleigh, NC',
-		category: 'Retail',
-		year: '2024',
-		sqft: '12,000 sq ft',
-		image: 'https://placehold.co/800x600/6B7280/ffffff?text=Retail+Strip+Center',
-		description: 'Ground-up construction of 5-unit retail strip center with shared parking, storefront facades, and individual tenant spaces ready for build-out.',
-		features: ['5 retail units', 'Shared parking', 'Shell ready', 'Professional design'],
-	},
-	{
-		id: 5,
-		title: 'Commercial Site Development',
-		location: 'Columbia, SC',
-		category: 'Excavation',
-		year: '2024',
-		sqft: '3.2 acres',
-		image: 'https://placehold.co/800x600/D97706/ffffff?text=Site+Development',
-		description: 'Complete site preparation for commercial development including clearing, grading, utilities, stormwater management, and parking lot construction.',
-		features: ['Site clearing', 'Grading', 'Utility install', 'Stormwater mgmt'],
-	},
-	{
-		id: 6,
-		title: 'Valvoline Oil Change - 3-Site Package',
-		location: 'Florida Markets',
-		category: 'Oil Change',
-		year: '2025',
-		sqft: '2,200 sq ft',
-		image: 'https://placehold.co/800x600/0088CC/ffffff?text=Valvoline+Package',
-		description: 'Simultaneous construction of three Valvoline Instant Oil Change locations in Florida, coordinated by single project manager for consistency.',
-		features: ['3 locations', 'Single PM', 'Concurrent builds', 'Brand specs met'],
-	},
+	{ title: 'Project Name', category: 'Ground-Up', location: 'City, State', image: null },
+	{ title: 'Project Name', category: 'Remodels', location: 'City, State', image: null },
+	{ title: 'Project Name', category: 'Ground-Up', location: 'City, State', image: null },
+	{ title: 'Project Name', category: 'Rollouts', location: 'City, State', image: null },
+	{ title: 'Project Name', category: 'Remodels', location: 'City, State', image: null },
+	{ title: 'Project Name', category: 'Maintenance', location: 'City, State', image: null },
 ];
-
-const categories = ['All', 'Oil Change', 'Car Wash', 'Restaurant', 'Retail', 'Excavation'];
 ---
 
 <Layout title={pageTitle} description={pageDescription}>
 	<Navbar client:load />
 	
-	<!-- Hero Section -->
-	<section class="pt-32 pb-20 bg-gradient-to-br from-construction-secondary via-construction-dark to-black relative">
-		<!-- Blue Glow Overlay -->
-		<div class="absolute inset-0 bg-construction-primary/15 mix-blend-overlay pointer-events-none"></div>
-		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+	<!-- Hero -->
+	<section class="pt-32 pb-20 bg-jbs-dark relative overflow-hidden">
+		<div class="absolute inset-0">
+			<div class="absolute top-0 right-1/3 w-[500px] h-[500px] bg-white/[0.02] rotate-45 -translate-y-1/2"></div>
+		</div>
+		<div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 			<FadeInSection client:load>
-				<div class="text-center max-w-3xl mx-auto">
-					<div class="inline-block px-4 py-2 bg-construction-primary/20 text-construction-primary font-semibold rounded-full mb-6">
-						Our Work
-					</div>
-					<h1 class="text-5xl md:text-6xl font-display font-bold mb-6 text-white">
-						<span class="block text-construction-primary">Portfolio</span>
-					</h1>
-					<p class="text-xl text-gray-300">
-						Explore our completed projects across the nation. 
-						From oil change facilities to restaurant build-outs, see the quality and speed we deliver.
-					</p>
+				<div class="max-w-3xl">
+					<p class="font-heading text-sm uppercase tracking-widest text-jbs-blue mb-4">Our Work</p>
+					<h1 class="font-heading text-6xl md:text-7xl font-800 text-white mb-6">Portfolio</h1>
+					<p class="text-xl text-white/60 max-w-xl">Every project is proof. Here's what Built Different looks like on the ground.</p>
 				</div>
 			</FadeInSection>
 		</div>
 	</section>
 
-	<!-- Filter Section (Static for now - can be made interactive later) -->
-	<section class="py-12 bg-white border-b border-gray-200">
+	<!-- Stats Band -->
+	<section class="py-12 bg-jbs-blue">
+		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+			<div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+				{[
+					{ number: '120+', label: 'Projects Completed' },
+					{ number: '88+', label: 'Cities Nationwide' },
+					{ number: '490+', label: 'Years Combined Exp.' },
+					{ number: 'E2E', label: 'Project Management' },
+				].map((stat) => (
+					<div>
+						<p class="font-heading text-4xl md:text-5xl font-800 text-white">{stat.number}</p>
+						<p class="text-white/70 text-sm mt-1">{stat.label}</p>
+					</div>
+				))}
+			</div>
+		</div>
+	</section>
+
+	<!-- Filter Tabs (visual only — no JS filter yet) -->
+	<section class="pt-16 pb-8 bg-white">
 		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 			<div class="flex flex-wrap gap-3 justify-center">
-				{categories.map((category) => (
-					<button class={`px-6 py-2 rounded-full font-semibold transition-all ${
-						category === 'All'
-							? 'bg-construction-primary text-white'
-							: 'bg-white text-construction-dark hover:bg-construction-primary/10'
-					}`}>
-						{category}
+				{categories.map((cat, i) => (
+					<button
+						class:list={[
+							"px-6 py-2 font-heading text-sm uppercase tracking-wider transition-all",
+							i === 0
+								? "bg-jbs-dark text-white"
+								: "bg-jbs-beige text-jbs-charcoal hover:bg-jbs-dark hover:text-white"
+						]}
+					>
+						{cat}
 					</button>
 				))}
 			</div>
@@ -123,64 +78,26 @@ const categories = ['All', 'Oil Change', 'Car Wash', 'Restaurant', 'Retail', 'Ex
 	</section>
 
 	<!-- Projects Grid -->
-	<section class="py-20 bg-construction-light">
+	<section class="py-12 pb-24 bg-white">
 		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 			<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
 				{projects.map((project, index) => (
-					<FadeInSection client:load delay={index * 0.1}>
-						<div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-all group">
-							<div class="relative h-64 bg-gradient-to-br from-slate-600 to-slate-800 overflow-hidden">
-								<div class="absolute inset-0 flex items-center justify-center text-white text-6xl opacity-20">
-									{project.category === 'Oil Change' && '🚗'}
-									{project.category === 'Car Wash' && '🚙'}
-									{project.category === 'Restaurant' && '🍽️'}
-									{project.category === 'Retail' && '🏬'}
-									{project.category === 'Excavation' && '🚜'}
+					<FadeInSection client:load delay={index * 0.08}>
+						<div class="group cursor-pointer">
+							<div class="aspect-[4/3] bg-jbs-beige relative overflow-hidden mb-4">
+								<div class="absolute inset-0 flex items-center justify-center">
+									<span class="text-jbs-gray font-heading text-xs uppercase tracking-widest">Project Photo</span>
 								</div>
-								<div class="absolute top-4 right-4">
-									<span class="px-3 py-1 bg-construction-primary text-white rounded-full text-sm font-semibold">
-										{project.category}
-									</span>
+								<div class="absolute inset-0 bg-jbs-dark/0 group-hover:bg-jbs-dark/60 transition-all flex items-center justify-center">
+									<span class="text-white font-heading uppercase tracking-wider opacity-0 group-hover:opacity-100 transition-all text-sm">View Project</span>
 								</div>
 							</div>
-							
-							<div class="p-6">
-								<h3 class="text-2xl font-display font-bold text-construction-dark mb-2 group-hover:text-construction-primary transition-colors">
-									{project.title}
-								</h3>
-								<div class="flex items-center text-gray-700 text-sm mb-4">
-									<svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-										<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-										<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-									</svg>
-									{project.location}
-									<span class="mx-2">•</span>
-									{project.year}
+							<div class="flex items-start justify-between gap-4">
+								<div>
+									<h3 class="font-heading text-xl text-jbs-dark uppercase">{project.title}</h3>
+									<p class="text-jbs-charcoal/50 text-sm">{project.location}</p>
 								</div>
-								
-								<p class="text-gray-700 mb-4 line-clamp-3">
-									{project.description}
-								</p>
-								
-								<div class="mb-4">
-									<div class="text-sm font-semibold text-construction-dark mb-2">Key Features:</div>
-									<div class="flex flex-wrap gap-2">
-										{project.features.slice(0, 3).map((feature) => (
-											<span class="text-xs px-2 py-1 bg-construction-primary/10 text-construction-primary rounded">
-												{feature}
-											</span>
-										))}
-									</div>
-								</div>
-								
-								<div class="pt-4 border-t border-gray-200 flex justify-between items-center">
-									<div class="text-sm text-gray-700">
-										<span class="font-semibold text-construction-dark">{project.sqft}</span>
-									</div>
-									<button class="text-construction-primary font-semibold hover:underline">
-										View Details →
-									</button>
-								</div>
+								<span class="text-xs font-heading uppercase tracking-wider text-jbs-blue bg-jbs-blue/10 px-3 py-1 shrink-0">{project.category}</span>
 							</div>
 						</div>
 					</FadeInSection>
@@ -189,118 +106,21 @@ const categories = ['All', 'Oil Change', 'Car Wash', 'Restaurant', 'Retail', 'Ex
 		</div>
 	</section>
 
-	<!-- Before/After Section -->
-	<section class="py-20 bg-white">
-		<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-			<FadeInSection client:load>
-				<div class="text-center mb-12">
-					<h2 class="text-4xl md:text-5xl font-display font-bold text-construction-dark mb-4">
-						Transformation <span class="text-construction-primary">Gallery</span>
-					</h2>
-					<p class="text-xl text-gray-700">
-						See the dramatic difference our work makes
-					</p>
-				</div>
-			</FadeInSection>
-
-			<div class="space-y-12">
-				<FadeInSection client:load delay={0.2}>
-					<div>
-						<h3 class="text-2xl font-display font-bold text-construction-dark mb-4">
-							Take 5 Oil Change - Ground-Up Construction
-						</h3>
-						<BeforeAfterSlider
-							client:load
-						beforeImage="https://placehold.co/1200x800/8B7355/ffffff?text=Before+-+Raw+Site"
-						afterImage="https://placehold.co/1200x800/0088CC/ffffff?text=After+-+Operational+Facility"
-							beforeAlt="Empty lot before construction"
-							afterAlt="Completed Take 5 Oil Change facility"
-						/>
-					</div>
-				</FadeInSection>
-
-				<FadeInSection client:load delay={0.3}>
-					<div>
-						<h3 class="text-2xl font-display font-bold text-construction-dark mb-4">
-							Restaurant Tenant Build-Out - Fast-Casual Concept
-						</h3>
-						<BeforeAfterSlider
-							client:load
-						beforeImage="https://placehold.co/1200x800/D4C4B0/ffffff?text=Before+-+Shell+Space"
-						afterImage="https://placehold.co/1200x800/FF6B35/ffffff?text=After+-+Ready+for+Service"
-							beforeAlt="Empty retail space before build-out"
-							afterAlt="Completed restaurant ready for opening"
-						/>
-					</div>
-				</FadeInSection>
-			</div>
+	<!-- Tagline Band -->
+	<section class="py-16 bg-jbs-dark">
+		<div class="max-w-4xl mx-auto px-4 text-center">
+			<h2 class="font-heading text-4xl md:text-5xl font-800 text-white uppercase tracking-wide">Every Build Tells a Story.</h2>
+			<p class="text-white/40 mt-4 text-lg">Yours is next.</p>
 		</div>
 	</section>
 
-	<!-- Stats Section -->
-	<section class="py-20 bg-construction-light">
-		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+	<!-- CTA -->
+	<section class="py-20 bg-jbs-cream">
+		<div class="max-w-4xl mx-auto px-4 text-center">
 			<FadeInSection client:load>
-				<div class="text-center mb-12">
-					<div class="inline-block px-4 py-2 bg-construction-primary/20 text-construction-primary font-semibold rounded-full mb-4">
-						By The Numbers
-					</div>
-					<h2 class="text-4xl md:text-5xl font-display font-bold text-construction-dark mb-4">
-						Our Track <span class="text-construction-primary">Record</span>
-					</h2>
-					<p class="text-xl text-gray-700">
-						Numbers that speak to our experience and quality
-					</p>
-				</div>
-			</FadeInSection>
-
-			<div class="grid md:grid-cols-4 gap-8">
-				{[
-					{ number: '500+', label: 'Projects Completed', icon: '🏗️' },
-					{ number: '20+', label: 'Years Experience', icon: '📅' },
-					{ number: '98%', label: 'Client Satisfaction', icon: '⭐' },
-					{ number: '$150M+', label: 'Total Project Value', icon: '💰' },
-				].map((stat, index) => (
-					<FadeInSection client:load delay={index * 0.1}>
-						<div class="text-center">
-							<div class="text-6xl mb-4">{stat.icon}</div>
-							<div class="text-5xl font-bold text-construction-primary mb-2">
-								{stat.number}
-							</div>
-						<div class="text-gray-700 font-semibold">{stat.label}</div>
-						</div>
-					</FadeInSection>
-				))}
-			</div>
-		</div>
-	</section>
-
-	<!-- CTA Section -->
-	<section class="py-20 bg-gradient-to-br from-construction-secondary via-construction-dark to-black relative">
-		<!-- Blue Glow Overlay -->
-		<div class="absolute inset-0 bg-construction-primary/15 mix-blend-overlay pointer-events-none"></div>
-		<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-			<FadeInSection client:load>
-				<h2 class="text-4xl md:text-5xl font-display font-bold text-white mb-6">
-					Ready for Your Next <span class="text-construction-primary">Commercial Project</span>?
-				</h2>
-				<p class="text-xl text-gray-300 mb-8">
-					Let's build something great together. Contact us to discuss your next oil change facility, car wash, or restaurant build-out.
-				</p>
-				<div class="flex flex-col sm:flex-row gap-4 justify-center">
-					<a
-						href="/contact"
-						class="px-8 py-4 bg-construction-primary text-white rounded-lg font-semibold text-lg hover:bg-blue-600 hover:shadow-2xl hover:scale-105 transition-all"
-					>
-						Get Free Quote
-					</a>
-					<a
-						href="/services"
-						class="px-8 py-4 border-2 border-construction-primary text-construction-primary rounded-lg font-semibold text-lg hover:bg-construction-primary hover:text-white transition-all"
-					>
-						View Services
-					</a>
-				</div>
+				<h2 class="font-heading text-5xl md:text-6xl font-800 text-jbs-dark mb-6">Got a Project?</h2>
+				<p class="text-jbs-charcoal/60 text-lg mb-10 max-w-xl mx-auto">Let's talk about how JBS can deliver for your next build.</p>
+				<a href="/contact" class="inline-block px-10 py-4 bg-jbs-blue text-white font-heading text-lg uppercase tracking-wider hover:bg-jbs-blue/90 transition-all">Get a Quote</a>
 			</FadeInSection>
 		</div>
 	</section>

@@ -3,21 +3,30 @@ export default {
   content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
   theme: {
     extend: {
-      // 🎨 JBS BRAND COLORS - Based on logo
       colors: {
-        // JBS "Built Different" brand palette
-        construction: {
-          primary: '#0088CC',     // JBS blue from logo triangle - primary actions, highlights
-          secondary: '#000000',   // Black from logo - headers, main text
-          accent: '#0088CC',      // JBS blue - emphasis and interactive elements
-          dark: '#000000',        // Pure black - text, strong contrast
-          light: '#FFFFFF',       // Pure white - backgrounds
-          steel: '#6B7280',       // Gray-500 - secondary text, like "BUILT DIFFERENT"
+        // JBS 2026 Rebrand Palette
+        jbs: {
+          // Primary Palette
+          black: '#000000',
+          charcoal: '#3E3832',
+          gray: '#B8B8B8',
+          cream: '#F0E8E0',
+          // Secondary Palette
+          brown: '#885830',
+          sage: '#788078',
+          blue: '#00A0E0',       // Primary accent — CTAs, logo highlight
+          'light-blue': '#C0D8F0',
+          gold: '#C0A870',
+          beige: '#D8D0C8',
+          'light-cream': '#EDE5DD',
+          // Functional
+          dark: '#1A1A1A',       // Hero / dark sections background
+          white: '#FFFFFF',
         },
       },
       fontFamily: {
-        sans: ['Inter', 'system-ui', 'sans-serif'],
-        display: ['Space Grotesk', 'system-ui', 'sans-serif'],
+        heading: ['"Barlow Condensed"', 'sans-serif'],
+        body: ['Roboto', 'sans-serif'],
       },
       animation: {
         'slide-up': 'slideUp 0.5s ease-out',

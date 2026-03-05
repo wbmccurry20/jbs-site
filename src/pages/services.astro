@@ -4,426 +4,128 @@ import Navbar from '../components/Navbar';
 import FadeInSection from '../components/FadeInSection';
 import Footer from '../components/Footer';
 
-const pageTitle = "Commercial Construction Services | JBS Construction";
-const pageDescription = "Comprehensive commercial construction services including oil change facilities, car washes, restaurant build-outs, and retail construction nationwide.";
+const pageTitle = "Services | JBS Construction";
+const pageDescription = "Full-spectrum commercial construction services — new builds, remodels, and maintenance programs for national brands.";
+
+const services = [
+	{
+		title: 'Ground-Up Construction',
+		description: 'Full new-build execution for commercial properties. From site prep to punch list, one team owns it all.',
+		features: ['Site preparation & grading', 'Foundation & structural', 'Full MEP coordination', 'Turnkey delivery'],
+	},
+	{
+		title: 'Remodels + Renovations',
+		description: 'Brand refreshes, relocations, and full interior gut-renovations — on schedule, on budget, every time.',
+		features: ['Interior demolition', 'Brand standard buildouts', 'ADA compliance updates', 'Phased & occupied renovations'],
+	},
+	{
+		title: 'Maintenance Programs',
+		description: 'Ongoing facility maintenance that protects your investment and keeps your locations running.',
+		features: ['Preventive maintenance', 'Emergency response', 'Vendor management', 'Multi-site programs'],
+	},
+	{
+		title: 'Tenant Improvements',
+		description: 'Fast-track TI buildouts that meet brand specs and landlord requirements without the runaround.',
+		features: ['Space planning', 'Permit management', 'Landlord coordination', 'Fast-track scheduling'],
+	},
+	{
+		title: 'Project Management',
+		description: 'Dedicated PMs who own your project end-to-end — transparent updates, proactive problem-solving.',
+		features: ['Dedicated project managers', 'Real-time reporting', 'Budget tracking', 'Schedule management'],
+	},
+	{
+		title: 'National Rollouts',
+		description: 'Multi-site new builds and renovations executed consistently from coast to coast with one point of contact.',
+		features: ['Nationwide coverage', 'Consistent quality', 'Single point of contact', 'Scalable execution'],
+	},
+];
 ---
 
 <Layout title={pageTitle} description={pageDescription}>
 	<Navbar client:load />
 	
-	<!-- Hero Section -->
-	<section class="pt-32 pb-20 bg-gradient-to-br from-construction-secondary via-construction-dark to-black relative">
-		<!-- Blue Glow Overlay -->
-		<div class="absolute inset-0 bg-construction-primary/15 mix-blend-overlay pointer-events-none"></div>
-		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+	<!-- Hero -->
+	<section class="pt-32 pb-20 bg-jbs-dark relative overflow-hidden">
+		<div class="absolute inset-0">
+			<div class="absolute top-0 left-1/3 w-[600px] h-[600px] bg-white/[0.02] rotate-45 -translate-y-1/2"></div>
+		</div>
+		<div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 			<FadeInSection client:load>
-				<div class="text-center max-w-3xl mx-auto">
-					<div class="inline-block px-4 py-2 bg-construction-primary/20 text-construction-primary font-semibold rounded-full mb-6">
-						Our Services
-					</div>
-					<h1 class="text-5xl md:text-6xl font-display font-bold mb-6 text-white">
-						Commercial Construction
-						<span class="block text-construction-primary mt-2">Solutions</span>
-					</h1>
-					<p class="text-xl text-gray-300">
-						Specialized in multi-unit rollouts for national brands.
-						From concept to completion, we deliver on time and on budget.
-					</p>
+				<div class="max-w-3xl">
+					<p class="font-heading text-sm uppercase tracking-widest text-jbs-blue mb-4">What We Do</p>
+					<h1 class="font-heading text-6xl md:text-7xl font-800 text-white mb-6">Our Services</h1>
+					<p class="text-xl text-white/60 max-w-xl">Full-spectrum commercial construction — from ground-up builds to ongoing maintenance, all under one roof.</p>
 				</div>
 			</FadeInSection>
 		</div>
 	</section>
 
 	<!-- Services Grid -->
-	<section class="py-20 bg-white">
+	<section class="py-24 bg-white">
 		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-			<div class="grid md:grid-cols-2 gap-8">
-				<!-- Oil Change Facilities -->
-				<FadeInSection client:load delay={0.1}>
-					<div id="oil-change" class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow border-2 border-construction-primary/20 hover:border-construction-primary">
-						<div class="h-48 bg-gradient-to-br from-construction-primary to-blue-600 flex items-center justify-center">
-							<div class="text-7xl">🚗</div>
-						</div>
-						<div class="p-8">
-							<h2 class="text-3xl font-display font-bold text-construction-dark mb-4">
-								Oil Change Facilities
-							</h2>
-							<p class="text-gray-700 mb-6">
-								Turn-key construction for quick lube facilities. Trusted by national brands for our speed,
-								quality, and expertise in this specialized market.
-							</p>
-							<h3 class="font-semibold text-construction-dark mb-3">Brands We Work With:</h3>
-							<ul class="space-y-2 mb-6">
-								<li class="flex items-start">
-									<svg class="w-5 h-5 text-construction-primary mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-										<path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
-									</svg>
-									<span class="text-gray-700">Take 5 Oil Change</span>
-								</li>
-								<li class="flex items-start">
-									<svg class="w-5 h-5 text-construction-primary mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-										<path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
-									</svg>
-									<span class="text-gray-700">Valvoline Instant Oil Change</span>
-								</li>
-								<li class="flex items-start">
-									<svg class="w-5 h-5 text-construction-primary mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-										<path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
-									</svg>
-									<span class="text-gray-700">Jiffy Lube</span>
-								</li>
-								<li class="flex items-start">
-									<svg class="w-5 h-5 text-construction-primary mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-										<path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
-									</svg>
-									<span class="text-gray-700">Quick lube franchises nationwide</span>
-								</li>
+			<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+				{services.map((service, index) => (
+					<FadeInSection client:load delay={index * 0.08}>
+						<div class="group bg-white border border-jbs-beige p-8 hover:border-jbs-blue/30 hover:shadow-xl transition-all h-full flex flex-col">
+							<h3 class="font-heading text-2xl text-jbs-dark uppercase mb-3">{service.title}</h3>
+							<p class="text-jbs-charcoal/70 text-sm leading-relaxed mb-6">{service.description}</p>
+							<ul class="mt-auto space-y-2">
+								{service.features.map((feature) => (
+									<li class="flex items-center gap-2 text-sm text-jbs-charcoal/60">
+										<span class="w-1.5 h-1.5 bg-jbs-blue shrink-0"></span>
+										{feature}
+									</li>
+								))}
 							</ul>
-							<a href="/contact" class="block text-center px-6 py-3 bg-construction-primary text-white rounded-lg font-semibold hover:bg-blue-600 hover:scale-105 transition-all">
-								Learn More
-							</a>
 						</div>
-					</div>
-				</FadeInSection>
-
-				<!-- Car Wash Construction -->
-				<FadeInSection client:load delay={0.2}>
-					<div id="car-wash" class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow border-2 border-construction-primary/20 hover:border-construction-primary">
-						<div class="h-48 bg-gradient-to-br from-blue-500 to-construction-primary flex items-center justify-center">
-							<div class="text-7xl">🚙</div>
-						</div>
-						<div class="p-8">
-							<h2 class="text-3xl font-display font-bold text-construction-dark mb-4">
-								Car Wash Construction
-							</h2>
-							<p class="text-gray-700 mb-6">
-								Full-service and express car wash facilities. We understand the unique requirements
-								of automated wash systems and tunnel construction.
-							</p>
-							<h3 class="font-semibold text-construction-dark mb-3">What We Build:</h3>
-							<ul class="space-y-2 mb-6">
-								<li class="flex items-start">
-									<svg class="w-5 h-5 text-construction-primary mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-										<path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
-									</svg>
-									<span class="text-gray-700">Express tunnel car washes</span>
-								</li>
-								<li class="flex items-start">
-									<svg class="w-5 h-5 text-construction-primary mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-										<path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
-									</svg>
-									<span class="text-gray-700">Full-service wash facilities</span>
-								</li>
-								<li class="flex items-start">
-									<svg class="w-5 h-5 text-construction-primary mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-										<path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
-									</svg>
-									<span class="text-gray-700">Detail centers and vacuum stations</span>
-								</li>
-								<li class="flex items-start">
-									<svg class="w-5 h-5 text-construction-primary mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-										<path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
-									</svg>
-									<span class="text-gray-700">Site work and drainage systems</span>
-								</li>
-							</ul>
-							<a href="/contact" class="block text-center px-6 py-3 bg-construction-primary text-white rounded-lg font-semibold hover:bg-blue-600 hover:scale-105 transition-all">
-								Learn More
-							</a>
-						</div>
-					</div>
-				</FadeInSection>
-
-				<!-- Restaurant Build-Outs -->
-				<FadeInSection client:load delay={0.3}>
-					<div id="restaurants" class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow border-2 border-construction-primary/20 hover:border-construction-primary">
-						<div class="h-48 bg-gradient-to-br from-orange-500 to-red-600 flex items-center justify-center">
-							<div class="text-7xl">🍽️</div>
-						</div>
-						<div class="p-8">
-							<h2 class="text-3xl font-display font-bold text-construction-dark mb-4">
-								Restaurant Build-Outs
-							</h2>
-							<p class="text-gray-700 mb-6">
-								Fast-casual and QSR construction expertise. We know the tight timelines and
-								specialized requirements of restaurant construction.
-							</p>
-							<h3 class="font-semibold text-construction-dark mb-3">Specialties:</h3>
-							<ul class="space-y-2 mb-6">
-								<li class="flex items-start">
-									<svg class="w-5 h-5 text-construction-primary mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-										<path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
-									</svg>
-									<span class="text-gray-700">QSR ground-up construction</span>
-								</li>
-								<li class="flex items-start">
-									<svg class="w-5 h-5 text-construction-primary mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-										<path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
-									</svg>
-									<span class="text-gray-700">Tenant improvement projects</span>
-								</li>
-								<li class="flex items-start">
-									<svg class="w-5 h-5 text-construction-primary mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-										<path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
-									</svg>
-									<span class="text-gray-700">Kitchen equipment installation</span>
-								</li>
-								<li class="flex items-start">
-									<svg class="w-5 h-5 text-construction-primary mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-										<path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
-									</svg>
-									<span class="text-gray-700">Multi-location franchise rollouts</span>
-								</li>
-							</ul>
-							<a href="/contact" class="block text-center px-6 py-3 bg-construction-primary text-white rounded-lg font-semibold hover:bg-blue-600 hover:scale-105 transition-all">
-								Learn More
-							</a>
-						</div>
-					</div>
-				</FadeInSection>
-
-				<!-- Commercial Excavation -->
-				<FadeInSection client:load delay={0.4}>
-					<div id="excavation" class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow border-2 border-construction-primary/20 hover:border-construction-primary">
-						<div class="h-48 bg-gradient-to-br from-yellow-600 to-orange-700 flex items-center justify-center">
-							<div class="text-7xl">🚜</div>
-						</div>
-						<div class="p-8">
-							<h2 class="text-3xl font-display font-bold text-construction-dark mb-4">
-								Commercial Excavation
-							</h2>
-							<p class="text-gray-700 mb-6">
-								Complete site preparation and earthwork services. We handle the foundation
-								so your commercial project starts on solid ground.
-							</p>
-							<h3 class="font-semibold text-construction-dark mb-3">Services Include:</h3>
-							<ul class="space-y-2 mb-6">
-								<li class="flex items-start">
-									<svg class="w-5 h-5 text-construction-primary mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-										<path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
-									</svg>
-									<span class="text-gray-700">Site clearing and grading</span>
-								</li>
-								<li class="flex items-start">
-									<svg class="w-5 h-5 text-construction-primary mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-										<path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
-									</svg>
-									<span class="text-gray-700">Foundation excavation</span>
-								</li>
-								<li class="flex items-start">
-									<svg class="w-5 h-5 text-construction-primary mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-										<path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
-									</svg>
-									<span class="text-gray-700">Utility installation and trenching</span>
-								</li>
-								<li class="flex items-start">
-									<svg class="w-5 h-5 text-construction-primary mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-										<path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
-									</svg>
-									<span class="text-gray-700">Drainage and erosion control</span>
-								</li>
-							</ul>
-							<a href="/contact" class="block text-center px-6 py-3 bg-construction-primary text-white rounded-lg font-semibold hover:bg-blue-600 hover:scale-105 transition-all">
-								Learn More
-							</a>
-						</div>
-					</div>
-				</FadeInSection>
-
-				<!-- Retail & Strip Centers -->
-				<FadeInSection client:load delay={0.5}>
-					<div id="retail" class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow border-2 border-construction-primary/20 hover:border-construction-primary">
-						<div class="h-48 bg-gradient-to-br from-purple-600 to-pink-600 flex items-center justify-center">
-							<div class="text-7xl">🏬</div>
-						</div>
-						<div class="p-8">
-							<h2 class="text-3xl font-display font-bold text-construction-dark mb-4">
-								Retail & Strip Centers
-							</h2>
-							<p class="text-gray-700 mb-6">
-								Ground-up construction and tenant improvements for retail developments.
-								We build the spaces that drive commerce.
-							</p>
-							<h3 class="font-semibold text-construction-dark mb-3">Capabilities:</h3>
-							<ul class="space-y-2 mb-6">
-								<li class="flex items-start">
-									<svg class="w-5 h-5 text-construction-primary mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-										<path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 1 0 011.414 0z" clip-rule="evenodd" />
-									</svg>
-									<span class="text-gray-700">Strip mall construction</span>
-								</li>
-								<li class="flex items-start">
-									<svg class="w-5 h-5 text-construction-primary mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-										<path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
-									</svg>
-									<span class="text-gray-700">Tenant build-outs</span>
-								</li>
-								<li class="flex items-start">
-									<svg class="w-5 h-5 text-construction-primary mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-										<path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
-									</svg>
-									<span class="text-gray-700">Storefront renovations</span>
-								</li>
-								<li class="flex items-start">
-									<svg class="w-5 h-5 text-construction-primary mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-										<path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
-									</svg>
-									<span class="text-gray-700">Parking lot and site improvements</span>
-								</li>
-							</ul>
-							<a href="/contact" class="block text-center px-6 py-3 bg-construction-primary text-white rounded-lg font-semibold hover:bg-blue-600 hover:scale-105 transition-all">
-								Learn More
-							</a>
-						</div>
-					</div>
-				</FadeInSection>
-
-				<!-- Project Management -->
-				<FadeInSection client:load delay={0.6}>
-					<div id="project-mgmt" class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow border-2 border-construction-primary/20 hover:border-construction-primary">
-						<div class="h-48 bg-gradient-to-br from-green-600 to-teal-600 flex items-center justify-center">
-							<div class="text-7xl">📋</div>
-						</div>
-						<div class="p-8">
-							<h2 class="text-3xl font-display font-bold text-construction-dark mb-4">
-								Project Management
-							</h2>
-							<p class="text-gray-700 mb-6">
-								Full-service general contracting with dedicated project managers.
-								Perfect for multi-site rollouts and national brand expansions.
-							</p>
-							<h3 class="font-semibold text-construction-dark mb-3">What We Provide:</h3>
-							<ul class="space-y-2 mb-6">
-								<li class="flex items-start">
-									<svg class="w-5 h-5 text-construction-primary mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-										<path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
-									</svg>
-									<span class="text-gray-700">Dedicated project managers</span>
-								</li>
-								<li class="flex items-start">
-									<svg class="w-5 h-5 text-construction-primary mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-										<path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
-									</svg>
-									<span class="text-gray-700">Multi-site coordination</span>
-								</li>
-								<li class="flex items-start">
-									<svg class="w-5 h-5 text-construction-primary mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-										<path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
-									</svg>
-									<span class="text-gray-700">Budget tracking and reporting</span>
-								</li>
-								<li class="flex items-start">
-									<svg class="w-5 h-5 text-construction-primary mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-										<path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
-									</svg>
-									<span class="text-gray-700">Proactive communication</span>
-								</li>
-							</ul>
-							<a href="/contact" class="block text-center px-6 py-3 bg-construction-primary text-white rounded-lg font-semibold hover:bg-blue-600 hover:scale-105 transition-all">
-								Learn More
-							</a>
-						</div>
-					</div>
-				</FadeInSection>
+					</FadeInSection>
+				))}
 			</div>
 		</div>
 	</section>
 
-	<!-- Why Choose JBS Section -->
-	<section class="py-20 bg-construction-light">
+	<!-- Process -->
+	<section class="py-24 bg-jbs-cream">
 		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 			<FadeInSection client:load>
 				<div class="text-center mb-16">
-					<h2 class="text-4xl md:text-5xl font-display font-bold text-construction-dark mb-4">
-						Why National Brands Choose <span class="text-construction-primary">JBS</span>
-					</h2>
-					<p class="text-xl text-gray-700 max-w-3xl mx-auto">
-						We understand the unique demands of commercial construction and multi-unit rollouts
-					</p>
+					<p class="font-heading text-sm uppercase tracking-widest text-jbs-blue mb-3">Our Process</p>
+					<h2 class="font-heading text-5xl md:text-6xl font-800 text-jbs-dark">How We Build</h2>
 				</div>
 			</FadeInSection>
-
-			<div class="grid md:grid-cols-3 gap-8">
-				<FadeInSection client:load delay={0.1}>
-					<div class="bg-white p-8 rounded-xl shadow-md hover:shadow-xl transition-shadow">
-						<div class="w-16 h-16 bg-construction-primary/10 rounded-full flex items-center justify-center mb-6">
-							<svg class="w-8 h-8 text-construction-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
-							</svg>
+			<div class="grid md:grid-cols-4 gap-8">
+				{[
+					{ step: '01', title: 'Discovery', desc: 'Scope alignment, site assessment, and clear expectations — before a single dollar is spent.' },
+					{ step: '02', title: 'Pre-Construction', desc: 'Budgeting, permitting, scheduling, and vendor coordination — all buttoned up.' },
+					{ step: '03', title: 'Execution', desc: 'Dedicated PM on-site. Proactive updates. Problems solved before you hear about them.' },
+					{ step: '04', title: 'Delivery', desc: 'Punch list, final walk, and turnover — clean, complete, and on time.' },
+				].map((item, index) => (
+					<FadeInSection client:load delay={index * 0.1}>
+						<div class="text-center">
+							<span class="font-heading text-6xl font-800 text-jbs-blue/20">{item.step}</span>
+							<h3 class="font-heading text-xl text-jbs-dark uppercase mt-2 mb-3">{item.title}</h3>
+							<p class="text-jbs-charcoal/60 text-sm leading-relaxed">{item.desc}</p>
 						</div>
-						<h3 class="text-xl font-display font-bold text-construction-dark mb-3">
-							Fast Turnaround
-						</h3>
-						<p class="text-gray-700">
-							We know your timeline is critical. Our efficient processes and experienced teams
-							deliver projects on schedule without sacrificing quality.
-						</p>
-					</div>
-				</FadeInSection>
-
-				<FadeInSection client:load delay={0.2}>
-					<div class="bg-white p-8 rounded-xl shadow-md hover:shadow-xl transition-shadow">
-						<div class="w-16 h-16 bg-construction-primary/10 rounded-full flex items-center justify-center mb-6">
-							<svg class="w-8 h-8 text-construction-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.040A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-							</svg>
-						</div>
-						<h3 class="text-xl font-display font-bold text-construction-dark mb-3">
-							Proven Track Record
-						</h3>
-						<p class="text-gray-700">
-							Trusted by industry-leading brands for consistent quality and reliability
-							across hundreds of commercial projects nationwide.
-						</p>
-					</div>
-				</FadeInSection>
-
-				<FadeInSection client:load delay={0.3}>
-					<div class="bg-white p-8 rounded-xl shadow-md hover:shadow-xl transition-shadow">
-						<div class="w-16 h-16 bg-construction-primary/10 rounded-full flex items-center justify-center mb-6">
-							<svg class="w-8 h-8 text-construction-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-							</svg>
-						</div>
-						<h3 class="text-xl font-display font-bold text-construction-dark mb-3">
-							Single Point of Contact
-						</h3>
-						<p class="text-gray-700">
-							One dedicated project manager for all your locations. Clear communication,
-							consistent quality, and accountability you can count on.
-						</p>
-					</div>
-				</FadeInSection>
+					</FadeInSection>
+				))}
 			</div>
 		</div>
 	</section>
 
-	<!-- CTA Section -->
-	<section class="py-20 bg-gradient-to-br from-construction-secondary via-construction-dark to-black relative">
-		<!-- Blue Glow Overlay -->
-		<div class="absolute inset-0 bg-construction-primary/15 mix-blend-overlay pointer-events-none"></div>
-		<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+	<!-- Built Different Band -->
+	<section class="py-16 bg-jbs-blue">
+		<div class="max-w-4xl mx-auto px-4 text-center">
+			<h2 class="font-heading text-4xl md:text-5xl font-800 text-white uppercase tracking-wide">One Call. One Team. Done Right.</h2>
+		</div>
+	</section>
+
+	<!-- CTA -->
+	<section class="py-20 bg-jbs-dark">
+		<div class="max-w-4xl mx-auto px-4 text-center">
 			<FadeInSection client:load>
-				<h2 class="text-4xl md:text-5xl font-display font-bold text-white mb-6">
-					Ready to Build <span class="text-construction-primary">Different</span>?
-				</h2>
-				<p class="text-xl text-gray-300 mb-8">
-					Let's discuss your commercial construction needs and how we can help.
-				</p>
-				<div class="flex flex-col sm:flex-row gap-4 justify-center">
-					<a
-						href="/contact"
-						class="px-8 py-4 bg-construction-primary text-white rounded-lg font-semibold text-lg hover:bg-blue-600 hover:shadow-2xl hover:scale-105 transition-all"
-					>
-						Let's Discuss Your Project
-					</a>
-					<a
-						href="/portfolio"
-						class="px-8 py-4 border-2 border-construction-primary text-construction-primary rounded-lg font-semibold text-lg hover:bg-construction-primary hover:text-white transition-all"
-					>
-						View Our Work
-					</a>
-				</div>
+				<h2 class="font-heading text-5xl md:text-6xl font-800 text-white mb-6">Ready to Build?</h2>
+				<p class="text-white/50 text-lg mb-10 max-w-xl mx-auto">Tell us about your next project and we'll show you what Built Different looks like.</p>
+				<a href="/contact" class="inline-block px-10 py-4 bg-jbs-blue text-white font-heading text-lg uppercase tracking-wider hover:bg-jbs-blue/90 transition-all">Get a Quote</a>
 			</FadeInSection>
 		</div>
 	</section>

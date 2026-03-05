@@ -23,7 +23,6 @@ export default function Navbar({ client }: NavbarProps) {
     { name: 'Services', href: '/services' },
     { name: 'Portfolio', href: '/portfolio' },
     { name: 'About', href: '/about' },
-    { name: 'Blog', href: '/blog' },
     { name: 'Contact', href: '/contact' },
   ];
 
@@ -33,18 +32,18 @@ export default function Navbar({ client }: NavbarProps) {
       animate={{ y: 0 }}
       className={`fixed w-full top-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? 'bg-white/95 backdrop-blur-md shadow-lg border-b-2 border-construction-primary/20'
-          : 'bg-white/90 backdrop-blur-md'
+          ? 'bg-jbs-dark/95 backdrop-blur-md shadow-lg'
+          : 'bg-transparent'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
-          <a href="/" className="flex items-center space-x-2 group">
+          <a href="/" className="flex items-center group">
             <img 
-              src="/jbs-logo.png" 
+              src="/jbs_new_logo.jpg.png" 
               alt="JBS Construction - Built Different" 
-              className="h-12 w-auto group-hover:scale-105 transition-transform"
+              className="h-12 w-auto group-hover:scale-105 transition-transform logo-dark-bg"
             />
           </a>
 
@@ -54,47 +53,30 @@ export default function Navbar({ client }: NavbarProps) {
               <a
                 key={link.name}
                 href={link.href}
-                className="px-4 py-2 rounded-lg text-construction-dark hover:text-construction-primary hover:bg-construction-primary/10 transition-all font-medium"
+                className="px-4 py-2 text-white/80 hover:text-jbs-blue transition-colors font-heading text-sm uppercase tracking-wider"
               >
                 {link.name}
               </a>
             ))}
             <a
               href="/contact"
-              className="ml-4 px-6 py-2 bg-construction-primary text-white rounded-lg font-semibold hover:bg-blue-600 hover:shadow-lg hover:scale-105 transition-all"
+              className="ml-6 px-6 py-2.5 bg-jbs-blue text-white font-heading text-sm uppercase tracking-wider hover:bg-jbs-blue/90 hover:shadow-lg hover:shadow-jbs-blue/25 transition-all"
             >
-              Contact
+              Get a Quote &rarr;
             </a>
           </div>
 
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden p-2 rounded-lg text-construction-dark hover:bg-construction-primary/10 transition-colors"
+            className="md:hidden p-2 text-white hover:text-jbs-blue transition-colors"
             aria-label="Toggle menu"
           >
-            <svg
-              className="w-6 h-6"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              {isMobileMenuOpen ? (
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              ) : (
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M4 6h16M4 12h16M4 18h16"
-                />
-              )}
-            </svg>
+            {isMobileMenuOpen ? (
+              <span className="font-heading text-sm uppercase tracking-wider">Close</span>
+            ) : (
+              <span className="font-heading text-sm uppercase tracking-wider">Menu</span>
+            )}
           </button>
         </div>
 
@@ -104,22 +86,22 @@ export default function Navbar({ client }: NavbarProps) {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden py-4 bg-white border-t border-gray-200"
+            className="md:hidden py-4 border-t border-white/10"
           >
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
-                className="block px-4 py-3 text-construction-dark hover:bg-construction-primary/10 hover:text-construction-primary transition-colors font-medium"
+                className="block px-4 py-3 text-white/80 hover:text-jbs-blue transition-colors font-heading text-sm uppercase tracking-wider"
               >
                 {link.name}
               </a>
             ))}
             <a
               href="/contact"
-              className="block mx-4 mt-4 px-6 py-3 bg-construction-primary text-white rounded-lg font-semibold text-center hover:bg-blue-600 transition-all"
+              className="block mx-4 mt-4 px-6 py-3 bg-jbs-blue text-white font-heading text-sm uppercase tracking-wider text-center hover:bg-jbs-blue/90 transition-all"
             >
-              Contact
+              Get a Quote &rarr;
             </a>
           </motion.div>
         )}
