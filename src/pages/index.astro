@@ -18,8 +18,12 @@ import Footer from '../components/Footer';
 			<div class="absolute bottom-1/4 left-0 w-[300px] h-[300px] bg-jbs-blue/[0.05] rotate-45 -translate-x-1/2"></div>
 		</div>
 
-		<!-- Hero photo overlay placeholder — replace with real site photo -->
-		<div class="absolute inset-0 bg-gradient-to-r from-jbs-dark via-jbs-dark/95 to-jbs-dark/70"></div>
+		<!-- Hero background photo -->
+		<div class="absolute inset-0">
+			<img src="/images/projects/Draper_1.png" alt="JBS Construction — Mister Car Wash, Draper UT" class="w-full h-full object-cover object-center" loading="eager" />
+		</div>
+		<!-- Gradient overlay -->
+		<div class="absolute inset-0 bg-gradient-to-r from-jbs-dark via-jbs-dark/90 to-jbs-dark/50"></div>
 
 		<div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 w-full">
 			<div class="grid lg:grid-cols-2 gap-12 items-center">
@@ -106,19 +110,26 @@ import Footer from '../components/Footer';
 				</div>
 			</FadeInSection>
 
-			<!-- Project Grid — placeholder cards -->
+			<!-- Featured project cards -->
 			<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-				{[1, 2, 3].map((i) => (
+				{[
+					{ title: 'Take 5 Oil Change', location: 'Colorado Springs, CO', category: 'Ground-Up', image: '/images/projects/take5_coSprings.jpg' },
+					{ title: 'Mister Car Wash', location: 'Draper, UT', category: 'Ground-Up', image: '/images/projects/Draper_2.png' },
+					{ title: 'Ray-Corf Recreation Park', location: 'Burnsville, NC', category: 'Ground-Up', image: '/images/projects/rayCort_park.jpg' },
+				].map((project) => (
 					<FadeInSection client:load>
 						<div class="group relative overflow-hidden bg-jbs-cream aspect-[4/3]">
-							<!-- Placeholder for project photo -->
-							<div class="absolute inset-0 bg-gradient-to-t from-jbs-dark/80 via-transparent to-transparent"></div>
-							<div class="absolute inset-0 flex items-center justify-center">
-								<span class="text-jbs-gray font-heading text-sm uppercase tracking-widest">Project Photo {i}</span>
-							</div>
-							<div class="absolute bottom-0 left-0 right-0 p-6 translate-y-2 group-hover:translate-y-0 transition-transform">
-								<h3 class="font-heading text-xl text-white uppercase">Project Title</h3>
-								<p class="text-white/60 text-sm mt-1">Location — Category</p>
+							<img
+								src={project.image}
+								alt={project.title}
+								class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+								loading="lazy"
+							/>
+							<div class="absolute inset-0 bg-gradient-to-t from-jbs-dark/90 via-jbs-dark/20 to-transparent"></div>
+							<div class="absolute bottom-0 left-0 right-0 p-6 translate-y-1 group-hover:translate-y-0 transition-transform">
+								<p class="text-jbs-blue font-heading text-xs uppercase tracking-widest mb-1">{project.category}</p>
+								<h3 class="font-heading text-xl text-white uppercase">{project.title}</h3>
+								<p class="text-white/60 text-sm mt-0.5">{project.location}</p>
 							</div>
 						</div>
 					</FadeInSection>

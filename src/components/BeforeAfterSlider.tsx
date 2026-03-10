@@ -59,7 +59,7 @@ export default function BeforeAfterSlider({
           className="w-full h-full object-cover"
           draggable={false}
         />
-        <div className="absolute top-4 right-4 bg-construction-accent text-construction-dark px-3 py-1 rounded-full text-sm font-semibold shadow-lg">
+        <div className="absolute top-4 right-4 bg-jbs-blue text-white px-3 py-1 text-sm font-heading uppercase tracking-wider shadow-lg">
           After
         </div>
       </div>
@@ -75,7 +75,7 @@ export default function BeforeAfterSlider({
           className="w-full h-full object-cover"
           draggable={false}
         />
-        <div className="absolute top-4 left-4 bg-construction-steel text-white px-3 py-1 rounded-full text-sm font-semibold shadow-lg">
+        <div className="absolute top-4 left-4 bg-jbs-dark text-white px-3 py-1 text-sm font-heading uppercase tracking-wider shadow-lg">
           Before
         </div>
       </div>
@@ -88,7 +88,7 @@ export default function BeforeAfterSlider({
         {/* Slider Handle */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12 bg-white rounded-full shadow-xl flex items-center justify-center">
           <svg
-            className="w-6 h-6 text-construction-primary"
+            className="w-6 h-6 text-jbs-blue"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"

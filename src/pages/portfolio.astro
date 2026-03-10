@@ -3,19 +3,19 @@ import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/Navbar';
 import FadeInSection from '../components/FadeInSection';
 import Footer from '../components/Footer';
+import BeforeAfterSlider from '../components/BeforeAfterSlider';
 
 const pageTitle = "Portfolio | JBS Construction";
 const pageDescription = "See our work — ground-up builds, remodels, and multi-site rollouts for national commercial brands.";
 
-const categories = ['All', 'Ground-Up', 'Remodels', 'Maintenance', 'Rollouts'];
+const categories = ['All', 'Ground-Up', 'Conversion', 'Remodels', 'Rollouts'];
 
 const projects = [
-	{ title: 'Project Name', category: 'Ground-Up', location: 'City, State', image: null },
-	{ title: 'Project Name', category: 'Remodels', location: 'City, State', image: null },
-	{ title: 'Project Name', category: 'Ground-Up', location: 'City, State', image: null },
-	{ title: 'Project Name', category: 'Rollouts', location: 'City, State', image: null },
-	{ title: 'Project Name', category: 'Remodels', location: 'City, State', image: null },
-	{ title: 'Project Name', category: 'Maintenance', location: 'City, State', image: null },
+	{ title: 'Mister Car Wash', category: 'Ground-Up', location: 'Draper, UT', image: '/images/projects/Draper_1.png' },
+	{ title: 'Take 5 Oil Change', category: 'Ground-Up', location: 'Colorado Springs, CO', image: '/images/projects/take5_coSprings.jpg' },
+	{ title: 'Take 5 Oil Change', category: 'Conversion', location: 'Corpus Christi, TX', image: '/images/projects/corpussy_after.png' },
+	{ title: 'Ray-Corf Recreation Park', category: 'Ground-Up', location: 'Burnsville, NC', image: '/images/projects/rayCort_park.jpg' },
+	{ title: 'Mister Car Wash', category: 'Ground-Up', location: 'Draper, UT', image: '/images/projects/Draper_2.png' },
 ];
 ---
 
@@ -78,17 +78,20 @@ const projects = [
 	</section>
 
 	<!-- Projects Grid -->
-	<section class="py-12 pb-24 bg-white">
+	<section class="py-12 pb-16 bg-white">
 		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 			<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
 				{projects.map((project, index) => (
 					<FadeInSection client:load delay={index * 0.08}>
 						<div class="group cursor-pointer">
 							<div class="aspect-[4/3] bg-jbs-beige relative overflow-hidden mb-4">
-								<div class="absolute inset-0 flex items-center justify-center">
-									<span class="text-jbs-gray font-heading text-xs uppercase tracking-widest">Project Photo</span>
-								</div>
-								<div class="absolute inset-0 bg-jbs-dark/0 group-hover:bg-jbs-dark/60 transition-all flex items-center justify-center">
+								<img
+									src={project.image}
+									alt={project.title}
+									class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+									loading="lazy"
+								/>
+								<div class="absolute inset-0 bg-jbs-dark/0 group-hover:bg-jbs-dark/50 transition-all flex items-center justify-center">
 									<span class="text-white font-heading uppercase tracking-wider opacity-0 group-hover:opacity-100 transition-all text-sm">View Project</span>
 								</div>
 							</div>
@@ -103,6 +106,27 @@ const projects = [
 					</FadeInSection>
 				))}
 			</div>
+		</div>
+	</section>
+
+	<!-- Before / After Spotlight -->
+	<section class="py-24 bg-jbs-dark">
+		<div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+			<FadeInSection client:load>
+				<div class="text-center mb-12">
+					<p class="font-heading text-sm uppercase tracking-widest text-jbs-blue mb-3">Transformation</p>
+					<h2 class="font-heading text-5xl md:text-6xl font-800 text-white">Before & After</h2>
+					<p class="text-white/50 mt-4 max-w-xl mx-auto">Take 5 Oil Change — Conversion · Corpus Christi, TX</p>
+					<p class="text-white/30 text-sm mt-2">Drag the slider to compare</p>
+				</div>
+			</FadeInSection>
+			<BeforeAfterSlider
+				client:load
+				beforeImage="/images/projects/corpussy_before.png"
+				afterImage="/images/projects/corpussy_after.png"
+				beforeAlt="Take 5 Oil Change Corpus Christi — Before"
+				afterAlt="Take 5 Oil Change Corpus Christi — After"
+			/>
 		</div>
 	</section>
 

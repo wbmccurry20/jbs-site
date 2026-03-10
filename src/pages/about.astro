@@ -87,28 +87,135 @@ const pageDescription = "Learn about JBS Construction — nationwide commercial 
 		</div>
 	</section>
 
-	<!-- Team Placeholder -->
+	<!-- Meet the Team -->
 	<section class="py-24 bg-white">
 		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 			<FadeInSection client:load>
-				<div class="text-center mb-16">
-					<p class="font-heading text-sm uppercase tracking-widest text-jbs-blue mb-3">Leadership</p>
+				<div class="text-center mb-20">
+					<p class="font-heading text-sm uppercase tracking-widest text-jbs-blue mb-3">Our People</p>
 					<h2 class="font-heading text-5xl md:text-6xl font-800 text-jbs-dark">Meet the Team</h2>
 				</div>
 			</FadeInSection>
-			<div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-				{[1, 2, 3, 4].map((i) => (
-					<FadeInSection client:load>
-						<div class="text-center">
-							<div class="aspect-square bg-jbs-beige mb-4 flex items-center justify-center">
-								<span class="text-jbs-gray font-heading text-xs uppercase tracking-widest">Photo</span>
+
+			<!-- Managing Partners -->
+			<div class="mb-16">
+				<FadeInSection client:load>
+					<h3 class="font-heading text-xs uppercase tracking-widest text-white/70 bg-jbs-dark inline-block px-4 py-1.5 mb-10">Managing Partners</h3>
+				</FadeInSection>
+				<div class="grid grid-cols-2 md:grid-cols-3 gap-8 max-w-3xl">
+					{[
+						{ name: 'Joe Dionne', title: 'Managing Partner', photo: '/images/team/joe-dionne.jpg' },
+						{ name: 'Kevin Polley', title: 'Managing Partner', photo: '/images/team/kevin-polley.jpg' },
+						{ name: 'Alex Silvers', title: 'Managing Partner', photo: '/images/team/alex-silvers.jpg' },
+					].map((member, i) => (
+						<FadeInSection client:load delay={i * 0.08}>
+							<div class="group text-center">
+								<div class="aspect-square bg-jbs-beige overflow-hidden mb-4 relative">
+									{member.photo ? (
+										<img src={member.photo} alt={member.name} class="w-full h-full object-cover object-top grayscale group-hover:grayscale-0 transition-all duration-500" loading="lazy" onerror="this.parentElement.classList.add('photo-placeholder'); this.style.display='none'" />
+									) : null}
+									<div class="photo-placeholder absolute inset-0 hidden items-center justify-center bg-jbs-beige">
+										<span class="text-jbs-gray font-heading text-xs uppercase tracking-widest">Photo Coming Soon</span>
+									</div>
+									<div class="absolute inset-0 bg-jbs-blue/0 group-hover:bg-jbs-blue/5 transition-all duration-300"></div>
+								</div>
+								<h4 class="font-heading text-xl text-jbs-dark uppercase">{member.name}</h4>
+								<p class="text-jbs-blue font-heading text-xs uppercase tracking-wider mt-1">{member.title}</p>
 							</div>
-							<h3 class="font-heading text-lg text-jbs-dark uppercase">Team Member</h3>
-							<p class="text-jbs-charcoal/50 text-sm">Title Placeholder</p>
-						</div>
-					</FadeInSection>
-				))}
+						</FadeInSection>
+					))}
+				</div>
 			</div>
+
+			<!-- Directors -->
+			<div class="mb-16">
+				<FadeInSection client:load>
+					<h3 class="font-heading text-xs uppercase tracking-widest text-white/70 bg-jbs-dark inline-block px-4 py-1.5 mb-10">Directors</h3>
+				</FadeInSection>
+				<div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+					{[
+						{ name: 'Shelby Fender', title: 'Director of Finance', photo: '/images/team/shelby-fender.jpg' },
+						{ name: 'Kelsey Black', title: 'Director of Administration', photo: '/images/team/kelsey-black.jpg' },
+					].map((member, i) => (
+						<FadeInSection client:load delay={i * 0.08}>
+							<div class="group text-center">
+								<div class="aspect-square bg-jbs-beige overflow-hidden mb-4 relative">
+									{member.photo ? (
+										<img src={member.photo} alt={member.name} class="w-full h-full object-cover object-top grayscale group-hover:grayscale-0 transition-all duration-500" loading="lazy" onerror="this.parentElement.classList.add('photo-placeholder-active'); this.style.display='none'" />
+									) : null}
+									<div class="absolute inset-0 bg-jbs-blue/0 group-hover:bg-jbs-blue/5 transition-all duration-300"></div>
+								</div>
+								<h4 class="font-heading text-xl text-jbs-dark uppercase">{member.name}</h4>
+								<p class="text-jbs-blue font-heading text-xs uppercase tracking-wider mt-1">{member.title}</p>
+							</div>
+						</FadeInSection>
+					))}
+				</div>
+			</div>
+
+			<!-- Project Management -->
+			<div class="mb-16">
+				<FadeInSection client:load>
+					<h3 class="font-heading text-xs uppercase tracking-widest text-white/70 bg-jbs-dark inline-block px-4 py-1.5 mb-10">Project Management</h3>
+				</FadeInSection>
+				<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
+					{[
+						{ name: 'Nick Silvers', title: 'Senior Project Manager', photo: '/images/team/nick-silvers.jpg' },
+						{ name: 'Zane Curdes', title: 'Senior Project Manager', photo: '/images/team/zane-curdes.jpg' },
+						{ name: 'Michael Fender', title: 'Project Manager', photo: '/images/team/michael-fender.jpg' },
+						{ name: 'Christian Childers', title: 'Project Manager', photo: '/images/team/christian-childers.jpg' },
+						{ name: 'Christopher James', title: 'Project Manager', photo: '/images/team/christopher-james.jpg' },
+						{ name: 'Justin Morton', title: 'Asst. Project Manager', photo: '/images/team/justin-morton.jpg' },
+						{ name: 'Jake Thomason', title: 'Asst. Project Manager', photo: '/images/team/jake-thomason.jpg' },
+						{ name: "Bobby O'Shea", title: 'Asst. Project Manager', photo: '/images/team/bobby-oshea.jpg' },
+						{ name: 'Trey Ragan', title: 'Asst. Project Manager', photo: '/images/team/trey-ragan.jpg' },
+						{ name: 'Corey Darby', title: 'Asst. Project Manager', photo: '/images/team/corey-darby.jpg' },
+					].map((member, i) => (
+						<FadeInSection client:load delay={i * 0.06}>
+							<div class="group text-center">
+								<div class="aspect-square bg-jbs-beige overflow-hidden mb-4 relative">
+									{member.photo ? (
+										<img src={member.photo} alt={member.name} class="w-full h-full object-cover object-top grayscale group-hover:grayscale-0 transition-all duration-500" loading="lazy" onerror="this.style.display='none'" />
+									) : null}
+									<div class="absolute inset-0 bg-jbs-blue/0 group-hover:bg-jbs-blue/5 transition-all duration-300"></div>
+								</div>
+								<h4 class="font-heading text-base text-jbs-dark uppercase">{member.name}</h4>
+								<p class="text-jbs-charcoal/50 font-heading text-xs uppercase tracking-wider mt-1">{member.title}</p>
+							</div>
+						</FadeInSection>
+					))}
+				</div>
+			</div>
+
+			<!-- Operations & Administration -->
+			<div>
+				<FadeInSection client:load>
+					<h3 class="font-heading text-xs uppercase tracking-widest text-white/70 bg-jbs-dark inline-block px-4 py-1.5 mb-10">Operations & Administration</h3>
+				</FadeInSection>
+				<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
+					{[
+						{ name: 'Jessica Bitner', title: 'Office Administrator', photo: '/images/team/jessica-bitner.jpg' },
+						{ name: 'Emily Simpson', title: 'Accounting Associate', photo: '/images/team/emily-simpson.jpg' },
+						{ name: 'Steph Perez', title: 'Construction Administrator', photo: '/images/team/steph-perez.jpg' },
+						{ name: 'Lindsay Caruso', title: 'Construction Administrator', photo: '/images/team/lindsay-caruso.jpg' },
+						{ name: 'Maria Siebenaller', title: 'Construction Administrator', photo: '/images/team/maria-siebenaller.jpg' },
+					].map((member, i) => (
+						<FadeInSection client:load delay={i * 0.06}>
+							<div class="group text-center">
+								<div class="aspect-square bg-jbs-beige overflow-hidden mb-4 relative">
+									{member.photo ? (
+										<img src={member.photo} alt={member.name} class="w-full h-full object-cover object-top grayscale group-hover:grayscale-0 transition-all duration-500" loading="lazy" onerror="this.style.display='none'" />
+									) : null}
+									<div class="absolute inset-0 bg-jbs-blue/0 group-hover:bg-jbs-blue/5 transition-all duration-300"></div>
+								</div>
+								<h4 class="font-heading text-base text-jbs-dark uppercase">{member.name}</h4>
+								<p class="text-jbs-charcoal/50 font-heading text-xs uppercase tracking-wider mt-1">{member.title}</p>
+							</div>
+						</FadeInSection>
+					))}
+				</div>
+			</div>
+
 		</div>
 	</section>
 
