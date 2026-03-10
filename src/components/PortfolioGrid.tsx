@@ -27,7 +27,7 @@ const projects: Project[] = [
     images: ['/images/projects/corpussy_after.png', '/images/projects/corpussy_before.png'],
   },
   {
-    title: 'Ray-Corf Recreation Park',
+    title: 'Ray-Cort Recreation Park',
     category: 'Ground-Up',
     location: 'Burnsville, NC',
     images: ['/images/projects/rayCort_park.jpg'],
