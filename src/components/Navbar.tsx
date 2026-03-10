@@ -41,7 +41,7 @@ export default function Navbar({ client }: NavbarProps) {
           {/* Logo */}
           <a href="/" className="flex items-center group">
             <img 
-              src="/jbs_new_logo.jpg.png" 
+              src="/images/jbs_new_logo.jpg.png" 
               alt="JBS Construction - Built Different" 
               className="h-12 w-auto group-hover:scale-105 transition-transform logo-dark-bg"
             />

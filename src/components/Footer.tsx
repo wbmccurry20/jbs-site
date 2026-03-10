@@ -11,7 +11,7 @@ export default function Footer() {
           {/* Company Info */}
           <div className="col-span-2 md:col-span-1">
             <img 
-              src="/jbs_new_logo.jpg.png" 
+              src="/images/jbs_new_logo.jpg.png" 
               alt="JBS Construction" 
               className="h-10 w-auto mb-6 logo-dark-bg"
             />
