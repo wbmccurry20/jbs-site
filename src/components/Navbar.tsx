@@ -116,7 +116,7 @@ export default function Navbar() {
                 transition={{ delay: navLinks.length * 0.07 + 0.1 }}
                 className="mt-10 px-8 py-4 bg-jbs-blue text-white font-heading text-lg uppercase tracking-wider text-center hover:bg-jbs-blue/90 transition-all"
               >
-                Get a Quote &rarr;
+                Contact Us &rarr;
               </motion.a>
             </nav>
 
