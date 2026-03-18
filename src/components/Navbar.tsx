@@ -62,7 +62,7 @@ export default function Navbar() {
                 href="/contact"
                 className="ml-6 px-6 py-2.5 bg-jbs-blue text-white font-heading text-sm uppercase tracking-wider hover:bg-jbs-blue/90 hover:shadow-lg hover:shadow-jbs-blue/25 transition-all"
               >
-                Get a Quote &rarr;
+                Contact Us &rarr;
               </a>
             </div>
 
