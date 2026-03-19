@@ -78,8 +78,12 @@ export default function Footer() {
                   info@jbsconstructiongroup.com
                 </a>
               </li>
-              <li>Phone number placeholder</li>
-              <li>Address placeholder</li>
+              <li>
+                <a href="tel:+14803925523" className="hover:text-jbs-blue transition-colors">
+                  480-392-5523
+                </a>
+              </li>
+              <li>1230 West Morehead Street, Suite 406, Charlotte, NC 28208</li>
             </ul>
           </div>
         </div>
