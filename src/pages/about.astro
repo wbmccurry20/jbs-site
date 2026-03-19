@@ -68,7 +68,7 @@ const pageDescription = "Learn about JBS Construction — nationwide commercial 
 					<h2 class="font-heading text-5xl md:text-6xl font-800 text-jbs-dark">Core Values</h2>
 				</div>
 			</FadeInSection>
-			<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+			<div class="flex flex-wrap justify-center gap-8">
 				{[
 					{ title: 'Accountability + Ownership', description: 'Every project has a leader. Every client has a champion. Every detail has an owner.' },
 					{ title: 'Proactive Communication', description: 'Clear, consistent updates — so clients always know what\'s happening, what\'s next, and what\'s needed.' },
@@ -76,8 +76,8 @@ const pageDescription = "Learn about JBS Construction — nationwide commercial 
 					{ title: 'Relationship-First Leadership', description: 'We solve problems, not point fingers. We invest in people — clients, teams, and partners.' },
 					{ title: 'Build + Maintain', description: 'One partner for new builds, remodels, and maintenance — creating efficiency and consistency across every site.' },
 				].map((value, index) => (
-					<FadeInSection client:load delay={index * 0.1}>
-						<div class="bg-white p-8 border-t-4 border-jbs-blue hover:shadow-xl transition-shadow">
+					<FadeInSection client:load delay={index * 0.1} class="w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.334rem)]">
+						<div class="bg-white p-8 border-t-4 border-jbs-blue hover:shadow-xl transition-shadow h-full">
 							<h3 class="font-heading text-xl text-jbs-dark uppercase mb-3">{value.title}</h3>
 							<p class="text-jbs-charcoal/70 text-sm leading-relaxed">{value.description}</p>
 						</div>
