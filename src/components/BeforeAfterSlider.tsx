@@ -1,5 +1,4 @@
-import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { useState, useEffect, useRef, useCallback } from 'react';
 
 interface BeforeAfterSliderProps {
   beforeImage: string;
@@ -16,26 +15,51 @@ export default function BeforeAfterSlider({
 }: BeforeAfterSliderProps) {
   const [sliderPosition, setSliderPosition] = useState(50);
   const [isDragging, setIsDragging] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
 
-  const handleMove = (clientX: number, rect: DOMRect) => {
+  const handleMove = useCallback((clientX: number) => {
+    const rect = containerRef.current?.getBoundingClientRect();
+    if (!rect) return;
     const x = Math.max(0, Math.min(clientX - rect.left, rect.width));
     const percent = Math.max(0, Math.min((x / rect.width) * 100, 100));
     setSliderPosition(percent);
-  };
+  }, []);
 
   const handleMouseDown = () => setIsDragging(true);
   const handleMouseUp = () => setIsDragging(false);
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     if (!isDragging) return;
-    const rect = e.currentTarget.getBoundingClientRect();
-    handleMove(e.clientX, rect);
+    handleMove(e.clientX);
   };
 
-  const handleTouchMove = (e: React.TouchEvent<HTMLDivElement>) => {
-    const rect = e.currentTarget.getBoundingClientRect();
-    handleMove(e.touches[0].clientX, rect);
-  };
+  // Use native touch listeners with {passive: false} so we can preventDefault
+  useEffect(() => {
+    const el = containerRef.current;
+    if (!el) return;
+
+    const onTouchStart = (e: TouchEvent) => {
+      setIsDragging(true);
+      handleMove(e.touches[0].clientX);
+    };
+
+    const onTouchMove = (e: TouchEvent) => {
+      e.preventDefault(); // prevent page scroll while dragging
+      handleMove(e.touches[0].clientX);
+    };
+
+    const onTouchEnd = () => setIsDragging(false);
+
+    el.addEventListener('touchstart', onTouchStart, { passive: false });
+    el.addEventListener('touchmove', onTouchMove, { passive: false });
+    el.addEventListener('touchend', onTouchEnd);
+
+    return () => {
+      el.removeEventListener('touchstart', onTouchStart);
+      el.removeEventListener('touchmove', onTouchMove);
+      el.removeEventListener('touchend', onTouchEnd);
+    };
+  }, [handleMove]);
 
   useEffect(() => {
     const handleGlobalMouseUp = () => setIsDragging(false);
@@ -45,9 +69,9 @@ export default function BeforeAfterSlider({
 
   return (
     <div
-      className="relative w-full aspect-[16/10] overflow-hidden rounded-xl shadow-2xl cursor-col-resize select-none"
+      ref={containerRef}
+      className="relative w-full aspect-[16/10] overflow-hidden rounded-xl shadow-2xl cursor-col-resize select-none touch-none"
       onMouseMove={handleMouseMove}
-      onTouchMove={handleTouchMove}
       onMouseDown={handleMouseDown}
       onMouseUp={handleMouseUp}
     >
