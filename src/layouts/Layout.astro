@@ -9,19 +9,19 @@ interface Props {
 
 const { 
 	title, 
-	description = "JBS Construction - Modern residential construction and renovation in Western North Carolina. Building sustainable, custom homes with 20+ years of experience.", 
-	image = "/images/og-image.jpg" 
+	description = "JBS Construction — Built Different. Nationwide commercial construction with end-to-end project management for national brands.", 
+	image = "/images/logos/jbs_new_logo.jpg.png" 
 } = Astro.props;
 
-const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://abconstruction.com');
-const socialImageURL = new URL(image, Astro.site || 'https://abconstruction.com');
+const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://buildwithjbs.com');
+const socialImageURL = new URL(image, Astro.site || 'https://buildwithjbs.com');
 ---
 
 <!DOCTYPE html>
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" type="image/png" href="/images/logos/jbs-logo.png" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<meta name="generator" content={Astro.generator} />
 		
@@ -47,7 +47,7 @@ const socialImageURL = new URL(image, Astro.site || 'https://abconstruction.com'
 		<meta property="twitter:image" content={socialImageURL} />
 		
 		<!-- Additional Meta Tags -->
-		<meta name="keywords" content="construction, home building, renovation, Western North Carolina, custom homes, sustainable construction, residential construction" />
+		<meta name="keywords" content="commercial construction, nationwide construction, ground-up construction, remodels, brand refresh, maintenance programs, project management, JBS Construction" />
 		<meta name="author" content="JBS Construction" />
 		<meta name="robots" content="index, follow" />
 		

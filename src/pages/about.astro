@@ -125,10 +125,10 @@ const pageDescription = "Learn about JBS Construction — nationwide commercial 
 							<div class="group text-center">
 								<div class="aspect-square bg-jbs-beige overflow-hidden mb-4 relative">
 									{member.photo ? (
-										<img src={member.photo} alt={member.name} class="w-full h-full object-cover object-top grayscale group-hover:grayscale-0 transition-all duration-500" loading="lazy" onerror="this.parentElement.classList.add('photo-placeholder'); this.style.display='none'" />
+										<img src={member.photo} alt={member.name} class="w-full h-full object-cover object-top grayscale group-hover:grayscale-0 transition-all duration-500" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'" />
 									) : null}
-									<div class="photo-placeholder absolute inset-0 hidden items-center justify-center bg-jbs-beige">
-										<span class="text-jbs-gray font-heading text-xs uppercase tracking-widest">Photo Coming Soon</span>
+									<div class="absolute inset-0 items-center justify-center bg-jbs-beige" style="display:none">
+										<span class="font-heading text-3xl text-jbs-charcoal/30 uppercase">{member.name.split(' ').map(n => n[0]).join('')}</span>
 									</div>
 									<div class="absolute inset-0 bg-jbs-blue/0 group-hover:bg-jbs-blue/5 transition-all duration-300"></div>
 								</div>
@@ -154,8 +154,11 @@ const pageDescription = "Learn about JBS Construction — nationwide commercial 
 							<div class="group text-center">
 								<div class="aspect-square bg-jbs-beige overflow-hidden mb-4 relative">
 									{member.photo ? (
-										<img src={member.photo} alt={member.name} class="w-full h-full object-cover object-top grayscale group-hover:grayscale-0 transition-all duration-500" loading="lazy" onerror="this.parentElement.classList.add('photo-placeholder-active'); this.style.display='none'" />
+										<img src={member.photo} alt={member.name} class="w-full h-full object-cover object-top grayscale group-hover:grayscale-0 transition-all duration-500" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'" />
 									) : null}
+									<div class="absolute inset-0 items-center justify-center bg-jbs-beige" style="display:none">
+										<span class="font-heading text-3xl text-jbs-charcoal/30 uppercase">{member.name.split(' ').map(n => n[0]).join('')}</span>
+									</div>
 									<div class="absolute inset-0 bg-jbs-blue/0 group-hover:bg-jbs-blue/5 transition-all duration-300"></div>
 								</div>
 								<h4 class="font-heading text-xl text-jbs-dark uppercase">{member.name}</h4>
@@ -188,8 +191,11 @@ const pageDescription = "Learn about JBS Construction — nationwide commercial 
 							<div class="group text-center">
 								<div class="aspect-square bg-jbs-beige overflow-hidden mb-4 relative">
 									{member.photo ? (
-										<img src={member.photo} alt={member.name} class="w-full h-full object-cover object-top grayscale group-hover:grayscale-0 transition-all duration-500" loading="lazy" onerror="this.style.display='none'" />
+										<img src={member.photo} alt={member.name} class="w-full h-full object-cover object-top grayscale group-hover:grayscale-0 transition-all duration-500" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'" />
 									) : null}
+									<div class="absolute inset-0 items-center justify-center bg-jbs-beige" style="display:none">
+										<span class="font-heading text-2xl text-jbs-charcoal/30 uppercase">{member.name.split(' ').map(n => n[0]).join('')}</span>
+									</div>
 									<div class="absolute inset-0 bg-jbs-blue/0 group-hover:bg-jbs-blue/5 transition-all duration-300"></div>
 								</div>
 								<h4 class="font-heading text-base text-jbs-dark uppercase">{member.name}</h4>
@@ -217,8 +223,11 @@ const pageDescription = "Learn about JBS Construction — nationwide commercial 
 							<div class="group text-center">
 								<div class="aspect-square bg-jbs-beige overflow-hidden mb-4 relative">
 									{member.photo ? (
-										<img src={member.photo} alt={member.name} class="w-full h-full object-cover object-top grayscale group-hover:grayscale-0 transition-all duration-500" loading="lazy" onerror="this.style.display='none'" />
+										<img src={member.photo} alt={member.name} class="w-full h-full object-cover object-top grayscale group-hover:grayscale-0 transition-all duration-500" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'" />
 									) : null}
+									<div class="absolute inset-0 items-center justify-center bg-jbs-beige" style="display:none">
+										<span class="font-heading text-2xl text-jbs-charcoal/30 uppercase">{member.name.split(' ').map(n => n[0]).join('')}</span>
+									</div>
 									<div class="absolute inset-0 bg-jbs-blue/0 group-hover:bg-jbs-blue/5 transition-all duration-300"></div>
 								</div>
 								<h4 class="font-heading text-base text-jbs-dark uppercase">{member.name}</h4>
