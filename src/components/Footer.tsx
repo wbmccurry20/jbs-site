@@ -50,8 +50,8 @@ export default function Footer() {
             <h3 className="font-heading text-xs uppercase tracking-widest text-white/30 mb-6">Services</h3>
             <ul className="space-y-3 text-sm text-white/50">
               <li>Ground-Up Construction</li>
-              <li>Brand Refresh & Remodels</li>
-              <li>Design Builds</li>
+              <li>Brand Refresh + Renovations</li>
+              <li>Design Build</li>
               <li>Maintenance Programs</li>
             </ul>
           </div>

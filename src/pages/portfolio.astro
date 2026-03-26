@@ -48,28 +48,8 @@ const pageDescription = "See our work — ground-up builds, remodels, and multi-
 		</div>
 	</section>
 
-	<!-- Filter Tabs (visual only — no JS filter yet) -->
-	<section class="pt-16 pb-8 bg-white">
-		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-			<div class="flex flex-wrap gap-3 justify-center">
-				{['All', 'Ground-Up', 'Conversion', 'Remodels', 'Rollouts'].map((cat, i) => (
-					<button
-						class:list={[
-							"px-6 py-2 font-heading text-sm uppercase tracking-wider transition-all",
-							i === 0
-								? "bg-jbs-dark text-white"
-								: "bg-jbs-beige text-jbs-charcoal hover:bg-jbs-dark hover:text-white"
-						]}
-					>
-						{cat}
-					</button>
-				))}
-			</div>
-		</div>
-	</section>
-
 	<!-- Projects Grid -->
-	<section class="py-12 pb-16 bg-white">
+	<section class="pt-16 pb-16 bg-white">
 		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 			<PortfolioGrid client:load />
 		</div>
@@ -79,20 +59,34 @@ const pageDescription = "See our work — ground-up builds, remodels, and multi-
 	<section class="py-24 bg-jbs-dark">
 		<div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
 			<FadeInSection client:load>
-				<div class="text-center mb-12">
+				<div class="text-center mb-16">
 					<p class="font-heading text-sm uppercase tracking-widest text-jbs-blue mb-3">Transformation</p>
 					<h2 class="font-heading text-5xl md:text-6xl font-800 text-white">Before & After</h2>
-					<p class="text-white/50 mt-4 max-w-xl mx-auto">Take 5 Oil Change — Conversion · Corpus Christi, TX</p>
-					<p class="text-white/30 text-sm mt-2">Drag the slider to compare</p>
+					<p class="text-white/30 text-sm mt-4">Drag the slider to compare</p>
 				</div>
 			</FadeInSection>
-			<BeforeAfterSlider
-				client:load
-				beforeImage="/images/projects/corpussy_before.png"
-				afterImage="/images/projects/corpussy_after.png"
-				beforeAlt="Take 5 Oil Change Corpus Christi — Before"
-				afterAlt="Take 5 Oil Change Corpus Christi — After"
-			/>
+
+			<div class="mb-20">
+				<p class="text-center text-white/50 font-heading text-sm uppercase tracking-widest mb-8">Take 5 Oil Change — Conversion · Corpus Christi, TX</p>
+				<BeforeAfterSlider
+					client:load
+					beforeImage="/images/projects/corpus_christi_before.png"
+					afterImage="/images/projects/corpus_christi_after.png"
+					beforeAlt="Take 5 Oil Change Corpus Christi — Before"
+					afterAlt="Take 5 Oil Change Corpus Christi — After"
+				/>
+			</div>
+
+			<div>
+				<p class="text-center text-white/50 font-heading text-sm uppercase tracking-widest mb-8">Mister Car Wash — Brand Refresh · Atlanta, GA</p>
+				<BeforeAfterSlider
+					client:load
+					beforeImage="/images/projects/mister_car_wash_before_ATL.GA.jpg"
+					afterImage="/images/projects/mister_car_wash_after_ATL.GA.jpg.jpg"
+					beforeAlt="Mister Car Wash Atlanta — Before"
+					afterAlt="Mister Car Wash Atlanta — After"
+				/>
+			</div>
 		</div>
 	</section>
 

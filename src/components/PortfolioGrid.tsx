@@ -15,6 +15,25 @@ const projects: Project[] = [
     images: ['/images/projects/Draper_1.png', '/images/projects/Draper_2.png'],
   },
   {
+    title: 'Mister Car Wash',
+    category: 'Ground-Up',
+    location: 'Tucson, AZ',
+    images: [
+      '/images/projects/mister_car_wash_Tucson_AZ1.jpg',
+      '/images/projects/mister_car_wash_Tucson_AZ2.jpg',
+      '/images/projects/mister_car_wash_Tucson_AZ3.jpg',
+    ],
+  },
+  {
+    title: 'Mister Car Wash',
+    category: 'Brand Refresh',
+    location: 'Atlanta, GA',
+    images: [
+      '/images/projects/mister_car_wash_after_ATL.GA.jpg.jpg',
+      '/images/projects/mister_car_wash_before_ATL.GA.jpg',
+    ],
+  },
+  {
     title: 'Take 5 Oil Change',
     category: 'Ground-Up',
     location: 'Colorado Springs, CO',
@@ -24,19 +43,84 @@ const projects: Project[] = [
     title: 'Take 5 Oil Change',
     category: 'Conversion',
     location: 'Corpus Christi, TX',
-    images: ['/images/projects/corpussy_after.png', '/images/projects/corpussy_before.png'],
+    images: [
+      '/images/projects/corpus_christi_after.png',
+      '/images/projects/corpus_christi_before.png',
+    ],
+  },
+  {
+    title: 'Take 5 Oil Change',
+    category: 'Ground-Up',
+    location: 'Suffolk, VA',
+    images: [
+      '/images/projects/take5_groudup_ Suffolk_VA1.jpg',
+      '/images/projects/take5_groudup_ Suffolk_VA2.jpg',
+      '/images/projects/take5_groudup_ Suffolk_VA3.jpg',
+      '/images/projects/take5_groudup_ Suffolk_VA4.jpg',
+    ],
+  },
+  {
+    title: 'Take 5 Oil Change',
+    category: 'Ground-Up',
+    location: 'Jacksonville, FL',
+    images: [
+      '/images/projects/take_5_groundup_Jacksonville_FL1.jpg',
+      '/images/projects/take_5_groundup_Jacksonville_FL2.jpg',
+      '/images/projects/take_5_groundup_Jacksonville_FL3.jpg',
+      '/images/projects/take_5_groundup_Jacksonville_FL4.jpg',
+    ],
+  },
+  {
+    title: 'Take 5 Oil Change',
+    category: 'Ground-Up',
+    location: 'Apollo Beach, FL',
+    images: [
+      '/images/projects/take_5_oil_change_apollo_beach_FL1.jpg',
+      '/images/projects/take_5_oil_change_apollo_beach_FL2.jpg',
+      '/images/projects/take_5_oil_change_apollo_beach_FL3.jpg',
+      '/images/projects/take_5_oil_change_apollo_beach_FL4.jpg',
+    ],
+  },
+  {
+    title: 'Tidal Wave Auto Spa',
+    category: 'Ground-Up',
+    location: 'Early, TX',
+    images: [
+      '/images/projects/tidal_wave_auto_spa_Early_TX1.jpg',
+      '/images/projects/tidal_wave_auto_spa_Early_TX2.jpg',
+      '/images/projects/tidal_wave_auto_spa_Early_TX3.jpg',
+    ],
+  },
+  {
+    title: 'Ionna Charging Hub',
+    category: 'Ground-Up',
+    location: 'Apex, NC',
+    images: [
+      '/images/projects/ionna_charging_hub_Apex_NC1.jpg',
+      '/images/projects/ionna_charging_hub_Apex_NC12.jpg',
+      '/images/projects/ionna_charging_hub_Apex_NC13.jpg',
+    ],
   },
   {
     title: 'Ray-Cort Recreation Park',
     category: 'Ground-Up',
     location: 'Burnsville, NC',
-    images: ['/images/projects/rayCort_park.jpg'],
+    images: [
+      '/images/projects/rayCort_park.jpg',
+      '/images/projects/ray_cort_Burnsville_NC1.png',
+      '/images/projects/ray_cort_Burnsville_NC2.jpg',
+    ],
   },
 ];
 
+const CATEGORIES = ['All', 'Ground-Up', 'Conversion', 'Brand Refresh'];
+
 export default function PortfolioGrid() {
+  const [activeFilter, setActiveFilter] = useState('All');
   const [activeProject, setActiveProject] = useState<Project | null>(null);
   const [photoIndex, setPhotoIndex] = useState(0);
+
+  const filtered = activeFilter === 'All' ? projects : projects.filter((p) => p.category === activeFilter);
 
   const openProject = (project: Project) => {
     setActiveProject(project);
@@ -73,11 +157,28 @@ export default function PortfolioGrid() {
 
   return (
     <>
+      {/* Filter Tabs */}
+      <div className="flex flex-wrap gap-3 justify-center mb-12">
+        {CATEGORIES.map((cat) => (
+          <button
+            key={cat}
+            onClick={() => setActiveFilter(cat)}
+            className={`px-6 py-2 font-heading text-sm uppercase tracking-wider transition-all ${
+              activeFilter === cat
+                ? 'bg-jbs-dark text-white'
+                : 'bg-jbs-beige text-jbs-charcoal hover:bg-jbs-dark hover:text-white'
+            }`}
+          >
+            {cat}
+          </button>
+        ))}
+      </div>
+
       {/* Grid */}
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {projects.map((project, index) => (
+        {filtered.map((project, index) => (
           <button
-            key={index}
+            key={`${project.title}-${project.location}`}
             onClick={() => openProject(project)}
             className="group cursor-pointer text-left w-full"
           >
