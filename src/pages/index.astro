@@ -3,6 +3,52 @@ import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/Navbar';
 import FadeInSection from '../components/FadeInSection';
 import Footer from '../components/Footer';
+import { LICENSED_STATES } from '../data/licensedStates';
+import { geoAlbersUsa, geoPath } from 'd3-geo';
+import { feature } from 'topojson-client';
+import { readFileSync } from 'fs';
+import { join } from 'path';
+
+const topoJson = JSON.parse(
+  readFileSync(join(process.cwd(), 'public/us-states.json'), 'utf-8')
+);
+const FIPS_TO_ABBR: Record<string, string> = {
+  '01': 'AL', '02': 'AK', '04': 'AZ', '05': 'AR', '06': 'CA',
+  '08': 'CO', '09': 'CT', '10': 'DE', '11': 'DC', '12': 'FL',
+  '13': 'GA', '15': 'HI', '16': 'ID', '17': 'IL', '18': 'IN',
+  '19': 'IA', '20': 'KS', '21': 'KY', '22': 'LA', '23': 'ME',
+  '24': 'MD', '25': 'MA', '26': 'MI', '27': 'MN', '28': 'MS',
+  '29': 'MO', '30': 'MT', '31': 'NE', '32': 'NV', '33': 'NH',
+  '34': 'NJ', '35': 'NM', '36': 'NY', '37': 'NC', '38': 'ND',
+  '39': 'OH', '40': 'OK', '41': 'OR', '42': 'PA', '44': 'RI',
+  '45': 'SC', '46': 'SD', '47': 'TN', '48': 'TX', '49': 'UT',
+  '50': 'VT', '51': 'VA', '53': 'WA', '54': 'WV', '55': 'WI',
+  '56': 'WY',
+};
+const STATE_NAMES: Record<string, string> = {
+  AL: 'Alabama', AK: 'Alaska', AZ: 'Arizona', AR: 'Arkansas', CA: 'California',
+  CO: 'Colorado', CT: 'Connecticut', DE: 'Delaware', FL: 'Florida', GA: 'Georgia',
+  HI: 'Hawaii', ID: 'Idaho', IL: 'Illinois', IN: 'Indiana', IA: 'Iowa',
+  KS: 'Kansas', KY: 'Kentucky', LA: 'Louisiana', ME: 'Maine', MD: 'Maryland',
+  MA: 'Massachusetts', MI: 'Michigan', MN: 'Minnesota', MS: 'Mississippi', MO: 'Missouri',
+  MT: 'Montana', NE: 'Nebraska', NV: 'Nevada', NH: 'New Hampshire', NJ: 'New Jersey',
+  NM: 'New Mexico', NY: 'New York', NC: 'North Carolina', ND: 'North Dakota', OH: 'Ohio',
+  OK: 'Oklahoma', OR: 'Oregon', PA: 'Pennsylvania', RI: 'Rhode Island', SC: 'South Carolina',
+  SD: 'South Dakota', TN: 'Tennessee', TX: 'Texas', UT: 'Utah', VT: 'Vermont',
+  VA: 'Virginia', WA: 'Washington', WV: 'West Virginia', WI: 'Wisconsin', WY: 'Wyoming',
+};
+const projection = geoAlbersUsa().scale(1280).translate([480, 300]);
+const pathGenerator = geoPath(projection);
+const geojson = feature(topoJson, topoJson.objects.states);
+const licensedSet = new Set(LICENSED_STATES);
+const stateData = (geojson as any).features
+  .map((f: any) => {
+    const fips = String(f.id).padStart(2, '0');
+    const abbr = FIPS_TO_ABBR[fips] ?? '';
+    if (!abbr) return null;
+    return { abbr, name: STATE_NAMES[abbr] ?? abbr, path: pathGenerator(f) ?? '', licensed: licensedSet.has(abbr) };
+  })
+  .filter(Boolean);
 ---
 
 <Layout title="JBS | Built Different" description="JBS Construction — Built Different. Nationwide commercial construction with 120+ cities, 490+ projects managed, and end-to-end project management.">
@@ -195,6 +241,79 @@ import Footer from '../components/Footer';
 		</div>
 	</section>
 
+	<!-- ===================== HOW WE BUILD ===================== -->
+	<section class="py-24 bg-jbs-cream">
+		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+			<FadeInSection client:load>
+				<div class="text-center mb-16">
+					<p class="font-heading text-sm uppercase tracking-widest text-jbs-blue mb-3">Our Process</p>
+					<h2 class="font-heading text-5xl md:text-6xl font-800 text-jbs-dark">How We Build</h2>
+				</div>
+			</FadeInSection>
+			<div class="grid md:grid-cols-4 gap-8">
+				{[
+					{ step: '01', title: 'Discovery', desc: 'Scope alignment, site assessment, and clear expectations — before a single dollar is spent.' },
+					{ step: '02', title: 'Pre-Construction', desc: 'Budgeting, permitting, scheduling, and vendor coordination — all buttoned up.' },
+					{ step: '03', title: 'Execution', desc: 'Dedicated PM on-site. Proactive updates. Problems solved before you hear about them.' },
+					{ step: '04', title: 'Delivery', desc: 'Punch list, final walk, and turnover — clean, complete, and on time.' },
+				].map((item, index) => (
+					<FadeInSection client:load delay={index * 0.1}>
+						<div class="text-center">
+							<span class="font-heading text-6xl font-800 text-jbs-blue/20">{item.step}</span>
+							<h3 class="font-heading text-xl text-jbs-dark uppercase mt-2 mb-3">{item.title}</h3>
+							<p class="text-jbs-charcoal/60 text-sm leading-relaxed">{item.desc}</p>
+						</div>
+					</FadeInSection>
+				))}
+			</div>
+		</div>
+	</section>
+
+	<!-- ===================== WHERE WE BUILD (MAP) ===================== -->
+	<section class="py-24 bg-jbs-dark relative overflow-hidden">
+		<div class="absolute inset-0 opacity-[0.04]" style="background-image:radial-gradient(circle,#ffffff 1px,transparent 1px);background-size:32px 32px;"></div>
+		<div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+			<div class="text-center mb-12">
+				<p class="font-heading text-sm uppercase tracking-widest text-jbs-blue mb-3">Where We Build</p>
+				<h2 class="font-heading text-5xl md:text-6xl font-800 text-white mb-6">Licensed Across the Nation</h2>
+				<div class="inline-flex items-center gap-2.5 px-5 py-2.5 border border-jbs-blue/40 bg-jbs-blue/10">
+					<span class="w-2 h-2 bg-jbs-blue inline-block"></span>
+					<span class="font-heading text-jbs-blue text-sm uppercase tracking-widest">
+						Licensed in {LICENSED_STATES.length} State{LICENSED_STATES.length !== 1 ? 's' : ''}
+					</span>
+				</div>
+			</div>
+			<div class="relative w-full max-w-5xl mx-auto" id="map-container">
+				<svg viewBox="0 0 960 600" class="w-full h-auto block" id="us-map">
+					{stateData.map((s: { abbr: string; name: string; path: string; licensed: boolean }) => (
+						<path
+							d={s.path}
+							fill={s.licensed ? '#00A0E0' : '#1e2a35'}
+							stroke="#0d1a24"
+							stroke-width="0.6"
+							class="state-path"
+							data-name={s.name}
+							data-licensed={s.licensed ? 'true' : 'false'}
+							style="cursor:pointer;transition:fill 0.15s ease;"
+						/>
+					))}
+				</svg>
+				<div id="map-tooltip" class="pointer-events-none absolute z-20 hidden px-3 py-1.5 text-xs font-heading uppercase tracking-wider whitespace-nowrap" style="transform:translate(-50%,-130%);"></div>
+			</div>
+			<div class="flex items-center justify-center gap-10 mt-8">
+				<div class="flex items-center gap-2.5">
+					<span class="w-3 h-3 inline-block" style="background:#00A0E0;"></span>
+					<span class="text-white/60 text-xs font-heading uppercase tracking-widest">Licensed</span>
+				</div>
+				<div class="w-px h-4 bg-white/10"></div>
+				<div class="flex items-center gap-2.5">
+					<span class="w-3 h-3 inline-block" style="background:#1e2a35;border:1px solid #2a3a4a;"></span>
+					<span class="text-white/30 text-xs font-heading uppercase tracking-widest">Not Yet Licensed</span>
+				</div>
+			</div>
+		</div>
+	</section>
+
 	<!-- ===================== OUR CREW TEASER ===================== -->
 	<section class="py-24 bg-white">
 		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -231,3 +350,29 @@ import Footer from '../components/Footer';
 
 	<Footer />
 </Layout>
+
+<script>
+  const container = document.getElementById('map-container');
+  const tooltip = document.getElementById('map-tooltip');
+  document.querySelectorAll<SVGPathElement>('.state-path').forEach((path) => {
+    const name = path.dataset.name ?? '';
+    const licensed = path.dataset.licensed === 'true';
+    path.addEventListener('mouseenter', () => path.setAttribute('fill', licensed ? '#33b8f0' : '#263545'));
+    path.addEventListener('mouseleave', () => {
+      path.setAttribute('fill', licensed ? '#00A0E0' : '#1e2a35');
+      tooltip?.classList.add('hidden');
+    });
+    path.addEventListener('mousemove', (e) => {
+      if (!tooltip || !container) return;
+      const rect = container.getBoundingClientRect();
+      tooltip.style.left = `${((e.clientX - rect.left) / rect.width) * 100}%`;
+      tooltip.style.top = `${((e.clientY - rect.top) / rect.height) * 100}%`;
+      tooltip.style.background = licensed ? '#00A0E0' : '#111c26';
+      tooltip.style.color = '#fff';
+      tooltip.style.border = licensed ? '1px solid #33b8f0' : '1px solid #2a3a4a';
+      tooltip.style.boxShadow = licensed ? '0 4px 20px rgba(0,160,224,0.35)' : '0 4px 12px rgba(0,0,0,0.5)';
+      tooltip.textContent = licensed ? `✓ ${name}` : name;
+      tooltip.classList.remove('hidden');
+    });
+  });
+</script>
