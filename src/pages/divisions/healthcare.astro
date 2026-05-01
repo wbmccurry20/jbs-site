@@ -1,0 +1,127 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navbar from '../../components/Navbar';
+import FadeInSection from '../../components/FadeInSection';
+import Footer from '../../components/Footer';
+
+const pageTitle = "Healthcare Division | JBS Construction";
+const pageDescription = "JBS Construction Healthcare Division — ground-up builds, tenant improvements, and renovations for medical, dental, and healthcare facilities nationwide.";
+
+// TODO: Alex to provide final service names, descriptions, and bullet points
+const services = [
+  {
+    title: 'Ground-Up Construction',
+    description: 'Full new-build execution for healthcare facilities. From site prep to punch list, one team owns it all.',
+    features: ['Site preparation & grading', 'Foundation & structural', 'Full MEP coordination', 'Turnkey delivery'],
+  },
+  {
+    title: 'Tenant Improvements',
+    description: 'Healthcare-specific tenant improvements built to code, spec, and the tight timelines operators require.',
+    features: ['Medical office build-outs', 'Dental & specialty clinics', 'Compliance & code adherence', 'Minimal disruption scheduling'],
+  },
+  {
+    title: 'Brand Refresh + Renovations',
+    description: 'Modernizing existing healthcare spaces — on schedule, on budget, with patient operations in mind.',
+    features: ['Interior demolition', 'Brand standard buildouts', 'ADA compliance updates', 'Phased & occupied renovations'],
+  },
+  {
+    title: 'Maintenance Programs',
+    description: 'Ongoing facility maintenance that keeps your healthcare locations running safely and efficiently.',
+    features: ['Preventive maintenance', 'Emergency response', 'Vendor management', 'Multi-site programs'],
+  },
+  {
+    title: 'Design Build',
+    description: 'Integrated design and construction under one team — faster delivery, tighter budgets, and no finger-pointing.',
+    features: ['Site selection', 'Building design & planning', 'Construction'],
+  },
+  {
+    title: 'National Rollouts',
+    description: 'Multi-site healthcare builds and renovations executed consistently coast to coast with one point of contact.',
+    features: ['Nationwide coverage', 'Consistent quality', 'Single point of contact', 'Scalable execution'],
+  },
+];
+---
+
+<Layout title={pageTitle} description={pageDescription}>
+  <Navbar client:load />
+
+  <!-- Hero -->
+  <section class="pt-32 pb-20 bg-jbs-dark relative overflow-hidden">
+    <div class="absolute inset-0">
+      <img src="/images/stock/stock_photo1.png" alt="JBS Healthcare Construction" class="w-full h-full object-cover object-center opacity-25" loading="eager" />
+      <div class="absolute inset-0 bg-gradient-to-r from-jbs-dark via-jbs-dark/85 to-jbs-dark/70"></div>
+    </div>
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <FadeInSection client:load>
+        <div class="max-w-3xl">
+          <p class="font-heading text-sm uppercase tracking-widest text-jbs-blue mb-2">Divisions</p>
+          <p class="font-heading text-sm uppercase tracking-widest text-white/40 mb-4">Healthcare</p>
+          <h1 class="font-heading text-6xl md:text-7xl font-800 text-white mb-6">Healthcare</h1>
+          <p class="text-xl text-white/60 max-w-xl">Medical and dental facilities built to spec, on schedule, with zero tolerance for disruption.</p>
+        </div>
+      </FadeInSection>
+    </div>
+  </section>
+
+  <!-- Division nav strip -->
+  <div class="bg-jbs-charcoal border-b border-white/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex gap-0 overflow-x-auto">
+        {[
+          { name: 'Auto-Retail', href: '/divisions/auto-retail', active: false },
+          { name: 'QSR', href: '/divisions/qsr', active: false },
+          { name: 'Healthcare', href: '/divisions/healthcare', active: true },
+          { name: 'Site & Civil', href: '/divisions/site-civil', active: false },
+        ].map((tab) => (
+          <a
+            href={tab.href}
+            class={`px-6 py-4 font-heading text-xs uppercase tracking-widest whitespace-nowrap transition-all border-b-2 ${
+              tab.active
+                ? 'text-jbs-blue border-jbs-blue'
+                : 'text-white/40 border-transparent hover:text-white/70'
+            }`}
+          >
+            {tab.name}
+          </a>
+        ))}
+      </div>
+    </div>
+  </div>
+
+  <!-- Services Grid -->
+  <section class="py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {services.map((service, index) => (
+          <FadeInSection client:load delay={index * 0.08}>
+            <div class="group bg-white border border-jbs-beige p-8 hover:border-jbs-blue/30 hover:shadow-xl transition-all h-full flex flex-col">
+              <h3 class="font-heading text-2xl text-jbs-dark uppercase mb-3">{service.title}</h3>
+              <p class="text-jbs-charcoal/70 text-sm leading-relaxed mb-6">{service.description}</p>
+              <ul class="mt-auto space-y-2">
+                {service.features.map((feature) => (
+                  <li class="flex items-center gap-2 text-sm text-jbs-charcoal/60">
+                    <span class="w-1.5 h-1.5 bg-jbs-blue shrink-0"></span>
+                    {feature}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </FadeInSection>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-20 bg-jbs-dark">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <FadeInSection client:load>
+        <h2 class="font-heading text-5xl md:text-6xl font-800 text-white mb-6">Ready to Build?</h2>
+        <p class="text-white/50 text-lg mb-10 max-w-xl mx-auto">Tell us about your next healthcare project and we'll show you what Built Different looks like.</p>
+        <a href="/contact" class="inline-block px-10 py-4 bg-jbs-blue text-white font-heading text-lg uppercase tracking-wider hover:bg-jbs-blue/90 transition-all">Contact Us</a>
+      </FadeInSection>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>

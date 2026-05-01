@@ -32,7 +32,7 @@ export default function Footer() {
               {[
                 { name: 'Home', href: '/' },
                 { name: 'About Us', href: '/about' },
-                { name: 'Services', href: '/services' },
+                { name: 'Divisions', href: '/divisions' },
                 { name: 'Portfolio', href: '/portfolio' },
                 { name: 'Contact', href: '/contact' },
               ].map((link) => (
@@ -45,14 +45,22 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Services */}
+          {/* Divisions */}
           <div>
-            <h3 className="font-heading text-xs uppercase tracking-widest text-white/30 mb-6">Services</h3>
-            <ul className="space-y-3 text-sm text-white/50">
-              <li>Ground-Up Construction</li>
-              <li>Brand Refresh + Renovations</li>
-              <li>Design Build</li>
-              <li>Maintenance Programs</li>
+            <h3 className="font-heading text-xs uppercase tracking-widest text-white/30 mb-6">Divisions</h3>
+            <ul className="space-y-3 text-sm">
+              {[
+                { name: 'Auto-Retail', href: '/divisions/auto-retail' },
+                { name: 'QSR', href: '/divisions/qsr' },
+                { name: 'Healthcare', href: '/divisions/healthcare' },
+                { name: 'Site & Civil', href: '/divisions/site-civil' },
+              ].map((link) => (
+                <li key={link.name}>
+                  <a href={link.href} className="text-white/50 hover:text-jbs-blue transition-colors">
+                    {link.name}
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
 

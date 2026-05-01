@@ -5,6 +5,11 @@
   "devCommand": "npm run dev",
   "redirects": [
     {
+      "source": "/services",
+      "destination": "/divisions",
+      "permanent": true
+    },
+    {
       "source": "/:path*",
       "destination": "https://buildwithjbs.com/:path*",
       "permanent": true,
