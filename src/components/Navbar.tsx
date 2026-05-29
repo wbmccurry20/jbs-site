@@ -1,12 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-
-const DIVISIONS = [
-  { name: 'Auto-Retail', href: '/divisions/auto-retail' },
-  { name: 'QSR', href: '/divisions/qsr' },
-  { name: 'Healthcare', href: '/divisions/healthcare' },
-  { name: 'Site & Civil', href: '/divisions/site-civil' },
-];
+import { DIVISIONS } from '../data/divisions';
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);

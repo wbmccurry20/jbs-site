@@ -1,3 +1,5 @@
+import { DIVISIONS } from '../data/divisions';
+
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
@@ -50,12 +52,7 @@ export default function Footer() {
           <div>
             <h3 className="font-heading text-xs uppercase tracking-widest text-white/30 mb-6">Divisions</h3>
             <ul className="space-y-3 text-sm">
-              {[
-                { name: 'Auto-Retail', href: '/divisions/auto-retail' },
-                { name: 'QSR', href: '/divisions/qsr' },
-                { name: 'Healthcare', href: '/divisions/healthcare' },
-                { name: 'Site & Civil', href: '/divisions/site-civil' },
-              ].map((link) => (
+              {DIVISIONS.map((link) => (
                 <li key={link.name}>
                   <a href={link.href} className="text-white/50 hover:text-jbs-blue transition-colors">
                     {link.name}
