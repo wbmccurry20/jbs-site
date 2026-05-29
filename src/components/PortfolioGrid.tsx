@@ -111,6 +111,36 @@ const projects: Project[] = [
       '/images/projects/ray_cort_Burnsville_NC2.jpg',
     ],
   },
+  {
+    title: 'Take 5 Oil Change',
+    category: 'Ground-Up',
+    location: 'Surprise, AZ',
+    images: [
+      '/images/projects/Surprise_AZ1.jpg',
+      '/images/projects/Surprise_AZ2.jpg',
+      '/images/projects/Surprise_AZ3.jpg',
+      '/images/projects/Surprise_AZ4.jpg',
+      '/images/projects/Surprise_AZ5.jpg',
+    ],
+  },
+  {
+    title: 'AutoZone',
+    category: 'Ground-Up',
+    location: 'Orange City, FL',
+    images: [
+      '/images/projects/AutoZone_OrangeCity_FL1.png',
+      '/images/projects/AutoZone_OrangeCity_FL2.png',
+    ],
+  },
+  {
+    title: 'Valvoline',
+    category: 'Ground-Up',
+    location: 'Glasgow, KY',
+    images: [
+      '/images/projects/Vavoline_Glasgow_KY1.jpg',
+      '/images/projects/Vavoline_Glasgow_KY2.jpg',
+    ],
+  },
 ];
 
 const CATEGORIES = ['All', 'Ground-Up', 'Conversion', 'Brand Refresh'];
