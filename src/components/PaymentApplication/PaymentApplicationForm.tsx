@@ -1,4 +1,4 @@
-import { useState, type ChangeEvent } from 'react';
+import { useState, useEffect, type ChangeEvent } from 'react';
 
 /* ─── Types ─────────────────────────────────────────────────────────────── */
 
@@ -25,6 +25,7 @@ type SubmitResult = {
   id: number;
   submission_token: string;
   message: string;
+  checkout_url?: string;
   totals: {
     net_change_orders: number;
     contract_sum_to_date: number;
@@ -281,6 +282,13 @@ export default function PaymentApplicationForm() {
   const [submitting, setSubmitting]     = useState(false);
   const [submitError, setSubmitError]   = useState<string | null>(null);
   const [submitResult, setSubmitResult] = useState<SubmitResult | null>(null);
+  const [cancelled, setCancelled]       = useState(false);
+
+  useEffect(() => {
+    if (typeof window !== 'undefined' && window.location.search.includes('cancelled=true')) {
+      setCancelled(true);
+    }
+  }, []);
 
   /* — Generic field setter — */
   type AnyInput = HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement;
@@ -396,6 +404,10 @@ export default function PaymentApplicationForm() {
       }
       const data = await res.json() as SubmitResult;
       setSubmitResult(data);
+      if (data.checkout_url) {
+        window.location.href = data.checkout_url;
+        return;
+      }
     } catch (err) {
       setSubmitError(err instanceof Error ? err.message : 'Unexpected error — please try again.');
     } finally {
@@ -445,26 +457,13 @@ export default function PaymentApplicationForm() {
 
         <div className="border border-dashed border-jbs-blue/30 p-6 space-y-3">
           <p className="font-heading text-xs uppercase tracking-widest text-jbs-blue">
-            Next: Payment — Coming Soon
+            Payment Link
           </p>
           <p className="text-jbs-charcoal/60 text-sm leading-relaxed">
-            Stripe Checkout and PDF generation will be connected in a future release.
-            Your submission has been saved. JBS Accounts Payable review tools will be connected in a future release.
+            Your submission has been saved. A payment link will be sent to{' '}
+            <strong className="text-jbs-charcoal">{form.email || 'your email'}</strong>{' '}
+            so you can complete the $9.99 application fee when you're ready.
           </p>
-          <ul className="space-y-1.5 text-sm text-jbs-charcoal/50">
-            <li className="flex items-start gap-2">
-              <span className="text-jbs-blue shrink-0">→</span>
-              Secure $9.99 payment via Stripe Checkout (planned)
-            </li>
-            <li className="flex items-start gap-2">
-              <span className="text-jbs-blue shrink-0">→</span>
-              JBS-branded Application for Payment PDF (planned)
-            </li>
-            <li className="flex items-start gap-2">
-              <span className="text-jbs-blue shrink-0">→</span>
-              Email delivery to <strong>{form.email || 'your email'}</strong> (planned)
-            </li>
-          </ul>
         </div>
       </div>
     );
@@ -473,6 +472,22 @@ export default function PaymentApplicationForm() {
   /* ─────────────────────────────────────────────────────────────────────── */
   return (
     <div>
+      {cancelled && (
+        <div className="mb-6 border-l-4 border-amber-400 bg-amber-50 px-5 py-4 flex items-start justify-between gap-4">
+          <p className="text-sm text-amber-800 leading-relaxed">
+            Payment was cancelled — your application has been saved. You can return to pay using the link in your confirmation email.
+          </p>
+          <button
+            type="button"
+            onClick={() => setCancelled(false)}
+            className="shrink-0 text-amber-600 hover:text-amber-800 text-lg leading-none font-bold"
+            aria-label="Dismiss"
+          >
+            ×
+          </button>
+        </div>
+      )}
+
       <StepProgressBar current={step} />
 
       <div className="mt-8 space-y-6">

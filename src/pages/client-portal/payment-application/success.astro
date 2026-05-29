@@ -1,0 +1,63 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Navbar from '../../../components/Navbar';
+import Footer from '../../../components/Footer';
+
+const pageTitle = "Payment Successful | JBS Client Portal";
+const pageDescription = "Your payment application has been submitted and payment processed.";
+---
+
+<Layout title={pageTitle} description={pageDescription}>
+  <Navbar client:load />
+
+  <section class="min-h-screen pt-32 pb-24 bg-jbs-dark flex items-center">
+    <div class="max-w-lg mx-auto px-4 sm:px-6 lg:px-8 w-full">
+      <div class="bg-white p-10 text-center space-y-6">
+        <!-- Green checkmark icon -->
+        <div class="flex justify-center">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="w-16 h-16 text-green-600"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            stroke-width="1.5"
+            aria-hidden="true"
+          >
+            <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5" fill="none" />
+            <path stroke-linecap="round" stroke-linejoin="round" d="M7 12.5l3.5 3.5 6-7" />
+          </svg>
+        </div>
+
+        <!-- Heading -->
+        <div>
+          <p class="font-heading text-xs uppercase tracking-widest text-jbs-blue mb-2">
+            Client Portal &middot; Payment Applications
+          </p>
+          <h1 class="font-heading text-4xl font-800 text-jbs-dark uppercase">
+            Payment Received
+          </h1>
+        </div>
+
+        <!-- Body -->
+        <p class="text-jbs-charcoal/70 leading-relaxed">
+          Thank you — your payment application has been submitted and payment processed.
+          JBS Accounts Payable will review your application and be in touch.
+        </p>
+
+        <!-- Back link -->
+        <div class="pt-4">
+          <a
+            href="/client-portal"
+            class="inline-flex items-center gap-2 font-heading text-xs uppercase tracking-widest text-jbs-blue hover:text-jbs-dark transition-colors"
+          >
+            <span aria-hidden="true">&larr;</span>
+            Back to Client Portal
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>
