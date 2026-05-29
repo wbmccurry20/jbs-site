@@ -36,7 +36,7 @@ export default function Footer() {
                 { name: 'About Us', href: '/about' },
                 { name: 'Divisions', href: '/divisions' },
                 { name: 'Portfolio', href: '/portfolio' },
-                { name: 'Client Portal', href: '/client-portal' },
+                { name: 'Subcontractors', href: '/client-portal' },
                 { name: 'Contact', href: '/contact' },
               ].map((link) => (
                 <li key={link.name}>
