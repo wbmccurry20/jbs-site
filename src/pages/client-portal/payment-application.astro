@@ -1,0 +1,168 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navbar from '../../components/Navbar';
+import FadeInSection from '../../components/FadeInSection';
+import Footer from '../../components/Footer';
+import PaymentApplicationForm from '../../components/PaymentApplication/PaymentApplicationForm';
+
+const pageTitle = "Application for Payment | JBS Client Portal";
+const pageDescription =
+  "JBS subcontractors can submit an Application for Payment through the JBS client portal. UI prototype — demonstrates the planned payment application workflow.";
+---
+
+<Layout title={pageTitle} description={pageDescription}>
+  <Navbar client:load />
+
+  <!-- Hero -->
+  <section class="pt-32 pb-20 bg-jbs-dark relative overflow-hidden">
+    <div class="absolute inset-0 pointer-events-none">
+      <div class="absolute top-0 right-1/4 w-[500px] h-[500px] bg-white/[0.02] rotate-45 -translate-y-1/2"></div>
+      <div class="absolute bottom-0 left-0 w-[300px] h-[300px] bg-jbs-blue/5 rotate-45 translate-y-1/2"></div>
+    </div>
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <FadeInSection client:load>
+        <div class="max-w-3xl">
+          <p class="font-heading text-sm uppercase tracking-widest text-jbs-blue mb-4">
+            Client Portal &middot; Payment Applications
+          </p>
+          <h1 class="font-heading text-5xl md:text-7xl font-800 text-white mb-6 uppercase">
+            Application<br />for Payment
+          </h1>
+          <p class="text-xl text-white/60 max-w-2xl leading-relaxed">
+            Submit your subcontractor payment application directly through the JBS portal.
+            This is a <strong class="text-white/80">UI prototype</strong> demonstrating the
+            planned workflow. Payment processing, PDF generation, and email delivery are not yet
+            active and will be enabled in a later release.
+          </p>
+        </div>
+      </FadeInSection>
+    </div>
+  </section>
+
+  <!-- How it works -->
+  <section class="py-20 bg-jbs-dark border-t border-white/5">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <FadeInSection client:load>
+        <div class="grid md:grid-cols-3 gap-10">
+          <div>
+            <p class="font-heading text-xs uppercase tracking-widest text-jbs-blue mb-3">01 &middot; Complete</p>
+            <h3 class="font-heading text-xl text-white uppercase mb-3">Fill out your application</h3>
+            <p class="text-white/60 leading-relaxed">
+              Enter your company info, project details, contract values, change orders, and
+              Schedule of Values. Totals calculate automatically as you type.
+            </p>
+          </div>
+          <div>
+            <p class="font-heading text-xs uppercase tracking-widest text-jbs-blue mb-3">02 &middot; Pay</p>
+            <h3 class="font-heading text-xl text-white uppercase mb-3">One-time $9.99 fee <span class="text-jbs-blue/60 text-sm normal-case">(planned)</span></h3>
+            <p class="text-white/60 leading-relaxed">
+              When live, a one-time $9.99 application fee will be collected via Stripe Checkout.
+              No account will be required. This step is not yet active in the current prototype.
+            </p>
+          </div>
+          <div>
+            <p class="font-heading text-xs uppercase tracking-widest text-jbs-blue mb-3">03 &middot; Download</p>
+            <h3 class="font-heading text-xl text-white uppercase mb-3">Get your PDF <span class="text-jbs-blue/60 text-sm normal-case">(planned)</span></h3>
+            <p class="text-white/60 leading-relaxed">
+              When live, a JBS-branded Application for Payment PDF will be delivered to your email.
+              JBS Accounts Payable will automatically receive a copy. PDF generation is not yet
+              active in the current prototype.
+            </p>
+          </div>
+        </div>
+      </FadeInSection>
+    </div>
+  </section>
+
+  <!-- Prototype notice -->
+  <section class="py-4 bg-jbs-blue/10 border-t border-b border-jbs-blue/20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <p class="font-heading text-xs uppercase tracking-widest text-jbs-blue text-center">
+        UI Prototype &mdash; Payment integration and PDF generation are not yet active.
+        This form demonstrates the planned workflow.
+      </p>
+    </div>
+  </section>
+
+  <!-- Form -->
+  <section class="py-24 bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <FadeInSection client:load>
+        <div class="mb-12">
+          <p class="font-heading text-sm uppercase tracking-widest text-jbs-blue mb-3">
+            Payment Application Form
+          </p>
+          <h2 class="font-heading text-4xl md:text-5xl font-800 text-jbs-dark uppercase mb-4">
+            Submit Your Application
+          </h2>
+          <p class="text-jbs-charcoal/70 leading-relaxed max-w-2xl">
+            Complete all seven steps to generate your Application for Payment. Fields marked with
+            <span class="text-jbs-blue font-semibold">*</span> are required.
+            Calculated fields update automatically as you enter values.
+          </p>
+        </div>
+      </FadeInSection>
+
+      <!-- React island: multi-step form -->
+      <PaymentApplicationForm client:load />
+    </div>
+  </section>
+
+  <!-- FAQ strip -->
+  <section class="py-20 bg-jbs-dark border-t border-white/5">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <FadeInSection client:load>
+        <div class="max-w-3xl">
+          <p class="font-heading text-xs uppercase tracking-widest text-jbs-blue mb-4">
+            Frequently Asked Questions
+          </p>
+          <div class="space-y-8">
+            <div>
+              <h3 class="font-heading text-lg text-white uppercase mb-2">
+                Is this an official AIA G702/G703 form?
+              </h3>
+              <p class="text-white/60 leading-relaxed">
+                No. When complete, this tool will generate a JBS-branded Application for Payment
+                document capturing the same business information as the G702/G703 workflow. JBS
+                does not hold a license for official AIA form templates. Any future PDF will be
+                clearly labeled as a JBS Application for Payment, not an AIA document.
+              </p>
+            </div>
+            <div>
+              <h3 class="font-heading text-lg text-white uppercase mb-2">
+                Why is there a $9.99 fee?
+              </h3>
+              <p class="text-white/60 leading-relaxed">
+                When live, the fee will cover secure document generation, storage, and delivery. It
+                also ensures every submission is intentional and complete before JBS Accounts
+                Payable processes it. The fee is not currently charged — this is a UI prototype only.
+              </p>
+            </div>
+            <div>
+              <h3 class="font-heading text-lg text-white uppercase mb-2">
+                Do I need an account?
+              </h3>
+              <p class="text-white/60 leading-relaxed">
+                When live, no account will be required — complete the form, pay the fee, and
+                receive your document by email. Account support may be added in a future update.
+                No data is stored or submitted in the current prototype.
+              </p>
+            </div>
+            <div>
+              <h3 class="font-heading text-lg text-white uppercase mb-2">
+                Who receives a copy of my application?
+              </h3>
+              <p class="text-white/60 leading-relaxed">
+                When live, you will receive a download link by email and JBS Accounts Payable
+                will automatically receive a copy. In the current prototype, no data is sent
+                or stored anywhere.
+              </p>
+            </div>
+          </div>
+        </div>
+      </FadeInSection>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>

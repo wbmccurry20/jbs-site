@@ -1,0 +1,482 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navbar from '../../components/Navbar';
+import FadeInSection from '../../components/FadeInSection';
+import Footer from '../../components/Footer';
+
+const pageTitle = "Subcontractor Questionnaire | JBS Client Portal";
+const pageDescription =
+  "Subcontractors interested in working with JBS Construction can introduce their company, trades, coverage, and qualifications through our online questionnaire.";
+
+// Web3Forms key — same env var used by the existing contact form.
+// If unset, the form will render in a disabled "Setup required" state.
+const web3FormsKey = import.meta.env.PUBLIC_WEB3FORMS_KEY ?? '';
+const formReady = web3FormsKey.length > 0;
+---
+
+<Layout title={pageTitle} description={pageDescription}>
+  <Navbar client:load />
+
+  <!-- Hero -->
+  <section class="pt-32 pb-20 bg-jbs-dark relative overflow-hidden">
+    <div class="absolute inset-0">
+      <div class="absolute top-0 right-1/4 w-[500px] h-[500px] bg-white/[0.02] rotate-45 -translate-y-1/2"></div>
+      <div class="absolute bottom-0 left-0 w-[300px] h-[300px] bg-jbs-blue/5 rotate-45 translate-y-1/2"></div>
+    </div>
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <FadeInSection client:load>
+        <div class="max-w-3xl">
+          <p class="font-heading text-sm uppercase tracking-widest text-jbs-blue mb-4">
+            Client Portal &middot; Subcontractors
+          </p>
+          <h1 class="font-heading text-5xl md:text-7xl font-800 text-white mb-6 uppercase">
+            Build With JBS
+          </h1>
+          <p class="text-xl text-white/60 max-w-2xl leading-relaxed">
+            JBS Construction partners with qualified subcontractors across the country. Tell us about
+            your company and capabilities — we keep an active database of trade partners we draw from
+            on commercial projects nationwide.
+          </p>
+        </div>
+      </FadeInSection>
+    </div>
+  </section>
+
+  <!-- Intro / How it works -->
+  <section class="py-20 bg-jbs-dark border-t border-white/5">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <FadeInSection client:load>
+        <div class="grid md:grid-cols-3 gap-10">
+          <div>
+            <p class="font-heading text-xs uppercase tracking-widest text-jbs-blue mb-3">01 &middot; Introduce</p>
+            <h3 class="font-heading text-xl text-white uppercase mb-3">Tell us who you are</h3>
+            <p class="text-white/60 leading-relaxed">
+              Company information, primary contact, and where you operate.
+            </p>
+          </div>
+          <div>
+            <p class="font-heading text-xs uppercase tracking-widest text-jbs-blue mb-3">02 &middot; Qualify</p>
+            <h3 class="font-heading text-xl text-white uppercase mb-3">Share your qualifications</h3>
+            <p class="text-white/60 leading-relaxed">
+              Licensing, insurance, bonding, and safety information so we can review fit.
+            </p>
+          </div>
+          <div>
+            <p class="font-heading text-xs uppercase tracking-widest text-jbs-blue mb-3">03 &middot; Connect</p>
+            <h3 class="font-heading text-xl text-white uppercase mb-3">Get on our radar</h3>
+            <p class="text-white/60 leading-relaxed">
+              Our preconstruction team reviews submissions and reaches out when scope aligns.
+            </p>
+          </div>
+        </div>
+      </FadeInSection>
+    </div>
+  </section>
+
+  <!-- Questionnaire -->
+  <section class="py-24 bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <FadeInSection client:load>
+        <div class="mb-12">
+          <p class="font-heading text-sm uppercase tracking-widest text-jbs-blue mb-3">
+            Subcontractor Questionnaire
+          </p>
+          <h2 class="font-heading text-4xl md:text-5xl font-800 text-jbs-dark uppercase mb-4">
+            Get Prequalified
+          </h2>
+          <p class="text-jbs-charcoal/70 leading-relaxed max-w-2xl">
+            Please complete the questionnaire below. Fields marked with <span class="text-jbs-blue font-semibold">*</span>
+            are required. Your information is only used for trade-partner review by JBS Construction.
+          </p>
+        </div>
+
+        {!formReady && (
+          <div class="mb-10 border-l-4 border-jbs-blue bg-jbs-blue/5 p-5">
+            <p class="font-heading text-xs uppercase tracking-widest text-jbs-blue mb-2">
+              Setup Required
+            </p>
+            <p class="text-jbs-charcoal text-sm leading-relaxed">
+              This form is wired to Web3Forms but no <code class="bg-jbs-dark/5 px-1 py-0.5 text-xs">PUBLIC_WEB3FORMS_KEY</code>
+              environment variable is set. Add the key (or a dedicated subcontractor inbox key) in
+              Vercel/host env vars to enable submissions.
+            </p>
+          </div>
+        )}
+
+        <form
+          id="subcontractor-form"
+          action="https://api.web3forms.com/submit"
+          method="POST"
+          class="space-y-12"
+        >
+          <input type="hidden" name="access_key" value={web3FormsKey} />
+          <input type="hidden" name="subject" value="New JBS Subcontractor Questionnaire Submission" />
+          <input type="hidden" name="from_name" value="JBS Subcontractor Portal" />
+          <!-- honeypot -->
+          <input type="checkbox" name="botcheck" class="hidden" tabindex="-1" autocomplete="off" />
+
+          <!-- SECTION 1: Company Info -->
+          <fieldset class="space-y-6">
+            <legend class="w-full border-b border-jbs-dark/10 pb-3 mb-6">
+              <span class="font-heading text-xs uppercase tracking-widest text-jbs-blue">Section 1</span>
+              <h3 class="font-heading text-2xl text-jbs-dark uppercase mt-1">Company Information</h3>
+            </legend>
+
+            <div class="grid md:grid-cols-2 gap-6">
+              <div>
+                <label for="company_name" class="block font-heading text-xs uppercase tracking-wider text-jbs-charcoal mb-2">
+                  Company Name <span class="text-jbs-blue">*</span>
+                </label>
+                <input id="company_name" name="company_name" type="text" required
+                  class="w-full px-4 py-3 border border-jbs-dark/15 bg-white text-jbs-dark focus:outline-none focus:border-jbs-blue transition-colors" />
+              </div>
+              <div>
+                <label for="dba" class="block font-heading text-xs uppercase tracking-wider text-jbs-charcoal mb-2">
+                  DBA / Alternate Name
+                </label>
+                <input id="dba" name="dba" type="text"
+                  class="w-full px-4 py-3 border border-jbs-dark/15 bg-white text-jbs-dark focus:outline-none focus:border-jbs-blue transition-colors" />
+              </div>
+              <div>
+                <label for="website" class="block font-heading text-xs uppercase tracking-wider text-jbs-charcoal mb-2">
+                  Website
+                </label>
+                <input id="website" name="website" type="url" placeholder="https://"
+                  class="w-full px-4 py-3 border border-jbs-dark/15 bg-white text-jbs-dark focus:outline-none focus:border-jbs-blue transition-colors" />
+              </div>
+              <div>
+                <label for="year_established" class="block font-heading text-xs uppercase tracking-wider text-jbs-charcoal mb-2">
+                  Year Established
+                </label>
+                <input id="year_established" name="year_established" type="number" min="1800" max="2100"
+                  class="w-full px-4 py-3 border border-jbs-dark/15 bg-white text-jbs-dark focus:outline-none focus:border-jbs-blue transition-colors" />
+              </div>
+            </div>
+
+            <div>
+              <label for="address" class="block font-heading text-xs uppercase tracking-wider text-jbs-charcoal mb-2">
+                Business Address <span class="text-jbs-blue">*</span>
+              </label>
+              <input id="address" name="address" type="text" required placeholder="Street, City, State, ZIP"
+                class="w-full px-4 py-3 border border-jbs-dark/15 bg-white text-jbs-dark focus:outline-none focus:border-jbs-blue transition-colors" />
+            </div>
+          </fieldset>
+
+          <!-- SECTION 2: Primary Contact -->
+          <fieldset class="space-y-6">
+            <legend class="w-full border-b border-jbs-dark/10 pb-3 mb-6">
+              <span class="font-heading text-xs uppercase tracking-widest text-jbs-blue">Section 2</span>
+              <h3 class="font-heading text-2xl text-jbs-dark uppercase mt-1">Primary Contact</h3>
+            </legend>
+
+            <div class="grid md:grid-cols-2 gap-6">
+              <div>
+                <label for="contact_name" class="block font-heading text-xs uppercase tracking-wider text-jbs-charcoal mb-2">
+                  Contact Name <span class="text-jbs-blue">*</span>
+                </label>
+                <input id="contact_name" name="contact_name" type="text" required
+                  class="w-full px-4 py-3 border border-jbs-dark/15 bg-white text-jbs-dark focus:outline-none focus:border-jbs-blue transition-colors" />
+              </div>
+              <div>
+                <label for="contact_title" class="block font-heading text-xs uppercase tracking-wider text-jbs-charcoal mb-2">
+                  Title / Role
+                </label>
+                <input id="contact_title" name="contact_title" type="text"
+                  class="w-full px-4 py-3 border border-jbs-dark/15 bg-white text-jbs-dark focus:outline-none focus:border-jbs-blue transition-colors" />
+              </div>
+              <div>
+                <label for="email" class="block font-heading text-xs uppercase tracking-wider text-jbs-charcoal mb-2">
+                  Email <span class="text-jbs-blue">*</span>
+                </label>
+                <input id="email" name="email" type="email" required
+                  class="w-full px-4 py-3 border border-jbs-dark/15 bg-white text-jbs-dark focus:outline-none focus:border-jbs-blue transition-colors" />
+              </div>
+              <div>
+                <label for="phone" class="block font-heading text-xs uppercase tracking-wider text-jbs-charcoal mb-2">
+                  Phone <span class="text-jbs-blue">*</span>
+                </label>
+                <input id="phone" name="phone" type="tel" required
+                  class="w-full px-4 py-3 border border-jbs-dark/15 bg-white text-jbs-dark focus:outline-none focus:border-jbs-blue transition-colors" />
+              </div>
+            </div>
+          </fieldset>
+
+          <!-- SECTION 3: Trade & Coverage -->
+          <fieldset class="space-y-6">
+            <legend class="w-full border-b border-jbs-dark/10 pb-3 mb-6">
+              <span class="font-heading text-xs uppercase tracking-widest text-jbs-blue">Section 3</span>
+              <h3 class="font-heading text-2xl text-jbs-dark uppercase mt-1">Trade & Coverage</h3>
+            </legend>
+
+            <div>
+              <label for="trade" class="block font-heading text-xs uppercase tracking-wider text-jbs-charcoal mb-2">
+                Trade / Scope of Work <span class="text-jbs-blue">*</span>
+              </label>
+              <input id="trade" name="trade" type="text" required
+                placeholder="e.g. Electrical, Concrete, HVAC, Site Work"
+                class="w-full px-4 py-3 border border-jbs-dark/15 bg-white text-jbs-dark focus:outline-none focus:border-jbs-blue transition-colors" />
+            </div>
+
+            <div>
+              <label for="service_area" class="block font-heading text-xs uppercase tracking-wider text-jbs-charcoal mb-2">
+                Service Area <span class="text-jbs-blue">*</span>
+              </label>
+              <input id="service_area" name="service_area" type="text" required
+                placeholder="Cities, regions, or 'Nationwide'"
+                class="w-full px-4 py-3 border border-jbs-dark/15 bg-white text-jbs-dark focus:outline-none focus:border-jbs-blue transition-colors" />
+            </div>
+
+            <div>
+              <label for="states_licensed" class="block font-heading text-xs uppercase tracking-wider text-jbs-charcoal mb-2">
+                States Licensed To Work In
+              </label>
+              <textarea id="states_licensed" name="states_licensed" rows="2"
+                placeholder="e.g. NC, SC, GA, FL, TX"
+                class="w-full px-4 py-3 border border-jbs-dark/15 bg-white text-jbs-dark focus:outline-none focus:border-jbs-blue transition-colors resize-y"></textarea>
+            </div>
+
+            <div>
+              <label for="union_status" class="block font-heading text-xs uppercase tracking-wider text-jbs-charcoal mb-2">
+                Union / Non-Union Status
+              </label>
+              <select id="union_status" name="union_status"
+                class="w-full px-4 py-3 border border-jbs-dark/15 bg-white text-jbs-dark focus:outline-none focus:border-jbs-blue transition-colors">
+                <option value="">— Select —</option>
+                <option value="Union">Union</option>
+                <option value="Non-Union">Non-Union</option>
+                <option value="Open Shop">Open Shop</option>
+                <option value="Mixed">Mixed</option>
+              </select>
+            </div>
+          </fieldset>
+
+          <!-- SECTION 4: Licensing, Insurance & Bonding -->
+          <fieldset class="space-y-6">
+            <legend class="w-full border-b border-jbs-dark/10 pb-3 mb-6">
+              <span class="font-heading text-xs uppercase tracking-widest text-jbs-blue">Section 4</span>
+              <h3 class="font-heading text-2xl text-jbs-dark uppercase mt-1">Licensing, Insurance & Bonding</h3>
+            </legend>
+
+            <div class="grid md:grid-cols-2 gap-6">
+              <div>
+                <label for="license_number" class="block font-heading text-xs uppercase tracking-wider text-jbs-charcoal mb-2">
+                  Primary License Number(s)
+                </label>
+                <input id="license_number" name="license_number" type="text"
+                  class="w-full px-4 py-3 border border-jbs-dark/15 bg-white text-jbs-dark focus:outline-none focus:border-jbs-blue transition-colors" />
+              </div>
+              <div>
+                <label for="insurance_status" class="block font-heading text-xs uppercase tracking-wider text-jbs-charcoal mb-2">
+                  Insurance Status
+                </label>
+                <select id="insurance_status" name="insurance_status"
+                  class="w-full px-4 py-3 border border-jbs-dark/15 bg-white text-jbs-dark focus:outline-none focus:border-jbs-blue transition-colors">
+                  <option value="">— Select —</option>
+                  <option>Current GL, Auto & WC in place</option>
+                  <option>Partially insured</option>
+                  <option>Not currently insured</option>
+                </select>
+                <p class="text-xs text-jbs-charcoal/60 mt-2">
+                  COI requirements will be confirmed before any award. Placeholder — final requirements TBD.
+                </p>
+              </div>
+              <div>
+                <label for="bonding_capacity" class="block font-heading text-xs uppercase tracking-wider text-jbs-charcoal mb-2">
+                  Bonding Capacity (Single / Aggregate)
+                </label>
+                <input id="bonding_capacity" name="bonding_capacity" type="text"
+                  placeholder="e.g. $1M / $5M"
+                  class="w-full px-4 py-3 border border-jbs-dark/15 bg-white text-jbs-dark focus:outline-none focus:border-jbs-blue transition-colors" />
+              </div>
+              <div>
+                <label for="bonding_company" class="block font-heading text-xs uppercase tracking-wider text-jbs-charcoal mb-2">
+                  Surety / Bonding Company
+                </label>
+                <input id="bonding_company" name="bonding_company" type="text"
+                  class="w-full px-4 py-3 border border-jbs-dark/15 bg-white text-jbs-dark focus:outline-none focus:border-jbs-blue transition-colors" />
+              </div>
+            </div>
+          </fieldset>
+
+          <!-- SECTION 5: Safety -->
+          <fieldset class="space-y-6">
+            <legend class="w-full border-b border-jbs-dark/10 pb-3 mb-6">
+              <span class="font-heading text-xs uppercase tracking-widest text-jbs-blue">Section 5</span>
+              <h3 class="font-heading text-2xl text-jbs-dark uppercase mt-1">Safety</h3>
+            </legend>
+
+            <div class="grid md:grid-cols-2 gap-6">
+              <div>
+                <label for="emr" class="block font-heading text-xs uppercase tracking-wider text-jbs-charcoal mb-2">
+                  EMR (Most Recent)
+                </label>
+                <input id="emr" name="emr" type="text" placeholder="e.g. 0.92"
+                  class="w-full px-4 py-3 border border-jbs-dark/15 bg-white text-jbs-dark focus:outline-none focus:border-jbs-blue transition-colors" />
+              </div>
+              <div>
+                <label for="osha_300" class="block font-heading text-xs uppercase tracking-wider text-jbs-charcoal mb-2">
+                  OSHA Recordables (Last 3 Years)
+                </label>
+                <input id="osha_300" name="osha_300" type="text"
+                  class="w-full px-4 py-3 border border-jbs-dark/15 bg-white text-jbs-dark focus:outline-none focus:border-jbs-blue transition-colors" />
+              </div>
+            </div>
+
+            <div>
+              <label for="safety_program" class="block font-heading text-xs uppercase tracking-wider text-jbs-charcoal mb-2">
+                Safety Program Summary
+              </label>
+              <textarea id="safety_program" name="safety_program" rows="3"
+                placeholder="Briefly describe your written safety program, training cadence, and field oversight."
+                class="w-full px-4 py-3 border border-jbs-dark/15 bg-white text-jbs-dark focus:outline-none focus:border-jbs-blue transition-colors resize-y"></textarea>
+            </div>
+          </fieldset>
+
+          <!-- SECTION 6: Experience & References -->
+          <fieldset class="space-y-6">
+            <legend class="w-full border-b border-jbs-dark/10 pb-3 mb-6">
+              <span class="font-heading text-xs uppercase tracking-widest text-jbs-blue">Section 6</span>
+              <h3 class="font-heading text-2xl text-jbs-dark uppercase mt-1">Experience & References</h3>
+            </legend>
+
+            <div>
+              <label for="project_experience" class="block font-heading text-xs uppercase tracking-wider text-jbs-charcoal mb-2">
+                Relevant Project Experience
+              </label>
+              <textarea id="project_experience" name="project_experience" rows="4"
+                placeholder="List 3–5 recent projects: project name, location, GC, scope, contract value, year."
+                class="w-full px-4 py-3 border border-jbs-dark/15 bg-white text-jbs-dark focus:outline-none focus:border-jbs-blue transition-colors resize-y"></textarea>
+            </div>
+
+            <div>
+              <label for="references" class="block font-heading text-xs uppercase tracking-wider text-jbs-charcoal mb-2">
+                Trade References
+              </label>
+              <textarea id="references" name="references" rows="3"
+                placeholder="Provide 2–3 GC or owner references: name, company, phone, email."
+                class="w-full px-4 py-3 border border-jbs-dark/15 bg-white text-jbs-dark focus:outline-none focus:border-jbs-blue transition-colors resize-y"></textarea>
+            </div>
+
+            <!-- Upload placeholder language -->
+            <div class="border border-dashed border-jbs-dark/20 p-5 bg-jbs-dark/[0.02]">
+              <p class="font-heading text-xs uppercase tracking-wider text-jbs-blue mb-2">
+                Supporting Documents
+              </p>
+              <p class="text-sm text-jbs-charcoal/70 leading-relaxed">
+                File uploads (W-9, COI, license copies, capability statement, safety manual) are not
+                accepted through this form yet. Please note in the field below which documents you can
+                provide, and our team will follow up with a secure upload link.
+              </p>
+            </div>
+
+            <div>
+              <label for="documents_available" class="block font-heading text-xs uppercase tracking-wider text-jbs-charcoal mb-2">
+                Documents You Can Provide On Request
+              </label>
+              <input id="documents_available" name="documents_available" type="text"
+                placeholder="e.g. W-9, COI, License, Safety Manual, Capability Statement"
+                class="w-full px-4 py-3 border border-jbs-dark/15 bg-white text-jbs-dark focus:outline-none focus:border-jbs-blue transition-colors" />
+            </div>
+          </fieldset>
+
+          <!-- SECTION 7: Additional Notes -->
+          <fieldset class="space-y-6">
+            <legend class="w-full border-b border-jbs-dark/10 pb-3 mb-6">
+              <span class="font-heading text-xs uppercase tracking-widest text-jbs-blue">Section 7</span>
+              <h3 class="font-heading text-2xl text-jbs-dark uppercase mt-1">Additional Notes</h3>
+            </legend>
+
+            <div>
+              <label for="notes" class="block font-heading text-xs uppercase tracking-wider text-jbs-charcoal mb-2">
+                Anything else we should know?
+              </label>
+              <textarea id="notes" name="notes" rows="4"
+                placeholder="Self-performed scopes, certifications (MBE/WBE/DBE/SDVOSB), specialty equipment, etc."
+                class="w-full px-4 py-3 border border-jbs-dark/15 bg-white text-jbs-dark focus:outline-none focus:border-jbs-blue transition-colors resize-y"></textarea>
+            </div>
+          </fieldset>
+
+          <!-- Submit -->
+          <div class="pt-4 flex flex-col sm:flex-row sm:items-center gap-4">
+            <button type="submit" disabled={!formReady}
+              class="inline-flex items-center justify-center px-8 py-4 bg-jbs-blue text-white font-heading text-sm uppercase tracking-widest hover:bg-jbs-blue/90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed">
+              Submit Questionnaire
+            </button>
+            <p class="text-xs text-jbs-charcoal/60 max-w-md">
+              By submitting, you confirm the information provided is accurate to the best of your
+              knowledge. Final award of work is subject to JBS prequalification review.
+            </p>
+          </div>
+
+          <div id="form-status" class="hidden text-sm" role="status" aria-live="polite"></div>
+        </form>
+      </FadeInSection>
+    </div>
+  </section>
+
+  <!-- CTA strip -->
+  <section class="py-16 bg-jbs-dark">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <FadeInSection client:load>
+        <h3 class="font-heading text-2xl md:text-3xl text-white uppercase mb-4">
+          Questions About Working With JBS?
+        </h3>
+        <p class="text-white/60 max-w-xl mx-auto mb-6">
+          Reach out to our preconstruction team directly — we're happy to talk through scope, timing,
+          and upcoming opportunities.
+        </p>
+        <a href="/contact"
+          class="inline-block text-jbs-blue font-heading text-sm uppercase tracking-wider hover:text-jbs-blue/80 transition-colors">
+          Contact JBS &rarr;
+        </a>
+      </FadeInSection>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>
+
+<script is:inline>
+  (() => {
+    const form = document.getElementById('subcontractor-form');
+    const statusEl = document.getElementById('form-status');
+    if (!form || !statusEl) return;
+
+    form.addEventListener('submit', async (e) => {
+      const accessKey = form.querySelector('input[name="access_key"]').value;
+      if (!accessKey) return; // let native disabled state handle it
+
+      e.preventDefault();
+      const submitBtn = form.querySelector('button[type="submit"]');
+      const originalText = submitBtn.textContent;
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Submitting...';
+      statusEl.classList.remove('hidden', 'text-red-600', 'text-green-700');
+      statusEl.textContent = '';
+
+      try {
+        const formData = new FormData(form);
+        const res = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          body: formData,
+        });
+        const data = await res.json();
+        if (data.success) {
+          statusEl.classList.add('text-green-700');
+          statusEl.textContent = 'Thanks — your questionnaire was submitted. Our team will be in touch.';
+          form.reset();
+        } else {
+          statusEl.classList.add('text-red-600');
+          statusEl.textContent = data.message || 'Something went wrong. Please try again or email us.';
+          submitBtn.disabled = false;
+          submitBtn.textContent = originalText;
+        }
+      } catch (err) {
+        statusEl.classList.add('text-red-600');
+        statusEl.textContent = 'Network error. Please try again or email us directly.';
+        submitBtn.disabled = false;
+        submitBtn.textContent = originalText;
+      }
+    });
+  })();
+</script>
