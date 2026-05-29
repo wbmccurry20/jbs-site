@@ -118,15 +118,15 @@ const pageDescription = "Learn about JBS Construction — nationwide commercial 
 				</FadeInSection>
 				<div class="grid grid-cols-2 md:grid-cols-3 gap-8 max-w-3xl">
 					{[
-						{ name: 'Joe Dionne', title: 'Managing Partner', photo: null },
-						{ name: 'Kevin Polley', title: 'Managing Partner', photo: null },
-						{ name: 'Alex Silvers', title: 'Managing Partner', photo: null },
+						{ name: 'Joe Dionne', title: 'Managing Partner', photo: null, pos: 'center center' },
+						{ name: 'Kevin Polley', title: 'Managing Partner', photo: null, pos: 'center center' },
+						{ name: 'Alex Silvers', title: 'Managing Partner', photo: null, pos: 'center center' },
 					].map((member, i) => (
 						<FadeInSection client:load delay={i * 0.08}>
 							<div class="group text-center">
 								<div class="aspect-square bg-jbs-beige overflow-hidden mb-4 relative">
 									{member.photo ? (
-										<img src={member.photo} alt={member.name} class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" style={`object-position: ${member.pos ?? 'center 20%'}`} loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'" />
+										<img src={member.photo} alt={member.name} class="w-full h-full object-cover transition-all duration-500" style={`object-position: ${member.pos}`} loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'" />
 									) : null}
 									<div class="absolute inset-0 items-center justify-center bg-jbs-beige" style="display:none">
 										<span class="font-heading text-3xl text-jbs-charcoal/30 uppercase">{member.name.split(' ').map(n => n[0]).join('')}</span>
@@ -148,14 +148,14 @@ const pageDescription = "Learn about JBS Construction — nationwide commercial 
 				</FadeInSection>
 				<div class="grid grid-cols-2 md:grid-cols-4 gap-8">
 					{[
-						{ name: 'Shelby Fender', title: 'Director of Finance', photo: null },
-						{ name: 'Kelsey Black', title: 'Director of Administration', photo: '/images/team/Kelsey.jpg' },
+						{ name: 'Shelby Fender', title: 'Director of Finance', photo: null, pos: 'center center' },
+						{ name: 'Kelsey Black', title: 'Director of Administration', photo: '/images/team/Kelsey.jpg', pos: 'center 25%' },
 					].map((member, i) => (
 						<FadeInSection client:load delay={i * 0.08}>
 							<div class="group text-center">
 								<div class="aspect-square bg-jbs-beige overflow-hidden mb-4 relative">
 									{member.photo ? (
-										<img src={member.photo} alt={member.name} class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" style={`object-position: ${member.pos ?? 'center 20%'}`} loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'" />
+										<img src={member.photo} alt={member.name} class="w-full h-full object-cover transition-all duration-500" style={`object-position: ${member.pos}`} loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'" />
 									) : null}
 									<div class="absolute inset-0 items-center justify-center bg-jbs-beige" style="display:none">
 										<span class="font-heading text-3xl text-jbs-charcoal/30 uppercase">{member.name.split(' ').map(n => n[0]).join('')}</span>
@@ -177,23 +177,23 @@ const pageDescription = "Learn about JBS Construction — nationwide commercial 
 				</FadeInSection>
 				<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
 					{[
-						{ name: 'Nick Silvers', title: 'Senior Project Manager', photo: '/images/team/Nick.jpg', pos: 'center 40%' },
-						{ name: 'Zane Curdes', title: 'Senior Project Manager', photo: null },
-						{ name: 'Michael Fender', title: 'Project Manager', photo: '/images/team/Michael.jpg' },
-						{ name: 'Christian Childers', title: 'Project Manager', photo: '/images/team/Christian.jpg' },
-						{ name: 'Christopher James', title: 'Project Manager', photo: '/images/team/Chris.jpg' },
-						{ name: 'Justin Morton', title: 'Asst. Project Manager', photo: '/images/team/Justin.jpg' },
-						{ name: 'Jake Thomason', title: 'Asst. Project Manager', photo: '/images/team/Jake.jpg' },
-						{ name: "Bobby O'Shea", title: 'Asst. Project Manager', photo: '/images/team/Bobby.jpg' },
-						{ name: 'Trey Ragan', title: 'Asst. Project Manager', photo: '/images/team/Trey.jpg' },
-						{ name: 'Corey Darby', title: 'Asst. Project Manager', photo: '/images/team/Corey.jpg' },
-						{ name: 'Camille Lawrence', title: 'Asst. Project Manager', photo: null },
+						{ name: 'Nick Silvers', title: 'Senior Project Manager', photo: '/images/team/Nick.jpg', pos: 'center 75%' },
+						{ name: 'Zane Curdes', title: 'Senior Project Manager', photo: '/images/team/Zane.jpg', pos: 'center 30%' },
+						{ name: 'Michael Fender', title: 'Project Manager', photo: '/images/team/Michael.jpg', pos: 'center 25%' },
+						{ name: 'Christian Childers', title: 'Project Manager', photo: '/images/team/Christian.jpg', pos: 'center 0%' },
+						{ name: 'Christopher James', title: 'Project Manager', photo: '/images/team/Chris.jpg', pos: 'center 15%' },
+						{ name: 'Justin Morton', title: 'Asst. Project Manager', photo: '/images/team/Justin.jpg', pos: 'center 30%' },
+						{ name: 'Jake Thomason', title: 'Asst. Project Manager', photo: '/images/team/Jake.jpg', pos: 'center 54%' },
+						{ name: "Bobby O'Shea", title: 'Asst. Project Manager', photo: '/images/team/Bobby.jpg', pos: 'center 20%' },
+						{ name: 'Trey Ragan', title: 'Asst. Project Manager', photo: '/images/team/Trey.jpg', pos: 'center 15%' },
+						{ name: 'Corey Darby', title: 'Asst. Project Manager', photo: '/images/team/Corey.jpg', pos: 'center 20%' },
+						{ name: 'Camille Lawrence', title: 'Asst. Project Manager', photo: null, pos: 'center center' },
 					].map((member, i) => (
 						<FadeInSection client:load delay={i * 0.06}>
 							<div class="group text-center">
 								<div class="aspect-square bg-jbs-beige overflow-hidden mb-4 relative">
 									{member.photo ? (
-										<img src={member.photo} alt={member.name} class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" style={`object-position: ${member.pos ?? 'center 20%'}`} loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'" />
+										<img src={member.photo} alt={member.name} class="w-full h-full object-cover transition-all duration-500" style={`object-position: ${member.pos}`} loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'" />
 									) : null}
 									<div class="absolute inset-0 items-center justify-center bg-jbs-beige" style="display:none">
 										<span class="font-heading text-2xl text-jbs-charcoal/30 uppercase">{member.name.split(' ').map(n => n[0]).join('')}</span>
@@ -215,16 +215,16 @@ const pageDescription = "Learn about JBS Construction — nationwide commercial 
 				</FadeInSection>
 				<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
 					{[
-						{ name: 'Jessica Bitner', title: 'Office Administrator', photo: '/images/team/Jessica.jpg' },
-						{ name: 'Emily Simpson', title: 'Accounting Associate', photo: '/images/team/Emily.jpg' },
-						{ name: 'Steph Perez', title: 'Construction Administrator', photo: '/images/team/Steph.jpg' },
-						{ name: 'Maria Siebenaller', title: 'Construction Administrator', photo: '/images/team/Maria.jpg' },
+						{ name: 'Jessica Bitner', title: 'Office Administrator', photo: '/images/team/Jessica.jpg', pos: 'center 35%' },
+						{ name: 'Emily Simpson', title: 'Accounting Associate', photo: '/images/team/Emily.jpg', pos: 'center 50%' },
+						{ name: 'Steph Perez', title: 'Construction Administrator', photo: '/images/team/Steph.jpg', pos: 'center 35%' },
+						{ name: 'Maria Siebenaller', title: 'Construction Administrator', photo: '/images/team/Maria.jpg', pos: 'center 55%' },
 					].map((member, i) => (
 						<FadeInSection client:load delay={i * 0.06}>
 							<div class="group text-center">
 								<div class="aspect-square bg-jbs-beige overflow-hidden mb-4 relative">
 									{member.photo ? (
-										<img src={member.photo} alt={member.name} class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" style={`object-position: ${member.pos ?? 'center 20%'}`} loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'" />
+										<img src={member.photo} alt={member.name} class="w-full h-full object-cover transition-all duration-500" style={`object-position: ${member.pos}`} loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'" />
 									) : null}
 									<div class="absolute inset-0 items-center justify-center bg-jbs-beige" style="display:none">
 										<span class="font-heading text-2xl text-jbs-charcoal/30 uppercase">{member.name.split(' ').map(n => n[0]).join('')}</span>
