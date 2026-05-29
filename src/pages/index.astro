@@ -144,6 +144,70 @@ const stateData = (geojson as any).features
 		</div>
 	</section>
 
+	<!-- ===================== CLIENT LOGO STRIP ===================== -->
+	<section class="py-10 bg-jbs-charcoal border-y border-white/10 overflow-hidden">
+		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-6 text-center">
+			<p class="font-heading text-xs uppercase tracking-widest text-white/40">Trusted By</p>
+		</div>
+		<div class="relative">
+			<!-- Fade edges -->
+			<div class="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-jbs-charcoal to-transparent z-10 pointer-events-none"></div>
+			<div class="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-jbs-charcoal to-transparent z-10 pointer-events-none"></div>
+			<!-- Scrolling track — duplicated for seamless loop -->
+			<div class="flex logo-marquee">
+				{[
+					'Take 5 Oil Change',
+					'Mister Carwash',
+					'Driven Brands',
+					'Valvoline',
+					'Tidal Wave Auto Spa',
+					'7 Brew',
+					'Grease Monkey',
+					'AutoZone',
+					'Fast Oil',
+					'Durban Group',
+				].concat([
+					'Take 5 Oil Change',
+					'Mister Carwash',
+					'Driven Brands',
+					'Valvoline',
+					'Tidal Wave Auto Spa',
+					'7 Brew',
+					'Grease Monkey',
+					'AutoZone',
+					'Fast Oil',
+					'Durban Group',
+				]).map((name) => (
+					<span class="logo-item font-heading text-sm uppercase tracking-widest text-white/50 whitespace-nowrap px-10 border-r border-white/10 last:border-r-0 hover:text-white/80 transition-colors">
+						{name}
+					</span>
+				))}
+			</div>
+		</div>
+	</section>
+
+	<style>
+		.logo-marquee {
+			animation: marquee 30s linear infinite;
+			width: max-content;
+		}
+		.logo-marquee:hover {
+			animation-play-state: paused;
+		}
+		@keyframes marquee {
+			from { transform: translateX(0); }
+			to   { transform: translateX(-50%); }
+		}
+		@media (prefers-reduced-motion: reduce) {
+			.logo-marquee {
+				animation: none;
+				flex-wrap: wrap;
+				justify-content: center;
+				width: 100%;
+			}
+		}
+	</style>
+
 	<!-- ===================== FEATURED PROJECT ===================== -->
 	<section class="py-24 bg-white">
 		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
