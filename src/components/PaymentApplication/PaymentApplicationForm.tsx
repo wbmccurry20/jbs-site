@@ -20,6 +20,22 @@ type ChangeOrder = {
   dateApproved: string;
 };
 
+// API response from POST /api/v1/payment-applications
+type SubmitResult = {
+  id: number;
+  submission_token: string;
+  message: string;
+  totals: {
+    net_change_orders: number;
+    contract_sum_to_date: number;
+    total_completed_stored: number;
+    retainage_amount: number;
+    earned_less_retainage: number;
+    current_payment_due: number;
+    balance_to_finish: number;
+  };
+};
+
 type FormState = {
   // Step 1 — Company & Contact
   companyName: string;
@@ -47,6 +63,9 @@ type FormState = {
   // Misc
   additionalNotes: string;
 };
+
+// API base URL from environment variable. Empty string means prototype / demo mode.
+const API_URL = (import.meta.env.PUBLIC_API_URL ?? '').replace(/\/$/, '');
 
 /* ─── Helpers ────────────────────────────────────────────────────────────── */
 
@@ -259,6 +278,10 @@ export default function PaymentApplicationForm() {
     additionalNotes: '',
   });
 
+  const [submitting, setSubmitting]     = useState(false);
+  const [submitError, setSubmitError]   = useState<string | null>(null);
+  const [submitResult, setSubmitResult] = useState<SubmitResult | null>(null);
+
   /* — Generic field setter — */
   type AnyInput = HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement;
   const set = (f: keyof FormState) =>
@@ -315,6 +338,137 @@ export default function PaymentApplicationForm() {
   /* — Navigation — */
   const goNext = () => setStep(s => Math.min(s + 1, 7));
   const goBack = () => setStep(s => Math.max(s - 1, 1));
+
+  /* — API submission — */
+  function buildPayload() {
+    return {
+      company_name:  form.companyName,
+      contact_name:  form.contactName,
+      email:         form.email,
+      phone:         form.phone,
+      address_line1: form.addressLine1,
+      address_line2: form.addressLine2,
+      city:          form.city,
+      state:         form.state,
+      zip:           form.zip,
+      project_name:       form.projectName,
+      project_number:     form.projectNumber,
+      owner:              form.owner,
+      contractor:         form.contractor,
+      contract_date:      form.contractDate || '',
+      application_number: parseInt(form.applicationNumber, 10) || 1,
+      period_to:          form.periodTo || '',
+      original_contract_sum:  parseDollar(form.originalContractSum),
+      retainage_percent:      parseFloat(form.retainagePercent) || 0,
+      previous_certificates:  parseDollar(form.previousCertificates),
+      additional_notes:       form.additionalNotes,
+      change_orders: changeOrders.map((co, i) => ({
+        co_number:     co.coNumber,
+        description:   co.description,
+        amount:        parseDollar(co.amount),
+        date_approved: co.dateApproved || '',
+        sort_order:    i,
+      })),
+      line_items: lineItems.map((li, i) => ({
+        item_no:          li.itemNo,
+        description:      li.description,
+        scheduled_value:  parseDollar(li.scheduledValue),
+        prev_completed:   parseDollar(li.prevCompleted),
+        this_period:      parseDollar(li.thisPeriod),
+        materials_stored: parseDollar(li.materialsStored),
+        sort_order:       i,
+      })),
+    };
+  }
+
+  async function handleSubmit() {
+    setSubmitting(true);
+    setSubmitError(null);
+    try {
+      const res = await fetch(`${API_URL}/api/v1/payment-applications`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(buildPayload()),
+      });
+      if (!res.ok) {
+        const body = await res.json().catch(() => ({})) as { error?: string };
+        throw new Error(body.error ?? `Server returned ${res.status}`);
+      }
+      const data = await res.json() as SubmitResult;
+      setSubmitResult(data);
+    } catch (err) {
+      setSubmitError(err instanceof Error ? err.message : 'Unexpected error — please try again.');
+    } finally {
+      setSubmitting(false);
+    }
+  }
+
+  /* ─── Success view (replaces step flow after successful submission) ─────── */
+  if (submitResult) {
+    return (
+      <div className="space-y-8">
+        <div className="border-l-4 border-jbs-blue pl-5 py-2">
+          <p className="font-heading text-xs uppercase tracking-widest text-jbs-blue mb-1">
+            Application Submitted
+          </p>
+          <p className="text-jbs-charcoal/70 text-sm">{submitResult.message}</p>
+        </div>
+
+        <div className="border border-jbs-dark/10 p-5 space-y-2">
+          <p className="font-heading text-xs uppercase tracking-widest text-jbs-charcoal/50">
+            Confirmation Token
+          </p>
+          <p className="font-mono text-sm text-jbs-charcoal break-all bg-jbs-dark/5 px-4 py-3">
+            {submitResult.submission_token}
+          </p>
+          <p className="text-jbs-gray/60 text-xs">
+            Save this token to reference your submission with JBS Accounts Payable.
+          </p>
+        </div>
+
+        <div className="border border-jbs-dark/10">
+          <div className="px-5 py-3 border-b border-jbs-dark/10 bg-jbs-dark/5">
+            <p className="font-heading text-xs uppercase tracking-widest text-jbs-charcoal">
+              Server-Verified Totals
+            </p>
+          </div>
+          <div className="divide-y divide-jbs-dark/8">
+            <SummaryLine label="Net Change Orders"            value={fmtUSD(submitResult.totals.net_change_orders)} />
+            <SummaryLine label="Contract Sum to Date"         value={fmtUSD(submitResult.totals.contract_sum_to_date)} bold />
+            <SummaryLine label="Total Completed &amp; Stored" value={fmtUSD(submitResult.totals.total_completed_stored)} />
+            <SummaryLine label="Retainage"                    value={fmtUSD(submitResult.totals.retainage_amount)} />
+            <SummaryLine label="Total Earned Less Retainage"  value={fmtUSD(submitResult.totals.earned_less_retainage)} />
+            <SummaryLine label="Current Payment Due"          value={fmtUSD(submitResult.totals.current_payment_due)} bold accent />
+            <SummaryLine label="Balance to Finish"            value={fmtUSD(submitResult.totals.balance_to_finish)} />
+          </div>
+        </div>
+
+        <div className="border border-dashed border-jbs-blue/30 p-6 space-y-3">
+          <p className="font-heading text-xs uppercase tracking-widest text-jbs-blue">
+            Next: Payment — Coming Soon
+          </p>
+          <p className="text-jbs-charcoal/60 text-sm leading-relaxed">
+            Stripe Checkout and PDF generation will be connected in a future release.
+            Your submission has been saved. JBS Accounts Payable review tools will be connected in a future release.
+          </p>
+          <ul className="space-y-1.5 text-sm text-jbs-charcoal/50">
+            <li className="flex items-start gap-2">
+              <span className="text-jbs-blue shrink-0">→</span>
+              Secure $9.99 payment via Stripe Checkout (planned)
+            </li>
+            <li className="flex items-start gap-2">
+              <span className="text-jbs-blue shrink-0">→</span>
+              JBS-branded Application for Payment PDF (planned)
+            </li>
+            <li className="flex items-start gap-2">
+              <span className="text-jbs-blue shrink-0">→</span>
+              Email delivery to <strong>{form.email || 'your email'}</strong> (planned)
+            </li>
+          </ul>
+        </div>
+      </div>
+    );
+  }
 
   /* ─────────────────────────────────────────────────────────────────────── */
   return (
@@ -1020,11 +1174,38 @@ export default function PaymentApplicationForm() {
                 Acknowledgment
               </p>
               <p className="text-jbs-charcoal/70 text-sm leading-relaxed">
-                By proceeding to payment, you confirm that the information entered in this
-                application is accurate and complete to the best of your knowledge. This document is
-                not an official AIA form.
+                By submitting this application, you confirm that the information entered is accurate
+                and complete to the best of your knowledge. This document is not an official AIA form.
               </p>
             </div>
+
+            {!API_URL && (
+              <div className="border border-amber-400/40 bg-amber-50/50 px-5 py-4">
+                <p className="font-heading text-xs uppercase tracking-widest text-amber-700 mb-1">
+                  Prototype Mode — Submission Disabled
+                </p>
+                <p className="text-amber-800/70 text-sm">
+                  <code className="font-mono bg-amber-100 px-1 text-xs">PUBLIC_API_URL</code> is not
+                  configured. Review is fully functional; submission requires backend API setup.
+                </p>
+              </div>
+            )}
+
+            {submitError && (
+              <div className="border border-red-300/60 bg-red-50 px-5 py-4">
+                <p className="font-heading text-xs uppercase tracking-widest text-red-700 mb-1">
+                  Submission Failed
+                </p>
+                <p className="text-red-700/80 text-sm">{submitError}</p>
+                <button
+                  type="button"
+                  onClick={() => setSubmitError(null)}
+                  className="font-heading text-[10px] uppercase tracking-wider text-red-600 hover:text-red-800 mt-2"
+                >
+                  Dismiss
+                </button>
+              </div>
+            )}
           </div>
         )}
 
@@ -1040,29 +1221,30 @@ export default function PaymentApplicationForm() {
               </p>
               <p className="text-jbs-charcoal/70 text-sm leading-relaxed">
                 This step will connect to Stripe Checkout for a one-time <strong>$9.99</strong>{' '}
-                application fee. After payment is confirmed, the system will generate a JBS-branded
-                Application for Payment PDF and deliver copies automatically.
+                application fee. After payment is confirmed, a JBS-branded Application for Payment
+                PDF will be generated and copies delivered. These features are planned for a future
+                release.
               </p>
               <ul className="mt-5 space-y-2 text-sm text-jbs-charcoal/60">
                 <li className="flex items-start gap-2">
                   <span className="text-jbs-blue mt-0.5 shrink-0">→</span>
-                  Secure $9.99 payment via Stripe Checkout
+                  Secure $9.99 payment via Stripe Checkout (planned)
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-jbs-blue mt-0.5 shrink-0">→</span>
-                  JBS-branded Application for Payment PDF generated automatically
+                  JBS-branded Application for Payment PDF (planned)
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-jbs-blue mt-0.5 shrink-0">→</span>
-                  Download link delivered to <strong>{form.email || 'your email'}</strong>
+                  Download link delivered to <strong>{form.email || 'your email'}</strong> (planned)
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-jbs-blue mt-0.5 shrink-0">→</span>
-                  Copy sent to JBS Accounts Payable for their records
+                  Copy delivered to JBS Accounts Payable (planned)
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-jbs-blue mt-0.5 shrink-0">→</span>
-                  Submission stored securely in the JBS database
+                  Submission stored in the JBS database
                 </li>
               </ul>
             </div>
@@ -1130,13 +1312,26 @@ export default function PaymentApplicationForm() {
           <span />
         )}
 
-        {step < 7 ? (
+        {step < 6 ? (
           <button
             type="button"
             onClick={goNext}
             className="font-heading text-xs uppercase tracking-widest text-white bg-jbs-blue hover:bg-jbs-blue/90 transition-colors py-3 px-8"
           >
-            {step === 6 ? 'Proceed to Payment →' : 'Next →'}
+            Next →
+          </button>
+        ) : step === 6 ? (
+          <button
+            type="button"
+            onClick={handleSubmit}
+            disabled={!API_URL || submitting}
+            className={`font-heading text-xs uppercase tracking-widest py-3 px-8 transition-colors ${
+              !API_URL || submitting
+                ? 'bg-jbs-dark/15 text-jbs-gray cursor-not-allowed border border-jbs-dark/10'
+                : 'text-white bg-jbs-blue hover:bg-jbs-blue/90'
+            }`}
+          >
+            {submitting ? 'Submitting…' : API_URL ? 'Submit Application →' : 'Submission Disabled'}
           </button>
         ) : (
           <button
