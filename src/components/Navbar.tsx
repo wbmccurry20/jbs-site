@@ -32,6 +32,7 @@ export default function Navbar() {
     { name: 'Home', href: '/' },
     { name: 'Portfolio', href: '/portfolio' },
     { name: 'About', href: '/about' },
+    { name: 'Careers', href: '/careers' },
     { name: 'Subcontractors', href: '/client-portal' },
   ];
 
@@ -217,7 +218,7 @@ export default function Navbar() {
                 </AnimatePresence>
               </motion.div>
 
-              {[{ name: 'Portfolio', href: '/portfolio' }, { name: 'About', href: '/about' }, { name: 'Subcontractors', href: '/client-portal' }].map((link, i) => (
+              {[{ name: 'Portfolio', href: '/portfolio' }, { name: 'About', href: '/about' }, { name: 'Careers', href: '/careers' }, { name: 'Subcontractors', href: '/client-portal' }].map((link, i) => (
                 <motion.a
                   key={link.name}
                   href={link.href}

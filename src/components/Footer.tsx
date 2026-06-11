@@ -46,6 +46,7 @@ export default function Footer() {
               {[
                 { name: 'Home', href: '/' },
                 { name: 'About Us', href: '/about' },
+                { name: 'Careers', href: '/careers' },
                 { name: 'Divisions', href: '/divisions' },
                 { name: 'Portfolio', href: '/portfolio' },
                 { name: 'Subcontractors', href: '/client-portal' },
