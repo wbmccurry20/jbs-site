@@ -124,6 +124,18 @@ const projects: Project[] = [
     ],
   },
   {
+    title: '7 Brew',
+    category: 'Ground-Up',
+    location: 'Florence, SC',
+    images: [
+      '/images/projects/7 Brew, Florence SC1.jpg',
+      '/images/projects/7 Brew, Florence SC2.jpg',
+      '/images/projects/7 Brew, Florence SC3.jpg',
+      '/images/projects/7 Brew, Florence SC4.jpg',
+      '/images/projects/7 Brew, Florence SC5.jpg',
+    ],
+  },
+  {
     title: 'AutoZone',
     category: 'Ground-Up',
     location: 'Orange City, FL',
