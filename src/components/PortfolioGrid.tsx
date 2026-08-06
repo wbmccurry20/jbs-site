@@ -73,6 +73,17 @@ const projects: Project[] = [
   {
     title: 'Take 5 Oil Change',
     category: 'Ground-Up',
+    location: 'Jacksonville, FL (II)',
+    images: [
+      '/images/projects/Take_5_Jacksonville_FL_Ground_Up1.jpg',
+      '/images/projects/Take_5_Jacksonville_FL_Ground_Up2.jpg',
+      '/images/projects/Take_5_Jacksonville_FL_Ground_Up3.jpg',
+      '/images/projects/Take_5_Jacksonville_FL_Ground_Up4.jpg',
+    ],
+  },
+  {
+    title: 'Take 5 Oil Change',
+    category: 'Ground-Up',
     location: 'Apollo Beach, FL',
     images: [
       '/images/projects/take_5_oil_change_apollo_beach_FL1.jpg',
