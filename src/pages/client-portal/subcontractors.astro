@@ -465,6 +465,8 @@ const formReady = web3FormsKey.length > 0;
           statusEl.classList.add('text-green-700');
           statusEl.textContent = 'Thanks — your questionnaire was submitted. Our team will be in touch.';
           form.reset();
+          submitBtn.disabled = false;
+          submitBtn.textContent = originalText;
         } else {
           statusEl.classList.add('text-red-600');
           statusEl.textContent = data.message || 'Something went wrong. Please try again or email us.';
