@@ -8,10 +8,9 @@ nick-silvers.jpg
 zane-curdes.jpg
 michael-fender.jpg
 christian-childers.jpg
-christopher-james.jpg
+Ean.jpg (Ean Vanstrom — add the photo path to about.astro when available)
 justin-morton.jpg
 jake-thomason.jpg
-bobby-oshea.jpg
 trey-ragan.jpg
 corey-darby.jpg
 jessica-bitner.jpg

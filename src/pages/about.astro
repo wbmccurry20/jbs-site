@@ -181,10 +181,9 @@ const pageDescription = "Learn about JBS Construction — nationwide commercial 
 						{ name: 'Zane Curdes', title: 'Senior Project Manager', photo: '/images/team/Zane.jpg', pos: 'center 30%' },
 						{ name: 'Michael Fender', title: 'Project Manager', photo: '/images/team/Michael.jpg', pos: 'center 25%' },
 						{ name: 'Christian Childers', title: 'Project Manager', photo: '/images/team/Christian.jpg', pos: 'center 0%' },
-						{ name: 'Christopher James', title: 'Project Manager', photo: '/images/team/Chris.jpg', pos: 'center 15%' },
+						{ name: 'Ean Vanstrom', title: 'Project Manager', photo: null, pos: 'center center' },
 						{ name: 'Justin Morton', title: 'Asst. Project Manager', photo: '/images/team/Justin.jpg', pos: 'center 30%' },
 						{ name: 'Jake Thomason', title: 'Asst. Project Manager', photo: '/images/team/Jake.jpg', pos: 'center 54%' },
-						{ name: "Bobby O'Shea", title: 'Asst. Project Manager', photo: '/images/team/Bobby.jpg', pos: 'center 20%' },
 						{ name: 'Trey Ragan', title: 'Asst. Project Manager', photo: '/images/team/Trey.jpg', pos: 'center 15%' },
 						{ name: 'Austin Locklear', title: 'Asst. Project Manager', photo: null, pos: 'center center' },
 						{ name: 'Camille Lawrence', title: 'Asst. Project Manager', photo: null, pos: 'center center' },
@@ -195,7 +194,7 @@ const pageDescription = "Learn about JBS Construction — nationwide commercial 
 									{member.photo ? (
 										<img src={member.photo} alt={member.name} class="w-full h-full object-cover transition-all duration-500" style={`object-position: ${member.pos}`} loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'" />
 									) : null}
-									<div class="absolute inset-0 items-center justify-center bg-jbs-beige" style="display:none">
+									<div class="absolute inset-0 items-center justify-center bg-jbs-beige" style={`display:${member.photo ? 'none' : 'flex'}`}>
 										<span class="font-heading text-2xl text-jbs-charcoal/30 uppercase">{member.name.split(' ').map(n => n[0]).join('')}</span>
 									</div>
 									<div class="absolute inset-0 bg-jbs-blue/0 group-hover:bg-jbs-blue/5 transition-all duration-300"></div>
