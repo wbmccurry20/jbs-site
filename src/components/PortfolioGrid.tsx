@@ -19,8 +19,8 @@ const projects: Project[] = [
     category: 'Brand Refresh',
     location: 'Tucson, AZ',
     images: [
-      '/images/projects/mister_car_wash_Tucson_AZ1.jpg',
       '/images/projects/mister_car_wash_Tucson_AZ2.jpg',
+      '/images/projects/mister_car_wash_Tucson_AZ1.jpg',
       '/images/projects/mister_car_wash_Tucson_AZ3.jpg',
       '/images/projects/mister_car_wash_Tucson_AZ4.jpg',
     ],
