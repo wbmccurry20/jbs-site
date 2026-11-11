@@ -51,21 +51,26 @@ afterImage="/images/after-kitchen-renovation.jpg"
 ```
 
 ### Project Portfolio Images
-**Location:** Portfolio page project cards and ProjectShowcase component
+**Location:** Portfolio page project cards and photo lightbox
 
-**Files to update:**
-- `src/pages/portfolio.astro` (lines ~19, ~30, ~41, ~52, ~63, ~74)
-- `src/components/ProjectShowcase.tsx` (lines ~12, ~23, ~34)
+Add photos to `public/images/projects/`, then add an entry to the `projects` array in `src/components/PortfolioGrid.tsx`.
 
-**Current placeholders:**
+**Example:**
 ```js
-image: 'https://placehold.co/800x600/004E89/ffffff?text=Project+1',
+{
+  title: 'Valvoline',
+  category: 'Ground-Up',
+  location: 'Milan, TN',
+  images: [
+    '/images/projects/Valvoline_milan_TN1.jpg',
+    '/images/projects/Valvoline_milan_TN3.jpg',
+    '/images/projects/Valvoline_milan_TN4.jpg',
+    '/images/projects/Valvoline_milan_TN5.jpg',
+  ],
+},
 ```
 
-**Replace with your images:**
-```js
-image: '/images/projects/modern-mountain-retreat.jpg',
-```
+Use `Ground-Up` for new builds; other categories are `Conversion` and `Brand Refresh`. The first image is the project card cover, and all images appear in the lightbox in array order.
 
 ### Background Pattern (Optional)
 **Location:** Homepage hero section
@@ -121,7 +126,7 @@ public/
 3. **Update image paths** in:
    - `src/pages/index.astro`
    - `src/pages/portfolio.astro`
-   - `src/components/ProjectShowcase.tsx`
+   - `src/components/PortfolioGrid.tsx`
 4. **Test locally** → Run `npm run dev` and check all pages
 5. **Deploy** → Push to Git and redeploy
 

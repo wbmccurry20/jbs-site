@@ -16,12 +16,13 @@ const projects: Project[] = [
   },
   {
     title: 'Mister Car Wash',
-    category: 'Ground-Up',
+    category: 'Brand Refresh',
     location: 'Tucson, AZ',
     images: [
       '/images/projects/mister_car_wash_Tucson_AZ1.jpg',
       '/images/projects/mister_car_wash_Tucson_AZ2.jpg',
       '/images/projects/mister_car_wash_Tucson_AZ3.jpg',
+      '/images/projects/mister_car_wash_Tucson_AZ4.jpg',
     ],
   },
   {
@@ -162,6 +163,40 @@ const projects: Project[] = [
     images: [
       '/images/projects/Vavoline_Glasgow_KY1.jpg',
       '/images/projects/Vavoline_Glasgow_KY2.jpg',
+    ],
+  },
+  {
+    title: 'Valvoline',
+    category: 'Ground-Up',
+    location: 'Milan, TN',
+    images: [
+      '/images/projects/Valvoline_milan_TN1.jpg',
+      '/images/projects/Valvoline_milan_TN3.jpg',
+      '/images/projects/Valvoline_milan_TN4.jpg',
+      '/images/projects/Valvoline_milan_TN5.jpg',
+    ],
+  },
+  {
+    title: 'Mister Car Wash',
+    category: 'Brand Refresh',
+    location: 'Saginaw, MI',
+    images: [
+      '/images/projects/mister_carwash_Saginaw_MI1.jpg',
+      '/images/projects/mister_carwash_Saginaw_MI2.jpg',
+      '/images/projects/mister_carwash_Saginaw_MI3.jpg',
+      '/images/projects/mister_carwash_Saginaw_MI4.jpg',
+    ],
+  },
+  {
+    title: 'Take 5 Oil Change',
+    category: 'Ground-Up',
+    location: 'Manitowoc, WI',
+    images: [
+      '/images/projects/take5_manitowoc_WI_ground_up.jpeg',
+      '/images/projects/take5_manitowoc_WI_ground_up2.jpg',
+      '/images/projects/take5_manitowoc_WI_ground_up3.jpg',
+      '/images/projects/take5_manitowoc_WI_ground_up4.jpg',
+      '/images/projects/take5_manitowoc_WI_ground_up5.jpg',
     ],
   },
 ];
